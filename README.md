@@ -13,11 +13,34 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── public/
 │   ├── robots.txt
 │   └── favicon.ico
+│   └── cjw-caricature.ico
+│   └── logo.svg
+│   └── post/
+│       └── example-post/
+│           └── hero.jpg
+│           └── content-image.jpg
+│           └── gallery-example/
+│               └── gallery-image.png
 ├── src/
 │   ├── components/
-│   │   └── Tour.astro
+│   │   └── Header.astro
+│   │   └── SVGs/
+│   │       └── Facebook.astro
+│   └── galleries/
+│       └── ExampleGallery.astro
+│   └── layouts/
+│   │   └── BaseLayout.astro
 │   └── pages/
-│       └── index.astro
+│   │   └── index.astro
+│   │   └── category/
+│   │       └── [category].astro
+│   │   └── post/
+│   │       └── example..md
+│   └── styles/
+│   │   └── global.css
+│   │   └── home.css
+│   └── utilities/
+│   │   └── index.js
 └── package.json
 ```
 
@@ -33,10 +56,10 @@ All commands are run from the root of the project, from a terminal:
 
 | Command           | Action                                       |
 |:----------------  |:-------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3000`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+| `yarn install`    | Installs dependencies                        |
+| `yarn start`      | Starts local dev server at `localhost:3000`  |
+| `yarn build`      | Build your production site to `./dist/`      |
+| `yarn preview`    | Preview your build locally, before deploying |
 
 ## 👀 Want to learn more?
 
