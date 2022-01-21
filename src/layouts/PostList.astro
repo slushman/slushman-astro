@@ -1,0 +1,20 @@
+---
+import Bio from 'component:Bio';
+import PostExcerpt from 'component:PostExcerpt';
+import { checkIsHome } from 'utils';
+
+const { limit = null } = Astro.props;
+const { url } = Astro.request;
+
+const allPosts = Astro.fetchContent('../pages/post/**/*.md');
+const sortedPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+const finalPosts = limit ? sortedPosts.slice(0, limit) : sortedPosts;
+
+const isHome = checkIsHome(url);
+---
+{ isHome && <Bio isHeader={ true } /> }
+<div class="post-list">
+{finalPosts.map((post) => (
+  <PostExcerpt {...post} />
+))}
+</div>

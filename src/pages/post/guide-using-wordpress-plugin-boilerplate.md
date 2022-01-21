@@ -1,0 +1,32 @@
+---
+layout: layout:Post
+date: "2017-05-21"
+title: "A Guide to Using the WordPress Plugin Boilerplate"
+category: ["WordPress Plugin Boilerplate"]
+heroAccount: 'memoryonsounds'
+heroPhotographer: 'Kai Oberhäuser'
+description: "The last tool you'll need to build amazing WordPress plugins."
+slug: guide-using-wordpress-plugin-boilerplate
+---
+
+For several years now, I've been building plugins using the [WordPress Plugin Boilerplate](https://wppb.io/) project. In 2015, I gave a [WordCamp talk](/presentations/using-wp-plugin-boilerplate) about how to use it. Over the past few years, I've answered questions about how to build plugins with the boilerplate. Since there is no official documentation, I hope these posts serve as some unofficial documentation. I covered most of this introductory material in my WordCamp talk. However, I'm planning more detailed posts, additional code examples, and topics I didn't cover in the presentation. I'll also offer some shortcuts and potential improvements, in case you want to fork the boilerplate.
+
+When I first began writing plugins, I did what most beginning developers do - copy and paste code samples from the Codex and/or another developer's blog. Each plugin eventually worked, but I still cringe when I look at that code. Many of those first plugins were giant, one-file plugins. Over time, I learned better methods for writing code and eventually discovered the WordPress Plugin Boilerplate. Since then, I've used either the boilerplate or my own fork for even the simplest plugins.
+
+## What Is The WordPress Plugin Boilerplate?
+
+A good starting place is understanding what the boilerplate is and the history behind it. The boilerplate is a standardized, organized, object-oriented foundation for building high-quality WordPress plugins. There are some simple examples of how the parts work together as examples for building your plugin. In addition, the boilerplate includes easily overlooked plugin features like inline documentation and translation files.
+
+[Tom McFarlin](https://tommcfarlin.com/), a well-respected developer from Atlanta, GA, developed the boilerplate. He wanted to prevent needlessly writing the same code each time he began a new plugin. The boilerplate is currently on version 3, which included a major restructuring. In March of 2015, the boilerplate project passed to [Devin Vinson](http://devinvinson.com/) of Tampa Bay, FL.
+
+## How Do We Use The Boilerplate?
+
+Since there is so much information to cover, we'll cover each subject in a separate post. This introductory post will serve as a table of contents for the series. Throughout this series, we'll build an example plugin titled "WP Starter Plugin". It will include typical plugin parts like settings pages, widgets, metaboxes, etc. This gives you a major head start when creating plugins in the future.
+
+## Posts In This Series
+
+* [Why Use the Boilerplate?](/post/why-use-the-boilerplate/)
+* [The Structure of the WordPress Plugin Boilerplate](/post/the-structure-of-the-wordpress-plugin-boilerplate/)
+* [Understanding the Loader Class](/post/understanding-loader-class/)
+* [Using the Plugin Generator](/post/using-plugin-generator/)
+* [Editing the README](/post/editing-the-readme/)

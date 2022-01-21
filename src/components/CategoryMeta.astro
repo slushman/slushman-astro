@@ -1,0 +1,16 @@
+---
+import Debug from 'astro/debug';
+import { categorySlugs } from 'utils';
+
+const { categories } = Astro.props;
+const fullCats = categorySlugs(categories);
+---
+<!-- <Debug {fullCats} /> -->
+<ul class="flex list-reset">
+  {fullCats.map(
+    ({ category, slug }, index) => (
+      <li key={index}>
+        <a href={`/category/${slug}`}>{category}</a>{index === (fullCats.length - 1) ? '' : ', '}
+      </li>
+    ))}
+</ul>

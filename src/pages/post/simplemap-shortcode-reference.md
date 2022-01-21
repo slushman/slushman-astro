@@ -1,0 +1,168 @@
+---
+layout: layout:Post
+title: "SimpleMap Shortcode Reference"
+date: "2015-01-08"
+category: ["Code Samples"]
+heroAccount: 'dead____artist'
+heroPhotographer: 'Capturing the human heart.'
+description: "Here's the unofficial SimpleMap shortcode reference."
+slug: simplemap-shortcode-reference
+---
+
+I've been using a plugin called SimpleMap for clients recently. SimpleMap creates a custom post type for managing locations (think store locations) and displays a Google Map with those locations. It also uses Google Map's radius search to help people find locations near them. Everything on the front-end is managed using a [shortcode](https://codex.wordpress.org/Shortcode). Practically every setting in SimpleMap can be overridden in the shortcode, which is really cool for us developers. Plus, they have tons of filters throughout, so any text or label can be customized for your usage. While the "Help" tab in the plugin settings shows you some of the options available with the shortcode, there are tons more and the documentation is practically non-existent. I'm putting this out there, at least for my own reference and I'll keep adding to it as I learn more and/or have time to expand it.
+
+The code below explains how to use the shortcode and the more common attributes to use with it.
+
+```astro
+/**
+ * Basic shortcode
+ */
+[simplemap]
+ 
+/**
+ * Hide the search result list
+ * 
+ * @param	bool	true: hide the list
+ *			false: show the list, this is the default
+ */
+[simplemap hide_list=true]
+ 
+/**
+ * Hide the map
+ * 
+ * @param	bool	true: hide the map
+ *			false: show the map, this is the default
+ */
+[simplemap hide_map=true]
+ 
+/**
+ * Hide the search form
+ * 
+ * @param	bool	true: hide the search form
+ *			false: show the search form, this is the default
+ */
+[simplemap hide_search=true]
+ 
+/**
+ * Limits the search results list to locations from the specified category or categories.
+ * 
+ * @param	int	A comma-separated list of category IDs. 
+ *			Do not put spaces between the IDs, just a comma
+ */
+[simplemap sm_category=8] 	// one category
+[simplemap sm_category=8,9,10] 	// mutiple categories
+ 
+/**
+ * Displays a checkbox for each category as part of the search form. 
+ * Allows the site visitor to filter the search results by category.
+ * 
+ * @param	bool	true: show the category filters
+ *			false: hide the category filters, this is the default
+ */
+[simplemap show_sm_category_filter=true]
+
+/**
+ * Specify which fields are included in the search form
+ *
+ * The search form is built in a table.
+ * 
+ * Put "||" between each field. 
+ *
+ * Here are the options for requesting a field:
+ * "labelbr_": puts the label with a break return tag afterwards
+ * "labelsp_": puts the label with a space afterwards
+ * "labeltd_": puts the label and field in separate table cells.
+ * "" (blank): puts no label, just the field itself.
+ *
+ * The fields that you can include are:
+ *  street
+ *  city
+ *  state
+ *  zip
+ *  country
+ *  distance: the select menu for the search radius
+ *  empty: puts an empty table cell (useful for formatting the search form properly)
+ *  submit: the submit button. If you don't include this, a hidden button will be added for you.searc
+ *  taxonomy: include the filters for a specific taxonomy. There are four defaults:
+ *    "sm-category"
+ *    "sm-tags"
+ *    "sm-day"
+ *    "sm-time"
+ */
+[simplemap search_fields=labelbr_street||labelbr_city||labelbr_state||labelbr_zip||labelbr_country||labelbr_distance]
+
+/**
+ * Changes the name of the search form.
+ * Default is "Find Locations Near:"
+ */
+[simplemap search_title="Search this"]
+
+/**
+ * Changes the number of default table cells.
+ *
+ * Default value is 3.
+ *
+ * NOTE: This one doesn't seem to work for me.
+ */
+[simplemap search_form_cols=4]
+
+/**
+ * Changes the field format for the taxonomies.
+ *
+ * Accepts "checkboxes" or "select". Default is "checkboxes".
+ */
+[simplemap taxonomy_field_type="select"]
+
+/**
+ * Sets the default latitude. Default is "44.968684".
+ * Ideally, use with default_lng.
+ */
+[simplemap default_lat="39.840315"]
+
+/**
+ * Sets the default longitude. Default is "-93.215561".
+ * Ideally, use with default_lat.
+ */
+[simplemap default_lng="-88.954800"]
+
+/**
+ * Sets the map width. Default is 100%.
+ */
+[simplemap map_width="60%"]
+
+/**
+ * Sets the map height. Default is 350px.
+ */
+[simplemap map_height="300px"]
+
+/**
+ * Sets the measurement units. 
+ * Accepts "km" for kilometers or "mi" for miles. Default is "mi".
+ */
+[simplemap units="mi"]
+
+/**
+ * Sets the radius for the search. Default is 10.
+ * Use an integer and no unit.
+ */
+[simplemap radius=12]
+
+/**
+ * Limits the quantity of how results are returned. 
+ * Use an integer. Default is 20.
+ */
+[simplemap limit=12]
+
+/**
+ * Quantity of results to autoload.
+ * Use an integer. Default is "all".
+ */
+[simplemap autoload=12]
+
+/**
+ * Like most shortcodes, to add multiple attributes, put a space between them
+ */
+[simplemap hide_list=true hide_map=true hide_search=true sm_category=8,9,10]
+```
+
+[Gist of the code above](https://gist.github.com/ff5a7066490335e59929)

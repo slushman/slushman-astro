@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "component:*": ["src/components/*.astro"],
+      "layout:*": ["src/layouts/*.astro"],
+      "svg:*": ["src/components/SVGs/*.astro"],
+      "utils": ["src/utilities/index.js"],
+      "gallery:*": ["src/galleries/*.astro"],
+    },
+    "moduleResolution": "node"
+  }
+}

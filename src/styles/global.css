@@ -1,0 +1,82 @@
+@tailwind base;
+
+@layer base {
+	a {
+		@apply text-brightblue underline;
+	}
+
+	pre {
+		@apply relative z-[1] p-4 bg-darkblue text-lightblue dark:bg-lightblue dark:text-darkblue;
+	}
+	
+	pre code {
+		@apply block font-mono overflow-scroll pb-4 px-0 text-base;
+	}
+
+	h1 {
+    @apply font-merri text-2xl font-bold md:text-3xl;
+  }
+
+  h2 {
+    @apply font-merri text-xl font-bold md:text-2xl;
+  }
+
+  h3 {
+    @apply font-merri text-lg font-bold md:text-xl;
+  }
+
+  h4 {
+    @apply font-merri text-base font-bold;
+  }
+
+	p {
+		@apply mb-6 mx-0;
+	}
+
+	.post > *:not(code) {
+    @apply content-width;
+  }
+
+	.post > pre {
+		@apply flex mt-0 my-auto mb-6 py-4 px-0 justify-center;
+	}
+}
+
+@tailwind components;
+
+@layer components {
+	.content-width {
+		--pad: 1em;
+    padding-left: var( --pad );
+    padding-right: var( --pad );
+    margin: 0px 0px 1.5em;
+	}
+
+	@media screen and (min-width: 845px) {
+		.content-width {
+			--pad: calc(100vw/2 - 50rem/2);
+		}
+	}
+
+	.post-list {
+		@apply grid sm:gap-2 sm:p-2 grid-cols-[repeat(auto-fit,_minmax(40ch,_1fr))];
+	}
+
+	.blue-section {
+		@apply content-width bg-lightblue dark:bg-medblue py-4;
+	}
+
+	.blue-section a {
+		@apply text-darkblue dark:text-white;
+  }
+
+	.list-reset {
+		@apply list-none m-0 p-0;
+	}
+}
+
+@tailwind utilities;
+
+:root {
+	font-size: 16px;
+}

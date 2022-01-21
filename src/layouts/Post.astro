@@ -1,0 +1,51 @@
+---
+import Debug from 'astro/debug';
+
+import PostHero from 'component:PostHero';
+import CategoryMeta from 'component:CategoryMeta';
+import Shurls from 'component:Shurls';
+import BaseLayout from 'layout:BaseLayout';
+
+const { url } = Astro.request;
+const props = Astro.props;
+const { content }  = Astro.props;
+const {
+  category: categories,
+  date,
+  description,
+  featuredImage,
+  heroAccount,
+  heroPhotographer,
+  slug,
+  title,
+} = content;
+---
+<!-- <Debug {props} /> -->
+<BaseLayout {description} {title} permalink={url} >
+  <PostHero account={heroAccount} imageUrl={featuredImage} photographer={heroPhotographer} slug={slug} title={title} />
+  <section class="blue-section flex justify-between">
+    <p class="block m-0">
+      Published {date}
+    </p>
+    <CategoryMeta categories={categories ?? []} />
+  </section>
+  <article class="post">
+    <slot />
+  </article>
+  <Shurls description={description} title={title} url={url} />
+  <!-- <section class="content-width py-6">
+    <h2>Read more posts!</h2>
+    <ul class="flex justify-between flex-nowrap list-reset">
+      <li class="flex-half">
+        { previous && (
+          <a rel="prev" href={previous.fields.slug}>← {previous.frontmatter.title}</a>
+        ) }
+      </li>
+      <li class="flex-half text-right">
+        { next && (
+          <a rel="next" href={next.fields.slug}>{next.frontmatter.title} →</a>
+        ) }
+      </li>
+    </ul>
+  </section> -->
+</BaseLayout>

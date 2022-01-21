@@ -1,0 +1,12 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import PostList from 'layout:PostList';
+
+const { url } = Astro.request;
+
+const title = 'My Astro Site';
+const description = 'Senior software engineer at Pushpay in Colorado Springs, CO specializing in React, React Native, and PHP.';
+---
+<BaseLayout title="Slushman" {description} {title} permalink={url}>
+	<PostList />
+</BaseLayout>

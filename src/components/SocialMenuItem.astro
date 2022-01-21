@@ -1,0 +1,9 @@
+---
+const { Icon, label, url } = Astro.props;
+---
+<li class="m-2 text-center">
+  <a class="flex items-center justify-center decoration-transparent w-full p-2 flex-col" href={url}>
+    <Icon />
+    <p class="m-0">{label}</p>
+  </a>
+</li>

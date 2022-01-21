@@ -1,0 +1,10 @@
+---
+import Debug from 'astro/debug';
+
+const { gallery, images, slug } = Astro.props;
+---
+<figure class=""> <!-- figureStyles -->
+  {images.map(({ caption, url }) => (
+    <img alt={caption} class="" src={`/post/${slug}/gallery-${gallery}/${url}`} />
+  ))}
+</figure>
