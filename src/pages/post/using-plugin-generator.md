@@ -5,7 +5,7 @@ title: "Using the Plugin Generator"
 category: ["WordPress Plugin Boilerplate"]
 heroAccount: 'yory'
 heroPhotographer: 'Ryo Yoshitake'
-description: "Learn how to start your next plugin simpler and faster."
+description: "Learn how to start your next plugin simpler and faster using the WordPress Plugin Generator, including all the options and what they mean."
 slug: using-plugin-generator
 relatedPosts:
 - guide-using-wordpress-plugin-boilerplate

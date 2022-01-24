@@ -5,7 +5,7 @@ date: "2016-10-23"
 category: ["Parker"]
 heroAccount: 'harryjamesgrout'
 heroPhotographer: 'Harry Grout'
-description: "Using Parker can make you a better WordPress theme developer."
+description: "Using Parker can make you a better WordPress theme developer. Check out the posts in this series to find out how."
 slug: parker-and-wordpress-theme-development
 relatedPosts:
 - installing-parker

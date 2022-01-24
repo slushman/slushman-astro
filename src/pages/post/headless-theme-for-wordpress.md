@@ -5,9 +5,10 @@ title: "Headless Theme for WordPress"
 category: ["Headless WordPress"]
 heroAccount: 'lisanguyen'
 heroPhotographer: 'Lisa Nguyen'
-description: "How to create a theme for a headless WordPress install. Yeah, you still need a theme..."
+description: "How to create a theme for a headless WordPress install. Even when the front-end of your site isn't displayed by WordPress, you still need a theme."
 slug: headless-theme-for-wordpress
 relatedPosts:
+- deploying-a-react-app-to-netlify
 - editor-links-for-headless-wordpress-themes
 - headless-wordpress-create-react-app
 ---

@@ -5,7 +5,7 @@ title: "How to Pass Variables with get_template_part"
 category: ["Code Samples"]
 heroAccount: 'adigold1'
 heroPhotographer: 'Adi Goldstein'
-description: "This is how you pass variables with get_template_part in WordPress."
+description: "Have you ever needed to pass a variable to a template part in WordPress? Since the proper was difficult to find, here's the right way."
 slug: how-to-pass-variables-with-get_template_part
 ---
 

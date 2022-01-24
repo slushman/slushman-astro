@@ -5,7 +5,7 @@ date: "2013-04-21"
 category: ["Presentations"]
 heroAccount: 'bill_oxford'
 heroPhotographer: 'Bill Oxford'
-description: "Watch my presentation from WordCamp Nashville 2013 - Building Your First Widget."
+description: "Watch the video of my presentation about building your first widget from WordCamp Nashville 2013. You can also follow along with the code samples."
 slug: building-your-first-widget
 relatedPosts:
 - wordcamp-nashville-2013

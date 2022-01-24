@@ -5,7 +5,7 @@ title: "Understanding the Loader Class"
 category: ["WordPress Plugin Boilerplate"]
 heroAccount: 'markusspiske'
 heroPhotographer: 'Markus Spiske'
-description: "Understand the central file for the WordPress Plugin Boilerplate and how it works."
+description: "Understand the central file for the WordPress Plugin Boilerplate, how it works, how to register hooks and filters, and additional parameters available."
 slug: understanding-loader-class
 relatedPosts:
 - guide-using-wordpress-plugin-boilerplate

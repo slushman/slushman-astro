@@ -5,7 +5,7 @@ date: "2011-07-25"
 category: ["Code Samples"]
 heroAccount: 'd_dandelion'
 heroPhotographer: 'david pl'
-description: "See the function missing from WordPress."
+description: "Getting a particular user by their metadata is not possibile with built-in WordPress functions, but this function does the job."
 slug: find-user-id-user-metadata
 ---
 

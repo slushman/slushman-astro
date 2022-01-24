@@ -5,7 +5,7 @@ date: "2015-04-16"
 category: ["Code Samples"]
 heroAccount: 'korpa'
 heroPhotographer: 'JR Korpa'
-description: "Discover the secret to avoiding get_theme_mod errors."
+description: "If you're getting an error related to the get_theme_mod function, the solution is simpler than you think. Check out this solution."
 slug: avoiding-get_theme_mod-errors
 ---
 

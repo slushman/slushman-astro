@@ -6,7 +6,7 @@ category: ["Design"]
 gallery: ["library","existing-ideas"]
 heroAccount: 'markusspiske'
 heroPhotographer: 'Markus Spiske'
-description: "Twenty ways to style code sample blocks on web pages."
+description: "While redesigning my site, I wanted to customize the way code samples are displayed. Let's look at the options I explored."
 slug: code-and-pre-styling
 setup: |
     import Codepen from 'component:Codepen';

@@ -5,7 +5,7 @@ title: "Creating a Baseline for Parker"
 category: ["Parker"]
 heroAccount: 'elisamichelet'
 heroPhotographer: 'Elisa Michelet'
-description: "Create a baseline for your website using Parker."
+description: "In order to optimize the Underscores stylesheet using the CSS tool Parker, we need to start by creating a baseline, so we can compare the changes."
 slug: creating-a-baseline-for-parker
 relatedPosts:
 - parker-and-wordpress-theme-development

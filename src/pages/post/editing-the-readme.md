@@ -5,7 +5,7 @@ title: "Editing the README"
 category: ["WordPress Plugin Boilerplate"]
 heroAccount: 'jaysung'
 heroPhotographer: 'Jehyun Sung'
-description: "Explore the eight parts of a plugin README file."
+description: "The WordPress Plugin Boilerplate include a typically README file needed for any plugin. Explore the eight parts and what to do with them."
 slug: editing-the-readme
 relatedPosts:
 - guide-using-wordpress-plugin-boilerplate

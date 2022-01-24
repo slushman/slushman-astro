@@ -5,7 +5,7 @@ date: "2016-10-24"
 category: ["Parker"]
 heroAccount: 'teckhonc'
 heroPhotographer: 'T.H. Chia'
-description: "The six step process for installing Parker."
+description: "If you want to use the CSS analysis tool, Parker, you first have to install it and set it up. Here's the six step process."
 slug: installing-parker
 relatedPosts:
 - parker-and-wordpress-theme-development

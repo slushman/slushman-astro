@@ -5,7 +5,7 @@ date: "2013-04-18"
 category: ["Presentations"]
 heroAccount: 'bjean05'
 heroPhotographer: 'Brandon Jean'
-description: "I'm speaking at WordCamp Nashville 2013 on building your first widget!"
+description: "I'm speaking at my first WordCamp! I'll be speaking on 'building your first widget' at Wordcamp Nashville 2013, join me there!"
 slug: wordcamp-nashville-2013
 relatedPosts:
 - building-your-first-widget

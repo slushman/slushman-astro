@@ -5,7 +5,7 @@ title: "Why Use the Boilerplate?"
 category: ["WordPress Plugin Boilerplate"]
 heroAccount: 'emilymorter'
 heroPhotographer: 'Emily Morter'
-description: "Seven reasons you should use the WordPress Plugin Boilerplate to make WordPress plugins in this second post in the series on the WordPress Plugin Boilerplate."
+description: "Here are seven reasons why you should use the WordPress Plugin Boilerplate to make WordPress plugins in the second post in the series."
 slug: why-use-the-boilerplate
 relatedPosts:
 - guide-using-wordpress-plugin-boilerplate

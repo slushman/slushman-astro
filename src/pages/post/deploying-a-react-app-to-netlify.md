@@ -5,8 +5,12 @@ title: "Deploying a React App to Netlify"
 category: ["React"]
 heroAccount: 'badashphotos'
 heroPhotographer: 'Ash Edmonds'
-description: "You won't believe this process for deploying a site to Netlify!"
+description: "After you've built your headless WordPress front-end, you'll want to publish it. This is process for how I published mine to Netlify."
 slug: deploying-a-react-app-to-netlify
+relatedPosts:
+- editor-links-for-headless-wordpress-themes
+- headless-theme-for-wordpress
+- headless-wordpress-create-react-app
 ---
 
 As part of the creating a headless React-based frontend for my WordPress site, I decided to try hosting my files on Netlify. They tout being super fast when serving a non-database site; a natural fit for a React project. Wes Bos's [React for Beginners course](https://reactforbeginners.com) shows how to deploy to Netlify using the netlify-cli npm package. However, since completing that course, I updated to Node 10, which is not compatible with netlify-cli and Netlify recently deprecated it. In this post, I'll detail how to deploy a site from the command line using their new command line tool: netlifyctl.

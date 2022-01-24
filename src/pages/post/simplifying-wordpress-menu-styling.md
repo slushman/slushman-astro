@@ -5,7 +5,7 @@ title: "Simplifying WordPress Menu Styling"
 category: ["Parker"]
 heroAccount: 'mikphotopro'
 heroPhotographer: 'Dmitriy Adamenko'
-description: "This is how you simplify the WordPress menu styling."
+description: "Using results from the CSS Tool Parker, you can simplify the WordPress menu styling with a combination of custom classes and a menu walker."
 slug: simplifying-wordpress-menu-styling
 relatedPosts:
 - parker-and-wordpress-theme-development

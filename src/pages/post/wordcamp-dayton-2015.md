@@ -5,7 +5,7 @@ date: "2015-03-04"
 category: ["Presentations"]
 heroAccount: 'morgasetrakand'
 heroPhotographer: 'Alex Grodkiewicz'
-description: "I'm speaking at WordCamp Dayton 2015 on the WordPress Plugin Boilerplate!"
+description: "I'm doing another WordCamp presentation! This time, I'll be speaking about the WordPress Plugin Boilerplate at WordCamp Dayton 2015. Join me there!"
 slug: wordcamp-dayton-2015
 relatedPosts:
 - wordcamp-nashville-2013

@@ -5,7 +5,7 @@ date: "2015-11-03"
 category: ["Code Samples"]
 heroAccount: 'snehachekuri93'
 heroPhotographer: 'Sneha Chekuri'
-description: "See how easy it is to customize the labels for featured images in WordPress."
+description: "Did you know you can customize the terminology around featured images in WordPress? Check out how to use filters to change the terms."
 slug: how-to-change-the-featured-image-labels
 ---
 

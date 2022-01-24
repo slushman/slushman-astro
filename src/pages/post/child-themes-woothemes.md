@@ -5,7 +5,7 @@ date: "2014-09-08"
 category: ["Development"]
 heroAccount: 'sixstreetunder'
 heroPhotographer: 'Craig Whitehead'
-description: "This is the hidden secret to styling child themes for WooThemes."
+description: "Instead of altering an existing theme, the best practice is to create a child theme. This is the hidden secret to styling child themes for WooThemes."
 slug: child-themes-woothemes
 ---
 

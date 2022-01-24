@@ -5,7 +5,7 @@ date: "2017-05-29"
 category: ["WordPress Plugin Boilerplate"]
 heroAccount: 'alain_pham'
 heroPhotographer: 'Alain Pham'
-description: "This is structure of the WordPress Plugin Boilerplate."
+description: "Understanding the structure of the boilerplate makes building your plugin much easier. Learn how the boilerplate structures your plugin."
 slug: the-structure-of-the-wordpress-plugin-boilerplate
 relatedPosts:
 - guide-using-wordpress-plugin-boilerplate

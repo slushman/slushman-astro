@@ -5,7 +5,7 @@ date: "2016-07-18"
 category: ["Code Samples"]
 heroAccount: 'bearock'
 heroPhotographer: 'Yan Xiong'
-description: "Get a list of Formidable forms and use them in a Customizer select control."
+description: "Formidable is a great WordPress forms plugin, but it doesn't include a Customizer control for listing your forms. Here's I made one."
 slug: add-select-menu-formidable-forms-customizer
 relatedPosts:
 - how-to-link-to-the-customizer

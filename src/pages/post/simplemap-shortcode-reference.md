@@ -5,7 +5,7 @@ date: "2015-01-08"
 category: ["Code Samples"]
 heroAccount: 'dead____artist'
 heroPhotographer: 'Capturing the human heart.'
-description: "Here's the unofficial SimpleMap shortcode reference."
+description: "The WordPress plugin SimpleMap doesn't have great documentation. This post stands as the unofficial shortcode documentation."
 slug: simplemap-shortcode-reference
 ---
 

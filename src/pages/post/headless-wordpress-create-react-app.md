@@ -5,9 +5,10 @@ title: "Headless WordPress and Create React App"
 category: ["Headless WordPress"]
 heroAccount: 'johnmarkarnold'
 heroPhotographer: 'John Mark Arnold'
-description: "How to use Create React App with WordPress."
+description: "Learn how to use your existing WordPress site with Create React App using the WordPress REST API to build a front-end for your website with React."
 slug: headless-wordpress-create-react-app
 relatedPosts:
+- deploying-a-react-app-to-netlify
 - editor-links-for-headless-wordpress-themes
 - headless-theme-for-wordpress
 ---

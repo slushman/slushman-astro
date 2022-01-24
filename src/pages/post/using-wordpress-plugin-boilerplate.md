@@ -5,7 +5,7 @@ date: "2015-03-21"
 category: ["WordPress Plugin Boilerplate"]
 heroAccount: 'mikael_k'
 heroPhotographer: 'Mikael Kristenson'
-description: "See my presentation about using the WordPress Plugin Boilerplate at WordCamp Dayton 2015."
+description: "Watch the video of my presentation about using the WordPress Plugin Boilerplate, get the slides, and follow along with the code samples."
 slug: using-wordpress-plugin-boilerplate
 relatedPosts:
 - wordcamp-nashville-2013

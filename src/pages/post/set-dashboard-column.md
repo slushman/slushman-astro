@@ -5,7 +5,7 @@ date: "2011-08-11"
 category: ["Code Samples"]
 heroAccount: 'alexread'
 heroPhotographer: 'Alex Read'
-description: "Check out how to change the Dashboard columns to what you want."
+description: "I needed to customize the layout of the WordPress Dashboard for every user. Thankfully, there hooks and filters that make it easy."
 slug: set-dashboard-column
 ---
 

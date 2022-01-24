@@ -5,7 +5,7 @@ title: "Parker and WordPress Menus"
 category: ["Parker"]
 heroAccount: 'bookcrafters'
 heroPhotographer: 'Joe McDaniel'
-description: "Fixing your mens styling based on Parker results is tricky, but this article shows you how."
+description: "Using the CSS tool Parker can help you fix your theme's menu styling. Learn the filters you'll need to make your WordPress menu styling simpler."
 slug: parker-wordpress-menus
 relatedPosts:
 - parker-and-wordpress-theme-development

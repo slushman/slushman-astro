@@ -5,9 +5,10 @@ title: "Editor Links for Headless WordPress Themes"
 category: ["Headless WordPress"]
 heroAccount: 'joshstyle'
 heroPhotographer: 'JOSHUA COLEMAN'
-description: "You won't believe the solution for customing links in the WordPress editor."
+description: "While creating a headless front-end for my WordPress site, the links in the editor needed to customized to work correctly. Here's how I solved it."
 slug: editor-links-for-headless-wordpress-themes
 relatedPosts:
+- deploying-a-react-app-to-netlify
 - headless-theme-for-wordpress
 - headless-wordpress-create-react-app
 ---

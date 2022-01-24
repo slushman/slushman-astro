@@ -5,7 +5,7 @@ title: "Improving Underscores Stylesheet Using Parker"
 category: ["Parker"]
 heroAccount: 'element5digital'
 heroPhotographer: 'Element5 Digital'
-description: "Four ways to improve your Parker score for a WordPress theme made with Underscores."
+description: "Underscores is a great starting point for building your custom WordPress theme. Here are four ways to improve the stylsheet using the CSS tool Parker."
 slug: improving-underscores-stylesheet-using-parker
 relatedPosts:
 - parker-and-wordpress-theme-development

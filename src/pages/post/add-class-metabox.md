@@ -5,7 +5,7 @@ date: "2012-09-08"
 category: ["Code Samples"]
 heroAccount: 'noodle-kimm'
 heroPhotographer: 'noodle kimm'
-description: "Sometimes additional CSS clases are needed on metaboxes. Let's explore how to add those classes to metaboxes."
+description: "Toggling the visibility of a metabox using a form requires the metabox to have a custom class. This is how to add custom classes to a metabox."
 slug: add-class-metabox
 ---
 While developing a new plugin, I needed to toggle the visibility of some metaboxes. The visibility of each metabox depends on the selected radio button in another metabox. In order to toggle the correct metabox, each metabox needs a distinct class. Check the code samples below for how to add a class to a metabox.

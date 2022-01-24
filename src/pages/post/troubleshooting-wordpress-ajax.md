@@ -5,7 +5,7 @@ title: "Troubleshooting WordPress AJAX"
 category: ["Development"]
 heroAccount: 'alx_andru'
 heroPhotographer: 'Alex'
-description: "Two ways (and a tip) to conquer AJAX issues in WordPress."
+description: "Troubleshooting AJAX issues in WordPress is tricky. Use these two ways (and a tip) to debug AJAX issues while building your plugin or theme."
 slug: troubleshooting-wordpress-ajax
 ---
 

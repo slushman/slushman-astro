@@ -5,7 +5,7 @@ date: "2014-11-10"
 category: ["Code Samples"]
 heroAccount: 'bady'
 heroPhotographer: 'bady qb'
-description: "Keep your sanity. Use SVGs like this."
+description: "Using SVGs in WordPress is awesome, but junking up your code is not. Keep your sanity. Use SVGs in your code like this."
 slug: inline-svg-sane-way
 ---
 

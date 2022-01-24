@@ -5,7 +5,7 @@ date: "2012-02-23"
 category: ["Code Samples"]
 heroAccount: 'rawpixel'
 heroPhotographer: 'rawpixel'
-description: "See the best way to add a jQuery DatePicker to a WordPress plugin."
+description: "Using a datepicker when choosing dates is a much nicer user experience. See the best way to add a jQuery DatePicker to a WordPress plugin."
 slug: add-jquery-ui-datepicker-plugin
 ---
 

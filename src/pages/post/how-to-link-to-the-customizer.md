@@ -5,7 +5,7 @@ date: "2016-06-02"
 category: ["Code Samples"]
 heroAccount: 'scottwebb'
 heroPhotographer: 'Scott Webb'
-description: "You won't believe the simple solution for linking to the Customzer in WordPress."
+description: "You won't believe the simple solution for linking to the Customizer in WordPress. You can also link to panels, section, and controls too!"
 slug: how-to-link-to-the-customizer
 relatedPosts:
 - add-select-menu-formidable-forms-customizer

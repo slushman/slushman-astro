@@ -5,7 +5,7 @@ date: "2013-01-17"
 category: ["Code Samples"]
 heroAccount: 'coolmilo'
 heroPhotographer: 'camilo jimenez'
-description: "Adding another class to a submit button can make certain designs easier to manage."
+description: "Adding a custom class to a submit button can make certain designs easier to manage. Check out this super-simple solution."
 slug: adding-custom-class-submit-button
 ---
 While you can hand-code the HTML for a submit button in a form, WordPress has a nice function, [submit_button()](https://codex.wordpress.org/Function_Reference/submit_button), that echoes the correct code for you.

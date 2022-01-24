@@ -5,7 +5,7 @@ date: "2010-10-28"
 category: ["IT"]
 heroAccount: 'ugmonk'
 heroPhotographer: 'Jeff Sheldon'
-description: "You won't believe how to change the new mail sound in Office 2011 for Mac."
+description: "I really wanted to change the default 'new mail' sound in Outlook 2011 to a clip from Monty Python. This is how I made it work."
 slug: change-mail-sound-office-2011-mac
 ---
 

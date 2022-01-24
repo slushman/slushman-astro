@@ -5,7 +5,7 @@ title: "PHPUnit tests and WP-CLI"
 category: ["Development"]
 heroAccount: 'chuttersnap'
 heroPhotographer: 'chuttersnap'
-description: "Do you know how to add PHPUnit tests to your plugin? This article will tell you how."
+description: "Do you know 100% if that 'simple' code change in your plugin broke something? Setup PHPUnit to add tests and get more confidence in your code changes."
 slug: phpunit-tests-wp-cli
 ---
 

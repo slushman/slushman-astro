@@ -5,7 +5,7 @@ date: "2013-04-16"
 category: ["Security"]
 heroAccount: 'cristina_gottardi'
 heroPhotographer: 'Cristina Gottardi'
-description: "Here are the six steps to secure your WordPress site."
+description: "How is breakdancing related to securing your WordPress site? Find out inside, then read these six steps to secure your WordPress site."
 slug: six-steps-secure-your-wordpress-site
 ---
 

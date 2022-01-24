@@ -5,7 +5,7 @@ title: "Results for the Underscores Stylesheet"
 category: ["Parker"]
 heroAccount: 'dylan_nolte'
 heroPhotographer: 'dylan nolte'
-description: "Check out these results for the Underscores stylesheet from Parker."
+description: "Let's examine the results of our theme stylesheet optimizations using the CSS tool, Parker, and what they mean."
 slug: results-underscores-stylesheet
 relatedPosts:
 - parker-and-wordpress-theme-development

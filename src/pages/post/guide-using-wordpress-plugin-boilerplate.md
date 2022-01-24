@@ -5,7 +5,7 @@ title: "A Guide to Using the WordPress Plugin Boilerplate"
 category: ["WordPress Plugin Boilerplate"]
 heroAccount: 'memoryonsounds'
 heroPhotographer: 'Kai Oberhäuser'
-description: "The last tool you'll need to build amazing WordPress plugins."
+description: "In this 6-part series, learn about the WordPress Plugin Boilerplate and how it's the last tool you'll need to build amazing WordPress plugins."
 slug: guide-using-wordpress-plugin-boilerplate
 relatedPosts:
 - why-use-the-boilerplate

@@ -5,7 +5,7 @@ date: "2013-01-17"
 category: ["Code Samples"]
 heroAccount: 'joshcala'
 heroPhotographer: 'Josh Calabrese'
-description: "See how to return a submit button instead of echoing it."
+description: "The WordPress submit_button function normally echos the submit button. Find out how to return it, like from a function, instead."
 slug: returning-submit-button
 ---
 
