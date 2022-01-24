@@ -7,6 +7,12 @@ heroAccount: 'markusspiske'
 heroPhotographer: 'Markus Spiske'
 description: "Understand the central file for the WordPress Plugin Boilerplate and how it works."
 slug: understanding-loader-class
+relatedPosts:
+- guide-using-wordpress-plugin-boilerplate
+- why-use-the-boilerplate
+- the-structure-of-the-wordpress-plugin-boilerplate
+- using-plugin-generator
+- editing-the-readme
 ---
 
 In the [previous post](/post/the-structure-of…ugin-boilerplate/) of the [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we walked through the structure. We also examined each file and what they do. The biggest feature of the version 3 rewrite is the new loader class.

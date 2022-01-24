@@ -7,6 +7,13 @@ heroAccount: 'harryjamesgrout'
 heroPhotographer: 'Harry Grout'
 description: "Using Parker can make you a better WordPress theme developer."
 slug: parker-and-wordpress-theme-development
+relatedPosts:
+- installing-parker
+- creating-a-baseline-for-parker
+- improving-underscores-stylesheet-using-parker
+- simplifying-wordpress-menu-styling
+- results-underscores-stylesheet
+- parker-wordpress-menus
 ---
 
 Lately, I've been playing with a CSS analysis tool called [Parker](https://github.com/katiefenn/parker) created by [Katie Fenn](https://twitter.com/katie_fenn). Parker examines your stylesheet and gives a treasure trove of metrics. While some of these metrics are merely interesting factoids (like the number of CSS rules), others offer constructive criticism for improvement. The general philosophy is to create more maintainable CSS by simplifying your stylesheet.

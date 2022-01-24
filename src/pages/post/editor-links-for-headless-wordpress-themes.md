@@ -7,6 +7,9 @@ heroAccount: 'joshstyle'
 heroPhotographer: 'JOSHUA COLEMAN'
 description: "You won't believe the solution for customing links in the WordPress editor."
 slug: editor-links-for-headless-wordpress-themes
+relatedPosts:
+- headless-theme-for-wordpress
+- headless-wordpress-create-react-app
 ---
 
 In my [previous post](/post/headless-wordpress-create-react-app), I talked about creating a headless front end for WordPress using Create React App. Turning my WordPress site into a headless React app was a massive learning experience. There were many challenges, like learning React, then learning the REST API, and creating custom endpoints. I won't even mention battling CORS headers. One of the more interesting issues I ran into, with editor links, ultimately had a very simple solution.

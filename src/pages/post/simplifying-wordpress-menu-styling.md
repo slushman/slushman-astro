@@ -7,6 +7,13 @@ heroAccount: 'mikphotopro'
 heroPhotographer: 'Dmitriy Adamenko'
 description: "This is how you simplify the WordPress menu styling."
 slug: simplifying-wordpress-menu-styling
+relatedPosts:
+- parker-and-wordpress-theme-development
+- installing-parker
+- creating-a-baseline-for-parker
+- improving-underscores-stylesheet-using-parker
+- results-underscores-stylesheet
+- parker-wordpress-menus
 ---
 
 In the [previous post](/post/improving-underscores-stylesheet-using-parker/) in this [series about Parker](/post/parker-and-wordpress-theme-development/), we optimized parts of the _s stylesheet and improved our Parker scores. However, one of the more difficult optimizations by working on the menus. Simplifying menu styling involves more than just a stylesheet tweak though. We'll need to add some PHP code to underscores that adds classes to each menu ul tag, menu item, and menu item link.

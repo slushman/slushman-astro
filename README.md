@@ -68,6 +68,6 @@ Feel free to check [our documentation](https://github.com/withastro/astro) or ju
 
 
 ## TODO
-* ImageGallery component
+* open images in larger view in gallery component
 * pagination between posts
 * fix inconsistent widths on post list. Probably write some longer excerpts to fix...

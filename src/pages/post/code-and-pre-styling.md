@@ -11,6 +11,7 @@ slug: code-and-pre-styling
 setup: |
     import Codepen from 'component:Codepen';
     import LibraryGallery from 'gallery:LibraryGallery';
+    import ExistingIdeasGallery from 'gallery:ExistingIdeasGallery';
 ---
 
 I'm starting the process of redesigning this site. One of the components I have found most difficult to style are the code samples. Unfortunately, finding examples of what other people have done is not simple since googling words like "code", "HTML", "CSS", "styling", "code sample", and/or "pre" result in all kinds of randomness. So I thought it would be helpful to publish what I've found so far in case anyone else wants inspiration or to explore possibilities.
@@ -55,7 +56,7 @@ From these options, I would choose Bulma or UIKit. Even those are still pretty b
 
 NOTE: many of these screenshots also include syntax highlighting, which colorizes the code samples. At this point, I'm not talking about coloring the code within the samples, I'm just looking at the pre and code element styling.
 
-<!-- <Gallery folder="existing-ideas" /> -->
+<ExistingIdeasGallery />
 
 The most common two styles are the background color only and the borders and background color. Most of the blogs and documentation sites I visited used one of these two options.
 

@@ -7,6 +7,13 @@ heroAccount: 'dylan_nolte'
 heroPhotographer: 'dylan nolte'
 description: "Check out these results for the Underscores stylesheet from Parker."
 slug: results-underscores-stylesheet
+relatedPosts:
+- parker-and-wordpress-theme-development
+- installing-parker
+- creating-a-baseline-for-parker
+- improving-underscores-stylesheet-using-parker
+- simplifying-wordpress-menu-styling
+- parker-wordpress-menus
 ---
 
 In the [previous posts](/post/simplifying-menu-styling/) in the [Parker series](/post/parker-and-wordpress-theme-development/), we optimized the stylesheet for the _s starter theme. We also used hooks and functions to customize the WordPress menus. In this post, we will compare our goals and the results we achieved using Parker. Here were our the goals:

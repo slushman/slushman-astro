@@ -7,6 +7,8 @@ heroAccount: 'bearock'
 heroPhotographer: 'Yan Xiong'
 description: "Get a list of Formidable forms and use them in a Customizer select control."
 slug: add-select-menu-formidable-forms-customizer
+relatedPosts:
+- how-to-link-to-the-customizer
 ---
 I recently had a need to list all the published Formidable forms as a select control in Customizer. Formidable doesn't spell out how to get this list, but I eventually stumbled on this method.
 

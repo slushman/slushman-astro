@@ -7,6 +7,12 @@ heroAccount: 'alain_pham'
 heroPhotographer: 'Alain Pham'
 description: "This is structure of the WordPress Plugin Boilerplate."
 slug: the-structure-of-the-wordpress-plugin-boilerplate
+relatedPosts:
+- guide-using-wordpress-plugin-boilerplate
+- why-use-the-boilerplate
+- understanding-loader-class
+- using-plugin-generator
+- editing-the-readme
 ---
 
 In the [previous post](/post/why-use-the-boilerplate) of the [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we looked at why one would use the boilerplate. This post will explore the organized structure in more detail.

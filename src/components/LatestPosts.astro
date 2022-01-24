@@ -1,0 +1,19 @@
+---
+import Debug from 'astro/debug';
+import PostExcerpt from 'component:PostExcerpt';
+import { getSortedPosts } from 'utils';
+
+const { current } = Astro.props;
+
+const allPosts = Astro.fetchContent('../pages/post/**/*.md');
+const posts = getSortedPosts(allPosts, 6, current);
+---
+<!-- <Debug { relatedPosts } /> -->
+<section class="">
+  <h2 class="m-0 p-6">Check out these most recent posts:</h2>
+  <div class="post-list">
+    {posts.map(({ date, description, title, url }) => (
+      <PostExcerpt date={date} description={description} title={title} url={url} />
+    ))}
+  </div>
+</section>

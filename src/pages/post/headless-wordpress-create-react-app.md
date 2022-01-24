@@ -7,6 +7,9 @@ heroAccount: 'johnmarkarnold'
 heroPhotographer: 'John Mark Arnold'
 description: "How to use Create React App with WordPress."
 slug: headless-wordpress-create-react-app
+relatedPosts:
+- editor-links-for-headless-wordpress-themes
+- headless-theme-for-wordpress
 ---
 
 You may have noticed the appearance of my site has changed a bit! A while back I decided to rebuild my site - finally. In the interest of learning new things, I created a headless WordPress theme using React.

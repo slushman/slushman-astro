@@ -7,6 +7,13 @@ heroAccount: 'teckhonc'
 heroPhotographer: 'T.H. Chia'
 description: "The six step process for installing Parker."
 slug: installing-parker
+relatedPosts:
+- parker-and-wordpress-theme-development
+- creating-a-baseline-for-parker
+- improving-underscores-stylesheet-using-parker
+- simplifying-wordpress-menu-styling
+- results-underscores-stylesheet
+- parker-wordpress-menus
 ---
 
 In my [introductory post](/post/parker-and-wordpress-theme-development/), I shared about the CSS analysis tool named Parker. In this post, we'll cover installing Parker on your local machine so you are able to analyze your own code.

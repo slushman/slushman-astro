@@ -5,6 +5,8 @@ import PostHero from 'component:PostHero';
 import CategoryMeta from 'component:CategoryMeta';
 import Shurls from 'component:Shurls';
 import BaseLayout from 'layout:BaseLayout';
+import LatestPosts from 'component:LatestPosts';
+import RelatedPosts from 'component:RelatedPosts';
 
 const { url } = Astro.request;
 const props = Astro.props;
@@ -16,11 +18,12 @@ const {
   featuredImage,
   heroAccount,
   heroPhotographer,
+  relatedPosts,
   slug,
   title,
 } = content;
 ---
-<!-- <Debug {props} /> -->
+<!-- <Debug {relatedPosts} /> -->
 <BaseLayout {description} {title} permalink={url} >
   <PostHero account={heroAccount} imageUrl={featuredImage} photographer={heroPhotographer} slug={slug} title={title} />
   <section class="blue-section flex justify-between">
@@ -33,6 +36,8 @@ const {
     <slot />
   </article>
   <Shurls description={description} title={title} url={url} />
+  {relatedPosts && relatedPosts.length > 0 && (<RelatedPosts relatedPosts={relatedPosts} />)}
+  {!relatedPosts && (<LatestPosts current={slug} />)}
   <!-- <section class="content-width py-6">
     <h2>Read more posts!</h2>
     <ul class="flex justify-between flex-nowrap list-reset">

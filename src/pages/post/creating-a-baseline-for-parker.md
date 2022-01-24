@@ -7,6 +7,13 @@ heroAccount: 'elisamichelet'
 heroPhotographer: 'Elisa Michelet'
 description: "Create a baseline for your website using Parker."
 slug: creating-a-baseline-for-parker
+relatedPosts:
+- parker-and-wordpress-theme-development
+- installing-parker
+- improving-underscores-stylesheet-using-parker
+- simplifying-wordpress-menu-styling
+- results-underscores-stylesheet
+- parker-wordpress-menus
 ---
 
 In the [previous post](/post/installing-parker/) in this [series about Parker](/post/parker-and-wordpress-theme-development/), we installed the stylesheet analysis tool and all its dependencies. Now, we're going to create a baseline measurement of the default _s stylesheet and explain the results from Parker.

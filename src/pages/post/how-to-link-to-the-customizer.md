@@ -7,6 +7,8 @@ heroAccount: 'scottwebb'
 heroPhotographer: 'Scott Webb'
 description: "You won't believe the simple solution for linking to the Customzer in WordPress."
 slug: how-to-link-to-the-customizer
+relatedPosts:
+- add-select-menu-formidable-forms-customizer
 ---
 
 I recently needed to link to a custom panel in the Customizer and had to figure it out. [Devin Price](http://wptheming.com/2015/01/link-to-customizer-sections/) pointed me in the right direction, but I ended up looking in the WordPress core to see how they do it and this is how.

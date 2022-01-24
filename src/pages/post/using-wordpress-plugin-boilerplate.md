@@ -7,6 +7,10 @@ heroAccount: 'mikael_k'
 heroPhotographer: 'Mikael Kristenson'
 description: "See my presentation about using the WordPress Plugin Boilerplate at WordCamp Dayton 2015."
 slug: using-wordpress-plugin-boilerplate
+relatedPosts:
+- wordcamp-nashville-2013
+- building-your-first-widget
+- wordcamp-dayton-2015
 ---
 
 This afternoon, I presented "Using WordPress Plugin Boilerplate" at WordCamp Dayton. My presentation covered the new 3.0 version of the boilerplate. I want to make everything easy to find, so here are the links from my presentation, including my sample plugin "Now Hiring":

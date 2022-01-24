@@ -7,6 +7,12 @@ heroAccount: 'jaysung'
 heroPhotographer: 'Jehyun Sung'
 description: "Explore the eight parts of a plugin README file."
 slug: editing-the-readme
+relatedPosts:
+- guide-using-wordpress-plugin-boilerplate
+- why-use-the-boilerplate
+- the-structure-of-the-wordpress-plugin-boilerplate
+- understanding-loader-class
+- using-plugin-generator
 ---
 
 In the [previous post](/post/using-plugin-generator/) of this [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we created the WP Starter Plugin using the plugin generator. However, before we begin developing, there is at least one thing we need to edit: the README file.

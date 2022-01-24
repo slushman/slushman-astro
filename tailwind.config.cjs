@@ -41,6 +41,10 @@ module.exports = {
       gridTemplateColumns: {
         'shurls-sm': 'repeat(auto-fit, minmax(25%, 1fr))',
         'shurls-lg': 'repeat(auto-fit, minmax(64px, 1fr))',
+        'two-across': 'auto auto',
+        'three-across': 'auto auto auto',
+        'four-across': 'auto auto auto auto',
+        'five-across': 'auto auto auto auto auto',
       },
     },
   },

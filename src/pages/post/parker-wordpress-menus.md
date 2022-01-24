@@ -7,6 +7,13 @@ heroAccount: 'bookcrafters'
 heroPhotographer: 'Joe McDaniel'
 description: "Fixing your mens styling based on Parker results is tricky, but this article shows you how."
 slug: parker-wordpress-menus
+relatedPosts:
+- parker-and-wordpress-theme-development
+- installing-parker
+- creating-a-baseline-for-parker
+- improving-underscores-stylesheet-using-parker
+- simplifying-wordpress-menu-styling
+- results-underscores-stylesheet
 ---
 
 As a sort-of follow up to my previous posts, I ran across an issue with styling menu items and found a great way to add classes so I can style those items directly.

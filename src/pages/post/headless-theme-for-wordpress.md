@@ -7,6 +7,9 @@ heroAccount: 'lisanguyen'
 heroPhotographer: 'Lisa Nguyen'
 description: "How to create a theme for a headless WordPress install. Yeah, you still need a theme..."
 slug: headless-theme-for-wordpress
+relatedPosts:
+- editor-links-for-headless-wordpress-themes
+- headless-wordpress-create-react-app
 ---
 
 In my previous [post about editor links](/post/editor-links-for-headless-wordpress-themes), I showed how WordPress can create editor links using the live site URL instead of the WordPress URL. When I created a React app for my WordPress site, I run into two issues. First, I wanted to get as much data from WordPress as possible. Second, I want visitors to only view the React app, not the WordPress install. The solution for both of these problems lies in building a WordPress theme. Huh?

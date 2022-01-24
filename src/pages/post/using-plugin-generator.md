@@ -7,6 +7,12 @@ heroAccount: 'yory'
 heroPhotographer: 'Ryo Yoshitake'
 description: "Learn how to start your next plugin simpler and faster."
 slug: using-plugin-generator
+relatedPosts:
+- guide-using-wordpress-plugin-boilerplate
+- why-use-the-boilerplate
+- the-structure-of-the-wordpress-plugin-boilerplate
+- understanding-loader-class
+- editing-the-readme
 ---
 
 In the [previous post](/post/understanding-the-loader-class) of the [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we explored the loader class and how to properly register hooks. In this post, we will begin developing the WP Starter Plugin by using the plugin generator.
