@@ -13,7 +13,7 @@ When creating a site for a client or creating a plugin, I've found its helpful t
 
 I'm currently writing a plugin with a custom post type and using the featured image as a headshot for an employee. While "featured image" may work fine, "headshot" is more specific and makes more sense in this context. I haven't been able to find anything recent about how to change the labels on the existing Featured Image metabox. The most [commonly referenced code](http://themergency.com/featured-image-metabox-customization/) only works some of the time. Specifically, when one removes a featured image, the label for the link changes back to referencing "featured image" instead of the customized label.
 
-<!-- I dug through the core and found the [post\_type\_labels\_{$post\_type}](https://developer.wordpress.org/reference/hooks/post_type_labels_post_type/) filter, which was added in version 3.5. This filter makes customizing the featured image labels super easy: -->
+I dug through the core and found the [post_type_labels_$post_type](https://developer.wordpress.org/reference/hooks/post_type_labels_post_type/) filter, which was added in version 3.5. This filter makes customizing the featured image labels super easy:
 
 ```astro
 /**

@@ -1,6 +1,4 @@
 ---
-import Debug from 'astro/debug';
-
 import { categorySlugs } from 'utils';
 import BaseLayout from 'layout:BaseLayout';
 import PostExcerpt from 'component:PostExcerpt';
@@ -17,8 +15,7 @@ const { category } = Astro.props;
 const allPosts = Astro.fetchContent('../post/**/*.md');
 const categoryPosts = allPosts.filter((post) => post.category.includes(category));
 const posts = categoryPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
----
-<!-- <Debug { category } /> -->
+---\
 <BaseLayout title={category}>
   <section class="blue-section py-4">
     <h1 class="m-0 text-center">{category}</h1>

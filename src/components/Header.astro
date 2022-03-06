@@ -1,13 +1,10 @@
 ---
-import Debug from 'astro/debug';
-
 import SiteTitle from 'component:SiteTitle';
 import { checkIsHome } from 'utils';
 
 const { url } = Astro.request;
 const isHome = checkIsHome(url);
 ---
-<!-- <Debug {isHome} /> -->
 {isHome && (
   <h1 class="font-medium text-[1em]"><SiteTitle /></h1>
 )}
