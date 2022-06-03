@@ -1,29 +1,31 @@
 ---
 layout: layout:Post
 title: "How to Link to the Customizer"
-date: "2016-06-02"
+pubDate: "2016-06-02"
 category: ["Code Samples"]
-heroAccount: 'scottwebb'
-heroPhotographer: 'Scott Webb'
+heroAccount: "scottwebb"
+heroPhotographer: "Scott Webb"
 description: "You won't believe the simple solution for linking to the Customizer in WordPress. You can also link to panels, section, and controls too!"
 slug: how-to-link-to-the-customizer
 relatedPosts:
-- add-select-menu-formidable-forms-customizer
+  - add-select-menu-formidable-forms-customizer
 ---
 
 I recently needed to link to a custom panel in the Customizer and had to figure it out. [Devin Price](http://wptheming.com/2015/01/link-to-customizer-sections/) pointed me in the right direction, but I ended up looking in the WordPress core to see how they do it and this is how.
 
 This a simple link to Customizer:
 
-```astro
-<a href="<?php echo esc_url(admin_url('customize.php')); ?>">Link to Customizer</a>
+```php
+<a href="<?php echo esc_url(admin_url('customize.php')); ?>"
+  >Link to Customizer</a
+>
 ```
 
 ## Linking to Panels, Sections, and Controls in the Customizer
 
 If you want to link to a specific panel in the Customizer, you'll want to use this:
 
-```astro
+```php
 $query['autofocus[panel]'] = 'nav_menus';
 
 $panel_link = add_query_arg($query, admin_url('customize.php'));
@@ -48,7 +50,7 @@ You can change the value to the panel of your choice. Here's a list of the defau
 
 If you want to link to a section instead, you can change part of the key:
 
-```astro
+```php
 $query['autofocus[section]'] = 'title_tagline';
 
 $section_link = add_query_arg($query, admin_url('customize.php'));
@@ -72,7 +74,7 @@ Some of the default themes like Twenty Sixteen add their own sections and any th
 
 The real magic is linking to the customizer and autofocusing on a specific field (aka control):
 
-```astro
+```php
 $query['autofocus[control]'] = 'blogname';
 
 $control_link = add_query_arg($query, admin_url('customize.php'));
@@ -86,7 +88,7 @@ This links to the Site Title field in the Site Identity section. If you're askin
 
 In addition to linking to somewhere within the Customizer, you can also specify where to go after you exit. Core uses the page you're currently on by default. You can check the link to the Customizer from different places in the admin and see that return value changes.
 
-```astro
+```php
 $query['return'] = admin_url();
 
 $link_with_return = add_query_arg($query, admin_url('customize.php'));
@@ -96,7 +98,7 @@ That will link to the Customizer and return you to the Dashboard.
 
 FYI, you cannot specify any old URL to go to afterward. For instance, this does not work:
 
-```astro
+```php
 $query['return'] = 'https://www.cnn.com';
 
 $link = add_query_arg($query, admin_url('customize.php'));
@@ -108,7 +110,7 @@ The Customizer runs these return URLs through the function [wp_validate_redirect
 
 Now, we can build more specific URLs for the Customizer. This could be especially useful if you're walking a site admin through performing several steps:
 
-```astro
+```php
 $query['autofocus[control]'] = 'blogname';
 
 $query['return'] = admin_url('post-new.php');
@@ -124,7 +126,7 @@ This links into the Customizer, autofocuses on the Site Title field, then once y
 
 If you have Customizer controls that only apply to specific pages, you can specify which page appears in the previewer:
 
-```astro
+```php
 $query['url'] = site_url('/news');
 
 $link = add_query_arg($query, admin_url( 'customize.php'));
@@ -138,7 +140,7 @@ In this case, the Previewer will display the News page instead of the home page.
 
 Those are all the parameters currently available for the Customizer. Now you can get really crazy (and specific) about your links to the Customizer. For example, go to the Menu Locations, show the About page in the previewer, then when you're done, add a new page:
 
-```astro
+```php
 $query['autofocus[section]'] = 'menu_locations';
 $query['return'] = admin_url('post-new.php?post_type=page');
 $query['url'] = site_url('/about-us');

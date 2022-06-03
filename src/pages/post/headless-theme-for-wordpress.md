@@ -1,19 +1,19 @@
 ---
 layout: layout:Post
-date: "2018-09-18"
+pubDate: "2018-09-18"
 title: "Headless Theme for WordPress"
 category: ["Headless WordPress"]
-heroAccount: 'lisanguyen'
-heroPhotographer: 'Lisa Nguyen'
+heroAccount: "lisanguyen"
+heroPhotographer: "Lisa Nguyen"
 description: "How to create a theme for a headless WordPress install. Even when the front-end of your site isn't displayed by WordPress, you still need a theme."
 slug: headless-theme-for-wordpress
 relatedPosts:
-- deploying-a-react-app-to-netlify
-- editor-links-for-headless-wordpress-themes
-- headless-wordpress-create-react-app
+  - deploying-a-react-app-to-netlify
+  - editor-links-for-headless-wordpress-themes
+  - headless-wordpress-create-react-app
 ---
 
-In my previous [post about editor links](/post/editor-links-for-headless-wordpress-themes), I showed how WordPress can create editor links using the live site URL instead of the WordPress URL. When I created a React app for my WordPress site, I run into two issues. First, I wanted to get as much data from WordPress as possible. Second, I want visitors to only view the React app, not the WordPress install. The solution for both of these problems lies in building a WordPress theme. Huh?
+In my previous [post about editor links](/post/editor-links-for-headless-wordpress-themes/), I showed how WordPress can create editor links using the live site URL instead of the WordPress URL. When I created a React app for my WordPress site, I run into two issues. First, I wanted to get as much data from WordPress as possible. Second, I want visitors to only view the React app, not the WordPress install. The solution for both of these problems lies in building a WordPress theme. Huh?
 
 ## WordPress Theme for a Headless App
 
@@ -28,9 +28,9 @@ I wanted my React app to behave similarly to how a typical WordPress theme behav
 
 Since this theme does not display any content, it should be minimal. Here is the list of files:
 
-* style.css
-* functions.php
-* index.php
+- style.css
+- functions.php
+- index.php
 
 The [style.css](https://github.com/slushman/headless-theme/blob/master/style.css) file only contains the required WordPress comment block. Next, let's look at these other two files in more detail.
 
@@ -38,7 +38,7 @@ The [style.css](https://github.com/slushman/headless-theme/blob/master/style.css
 
 First and foremost, the [functions.php](https://github.com/slushman/headless-theme/blob/master/functions.php) file registers support for all the WordPress features you'll need. As an example, if you need featured images for posts and pages, you'll need to add a statement like:
 
-```astro
+```php
 add_theme_support('post-thumbnails');
 ```
 

@@ -1,18 +1,18 @@
 ---
 layout: layout:Post
-date: "2017-05-21"
+pubDate: "2017-05-21"
 title: "A Guide to Using the WordPress Plugin Boilerplate"
 category: ["WordPress Plugin Boilerplate"]
-heroAccount: 'memoryonsounds'
-heroPhotographer: 'Kai Oberhäuser'
+heroAccount: "memoryonsounds"
+heroPhotographer: "Kai Oberhäuser"
 description: "In this 6-part series, learn about the WordPress Plugin Boilerplate and how it's the last tool you'll need to build amazing WordPress plugins."
 slug: guide-using-wordpress-plugin-boilerplate
 relatedPosts:
-- why-use-the-boilerplate
-- the-structure-of-the-wordpress-plugin-boilerplate
-- understanding-loader-class
-- using-plugin-generator
-- editing-the-readme
+  - why-use-the-boilerplate
+  - the-structure-of-the-wordpress-plugin-boilerplate
+  - understanding-loader-class
+  - using-plugin-generator
+  - editing-the-readme
 ---
 
 For several years now, I've been building plugins using the [WordPress Plugin Boilerplate](https://wppb.io/) project. In 2015, I gave a [WordCamp talk](/presentations/using-wp-plugin-boilerplate) about how to use it. Over the past few years, I've answered questions about how to build plugins with the boilerplate. Since there is no official documentation, I hope these posts serve as some unofficial documentation. I covered most of this introductory material in my WordCamp talk. However, I'm planning more detailed posts, additional code examples, and topics I didn't cover in the presentation. I'll also offer some shortcuts and potential improvements, in case you want to fork the boilerplate.
@@ -31,8 +31,8 @@ Since there is so much information to cover, we'll cover each subject in a separ
 
 ## Posts In This Series
 
-* [Why Use the Boilerplate?](/post/why-use-the-boilerplate/)
-* [The Structure of the WordPress Plugin Boilerplate](/post/the-structure-of-the-wordpress-plugin-boilerplate/)
-* [Understanding the Loader Class](/post/understanding-loader-class/)
-* [Using the Plugin Generator](/post/using-plugin-generator/)
-* [Editing the README](/post/editing-the-readme/)
+- [Why Use the Boilerplate?](/post/why-use-the-boilerplate/)
+- [The Structure of the WordPress Plugin Boilerplate](/post/the-structure-of-the-wordpress-plugin-boilerplate/)
+- [Understanding the Loader Class](/post/understanding-loader-class/)
+- [Using the Plugin Generator](/post/using-plugin-generator/)
+- [Editing the README](/post/editing-the-readme/)

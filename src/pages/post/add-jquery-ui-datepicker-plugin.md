@@ -1,10 +1,10 @@
 ---
 layout: layout:Post
 title: "How to Add the jQuery UI Datepicker to a Plugin"
-date: "2012-02-23"
+pubDate: "2012-02-23"
 category: ["Code Samples"]
-heroAccount: 'rawpixel'
-heroPhotographer: 'rawpixel'
+heroAccount: "rawpixel"
+heroPhotographer: "rawpixel"
 description: "Using a datepicker when choosing dates is a much nicer user experience. See the best way to add a jQuery DatePicker to a WordPress plugin."
 slug: add-jquery-ui-datepicker-plugin
 ---
@@ -13,7 +13,7 @@ slug: add-jquery-ui-datepicker-plugin
 
 I've since learned a better way to do this. It essentially does the same thing, the same way, but using better WordPress practices. Use this updated code:
 
-```astro
+```php
 /**
  * Adds the datepicker settings to the admin footer.
  * Only loads on the plugin-name settings page
@@ -76,11 +76,11 @@ I recently decided to dive into jQuery and figure out how to add a Datepicker to
 
 WordPress 3.3 included the jQuery UI Datepicker by default. If you're not using that version or higher, update your WordPress install or you will need to include the files manually. In either case, you will need to include a theme for the Datepicker and add a few lines of code.
 
-FYI, the following code samples show functions and hook calls written within a class. Feel free to adapt as necessary for your code. First, in your __construct() function, you'll need to add a few lines that tell the plugin to reference a function that will include the jQuery references.
+FYI, the following code samples show functions and hook calls written within a class. Feel free to adapt as necessary for your code. First, in your \_\_construct() function, you'll need to add a few lines that tell the plugin to reference a function that will include the jQuery references.
 
 ### **Add Actions**
 
-```astro
+```php
 // Add jQuery calender
 add_action('admin_print_scripts-post.php', [$this, 'seminar_scripts'], 1000);
 add_action('admin_print_scripts-post-new.php', [$this, 'seminar_scripts'], 1000);
@@ -93,13 +93,13 @@ In my plugin, I'm using the Datepicker for a meta box on the custom post type pa
 
 Now we have to functions to define two functions: seminar_scripts() and admin_footer().
 
-```astro
+```php
 function seminar_scripts() {
    global $post_type;
    if('cemb_seminar' != $post_type) { return; }
    wp_enqueue_script('jquery-ui-datepicker');
    wp_enqueue_style('jquery.ui.theme', plugins_url('/css/jquery-ui-1.8.17.custom.css', __FILE__));
-} // End of seminar_scripts() 
+} // End of seminar_scripts()
 ```
 
 `seminar_scripts()` starts by checking the post type. If we're not in the correct post type, (cemb_seminar is my custom post type - be sure to change this to match your plugin), then return. Otherwise, enqueue the Datepicker and its theme. Change the plugins_url() link to match your plugin folder structure.
@@ -118,7 +118,7 @@ When it finishes downloading, unzip the file and go to the css > smoothness fold
 
 ### **Add the jQuery Script**
 
-```astro
+```php
 function admin_footer() { ?>
    <script type="text/javascript">
       jQuery(document).ready(function(){
@@ -127,9 +127,9 @@ function admin_footer() { ?>
          });
       });
    </script><?php
-} // End of admin_footer() 
+} // End of admin_footer()
 ```
 
 admin_footer() includes the actual jQuery statement to make things happen on the page in the footer of your admin page. There are two things here you will need to customize for your plugin: the selector and the date format. jQuery works by looking at the page and finding a part of the page - aka the selector - and performing the script. My selector is the CSS class (.seminar_date) for the date field in the meta box. You'll need to modify that to match the CSS class (or ID) for your date field. The date format determines how the date appears on the page. For my plugin, I choose a format like Mon 2/22/2012. You can see [all the options](https://docs.jquery.com/UI/Datepicker/formatDate) for formatting dates.
 
-That's it!  Once you've added all that code and uploaded the jQuery UI theme, test it out and see the Datepicker appear when you click in the field you selected in the selector.
+That's it! Once you've added all that code and uploaded the jQuery UI theme, test it out and see the Datepicker appear when you click in the field you selected in the selector.

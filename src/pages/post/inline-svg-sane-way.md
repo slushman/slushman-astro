@@ -1,10 +1,10 @@
 ---
 layout: layout:Post
 title: "Inline SVG the Sane Way"
-date: "2014-11-10"
+pubDate: "2014-11-10"
 category: ["Code Samples"]
-heroAccount: 'bady'
-heroPhotographer: 'bady qb'
+heroAccount: "bady"
+heroPhotographer: "bady qb"
 description: "Using SVGs in WordPress is awesome, but junking up your code is not. Keep your sanity. Use SVGs in your code like this."
 slug: inline-svg-sane-way
 ---
@@ -15,10 +15,10 @@ Sadly, inlining SVG also borks up your code. There's nothing more disappointing 
 
 Recently, I discovered a simple way to have my cake and eat it too (mmm, cake!). Check this out:
 
-```astro
+```php
 /**
  * Returns the requested SVG icon.
- * 
+ *
  * Returns FALSE if $svg is not set.
  *
  * @param 	string 		$svg 		The name of the SVG icon

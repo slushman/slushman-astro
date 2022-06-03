@@ -1,21 +1,21 @@
 ---
 layout: layout:Post
-date: "2017-06-12"
+pubDate: "2017-06-12"
 title: "Using the Plugin Generator"
 category: ["WordPress Plugin Boilerplate"]
-heroAccount: 'yory'
-heroPhotographer: 'Ryo Yoshitake'
+heroAccount: "yory"
+heroPhotographer: "Ryo Yoshitake"
 description: "Learn how to start your next plugin simpler and faster using the WordPress Plugin Generator, including all the options and what they mean."
 slug: using-plugin-generator
 relatedPosts:
-- guide-using-wordpress-plugin-boilerplate
-- why-use-the-boilerplate
-- the-structure-of-the-wordpress-plugin-boilerplate
-- understanding-loader-class
-- editing-the-readme
+  - guide-using-wordpress-plugin-boilerplate
+  - why-use-the-boilerplate
+  - the-structure-of-the-wordpress-plugin-boilerplate
+  - understanding-loader-class
+  - editing-the-readme
 ---
 
-In the [previous post](/post/understanding-the-loader-class) of the [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we explored the loader class and how to properly register hooks. In this post, we will begin developing the WP Starter Plugin by using the plugin generator.
+In the [previous post](/post/understanding-the-loader-class/) of the [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we explored the loader class and how to properly register hooks. In this post, we will begin developing the WP Starter Plugin by using the plugin generator.
 
 [Enrique Chávez](https://enriquechavez.co/), a full-stack WordPress developer from Valle de Bravo, Mexico, built the WordPress Plugin Boilerplate Generator. You can find the plugin generator at [https://wppb.me/](https://wppb.me/).
 
@@ -37,9 +37,9 @@ The plugin slug becomes the translation string, the URL slug, and part of each c
 
 The plugin URI is the web address where people can find more information about your plugin. Here are some ideas for this URL:
 
-* the github repo page
-* a dedicated plugin website URL
-* a page on your site
+- the github repo page
+- a dedicated plugin website URL
+- a page on your site
 
 I create a page on my site for each plugin I publish, so here's what I entered for our example plugin: https://www.slushman.com/wp-starter-plugin.
 

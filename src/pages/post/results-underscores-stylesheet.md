@@ -1,68 +1,68 @@
 ---
 layout: layout:Post
-date: "2016-10-28"
+pubDate: "2016-10-28"
 title: "Results for the Underscores Stylesheet"
 category: ["Parker"]
-heroAccount: 'dylan_nolte'
-heroPhotographer: 'dylan nolte'
+heroAccount: "dylan_nolte"
+heroPhotographer: "dylan nolte"
 description: "Let's examine the results of our theme stylesheet optimizations using the CSS tool, Parker, and what they mean."
 slug: results-underscores-stylesheet
 relatedPosts:
-- parker-and-wordpress-theme-development
-- installing-parker
-- creating-a-baseline-for-parker
-- improving-underscores-stylesheet-using-parker
-- simplifying-wordpress-menu-styling
-- parker-wordpress-menus
+  - parker-and-wordpress-theme-development
+  - installing-parker
+  - creating-a-baseline-for-parker
+  - improving-underscores-stylesheet-using-parker
+  - simplifying-wordpress-menu-styling
+  - parker-wordpress-menus
 ---
 
-In the [previous posts](/post/simplifying-menu-styling/) in the [Parker series](/post/parker-and-wordpress-theme-development/), we optimized the stylesheet for the _s starter theme. We also used hooks and functions to customize the WordPress menus. In this post, we will compare our goals and the results we achieved using Parker. Here were our the goals:
+In the [previous posts](/post/simplifying-menu-styling/) in the [Parker series](/post/parker-and-wordpress-theme-development/), we optimized the stylesheet for the \_s starter theme. We also used hooks and functions to customize the WordPress menus. In this post, we will compare our goals and the results we achieved using Parker. Here were our the goals:
 
-* Reduce stylesheet complexity
-* Increasing maintainability
-* Making more CSS classes reusable
+- Reduce stylesheet complexity
+- Increasing maintainability
+- Making more CSS classes reusable
 
 Now, lets compare our baseline to our final results:
 
 ## Baseline
 
-* Total Stylesheets: 1
-* Total Stylesheet Size: 15432
-* Total Rules: 134
-* Total Selectors: 280
-* Total Identifiers: 508
-* Total Declarations: 243
-* Selectors Per Rule: 2.08955223880597
-* Identifiers Per Selector: 1.8285714285714285
-* Specificity Per Selector: 10.446428571428571
-* Top Selector Specificity: 120
-* Top Selector Specificity Selector: #content[tabindex="-1"]:focus
-* Total Id Selectors: 1
-* Total Unique Colors: 15
-* Unique Colors: #FFFF00,#000000,#C0C0C0,#404040,#EEEEEE,#666666,#FFF9C0,#FFFFFF,#CCCCCC,#BBBBBB,#E6E6E6,#AAAAAA,#111111,#F1F1F1,#21759B
-* Total Important Keywords: 2
-* Total Media Queries: 1
-* Media Queries: screen and (min-width: 37.5em)
+- Total Stylesheets: 1
+- Total Stylesheet Size: 15432
+- Total Rules: 134
+- Total Selectors: 280
+- Total Identifiers: 508
+- Total Declarations: 243
+- Selectors Per Rule: 2.08955223880597
+- Identifiers Per Selector: 1.8285714285714285
+- Specificity Per Selector: 10.446428571428571
+- Top Selector Specificity: 120
+- Top Selector Specificity Selector: #content[tabindex="-1"]:focus
+- Total Id Selectors: 1
+- Total Unique Colors: 15
+- Unique Colors: #FFFF00,#000000,#C0C0C0,#404040,#EEEEEE,#666666,#FFF9C0,#FFFFFF,#CCCCCC,#BBBBBB,#E6E6E6,#AAAAAA,#111111,#F1F1F1,#21759B
+- Total Important Keywords: 2
+- Total Media Queries: 1
+- Media Queries: screen and (min-width: 37.5em)
 
 ## Final Results
 
-* Total Stylesheets: 1
-* Total Stylesheet Size: 14405
-* Total Rules: 134
-* Total Selectors: 240
-* Total Identifiers: 350
-* Total Declarations: 243
-* Selectors Per Rule: 1.791044776119403
-* Identifiers Per Selector: 1.475
-* Specificity Per Selector: 8.566666666666666
-* Top Selector Specificity: 30
-* Top Selector Specificity Selector: .infinite-scroll.neverending .site-footer
-* Total Id Selectors: 0
-* Total Unique Colors: 15
-* Unique Colors: #FFFF00,#000000,#C0C0C0,#404040,#EEEEEE,#666666,#FFF9C0,#FFFFFF,#CCCCCC,#111111,#BBBBBB,#E6E6E6,#AAAAAA,#F1F1F1,#21759B
-* Total Important Keywords: 2
-* Total Media Queries: 1
-* Media Queries: screen and (min-width: 37.5em)
+- Total Stylesheets: 1
+- Total Stylesheet Size: 14405
+- Total Rules: 134
+- Total Selectors: 240
+- Total Identifiers: 350
+- Total Declarations: 243
+- Selectors Per Rule: 1.791044776119403
+- Identifiers Per Selector: 1.475
+- Specificity Per Selector: 8.566666666666666
+- Top Selector Specificity: 30
+- Top Selector Specificity Selector: .infinite-scroll.neverending .site-footer
+- Total Id Selectors: 0
+- Total Unique Colors: 15
+- Unique Colors: #FFFF00,#000000,#C0C0C0,#404040,#EEEEEE,#666666,#FFF9C0,#FFFFFF,#CCCCCC,#111111,#BBBBBB,#E6E6E6,#AAAAAA,#F1F1F1,#21759B
+- Total Important Keywords: 2
+- Total Media Queries: 1
+- Media Queries: screen and (min-width: 37.5em)
 
 ## Comparison
 
@@ -94,7 +94,7 @@ Specificity Per Selector reduced from 10.446428571428571 to 8.566666666666666. T
 
 ### Top Selector Specificity
 
-Top Selector Specificity score reduced from 120 to 30. This is not a vital metric, but still a good one. This reduction involves a major break away from how _s styles things by default though. The most specific selector they use is for the skip-to-content link target. I asked [why this was so specific](https://github.com/Automattic/_s/issues/1037) and it appears they want the higher-level specificity.
+Top Selector Specificity score reduced from 120 to 30. This is not a vital metric, but still a good one. This reduction involves a major break away from how \_s styles things by default though. The most specific selector they use is for the skip-to-content link target. I asked [why this was so specific](https://github.com/Automattic/_s/issues/1037) and it appears they want the higher-level specificity.
 
 ### Total ID Selectors
 
@@ -110,6 +110,6 @@ We've made the stylesheet easier to read by eliminating the longer selectors, al
 
 Finally, we've added more reusable classes and made the remaining rules less specific. In future projects, one would create only reusable classes and use WordPress hooks to style elements directly.
 
-I plan to submit pull requests to the _s repo based on some of these tweaks. Hopefully, some of these changes will already exist in future versions of _s. I highly recommend running Parker on your finished stylesheets. Parker doesn't solve everything but rather shows what needs improving.
+I plan to submit pull requests to the \_s repo based on some of these tweaks. Hopefully, some of these changes will already exist in future versions of \_s. I highly recommend running Parker on your finished stylesheets. Parker doesn't solve everything but rather shows what needs improving.
 
 Parker integrates nicely into Gulp. My gulpfile runs Parker after processing my SASS files, then displays a simple report in the command line. Let me know how Parker is changing your stylesheets and/or development process!

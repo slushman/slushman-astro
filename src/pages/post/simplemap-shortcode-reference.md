@@ -1,10 +1,10 @@
 ---
 layout: layout:Post
 title: "SimpleMap Shortcode Reference"
-date: "2015-01-08"
+pubDate: "2015-01-08"
 category: ["Code Samples"]
-heroAccount: 'dead____artist'
-heroPhotographer: 'Capturing the human heart.'
+heroAccount: "dead____artist"
+heroPhotographer: "Capturing the human heart."
 description: "The WordPress plugin SimpleMap doesn't have great documentation. This post stands as the unofficial shortcode documentation."
 slug: simplemap-shortcode-reference
 ---
@@ -13,49 +13,49 @@ I've been using a plugin called SimpleMap for clients recently. SimpleMap create
 
 The code below explains how to use the shortcode and the more common attributes to use with it.
 
-```astro
+```php
 /**
  * Basic shortcode
  */
 [simplemap]
- 
+
 /**
  * Hide the search result list
- * 
+ *
  * @param	bool	true: hide the list
  *			false: show the list, this is the default
  */
 [simplemap hide_list=true]
- 
+
 /**
  * Hide the map
- * 
+ *
  * @param	bool	true: hide the map
  *			false: show the map, this is the default
  */
 [simplemap hide_map=true]
- 
+
 /**
  * Hide the search form
- * 
+ *
  * @param	bool	true: hide the search form
  *			false: show the search form, this is the default
  */
 [simplemap hide_search=true]
- 
+
 /**
  * Limits the search results list to locations from the specified category or categories.
- * 
- * @param	int	A comma-separated list of category IDs. 
+ *
+ * @param	int	A comma-separated list of category IDs.
  *			Do not put spaces between the IDs, just a comma
  */
 [simplemap sm_category=8] 	// one category
 [simplemap sm_category=8,9,10] 	// mutiple categories
- 
+
 /**
- * Displays a checkbox for each category as part of the search form. 
+ * Displays a checkbox for each category as part of the search form.
  * Allows the site visitor to filter the search results by category.
- * 
+ *
  * @param	bool	true: show the category filters
  *			false: hide the category filters, this is the default
  */
@@ -65,8 +65,8 @@ The code below explains how to use the shortcode and the more common attributes 
  * Specify which fields are included in the search form
  *
  * The search form is built in a table.
- * 
- * Put "||" between each field. 
+ *
+ * Put "||" between each field.
  *
  * Here are the options for requesting a field:
  * "labelbr_": puts the label with a break return tag afterwards
@@ -136,7 +136,7 @@ The code below explains how to use the shortcode and the more common attributes 
 [simplemap map_height="300px"]
 
 /**
- * Sets the measurement units. 
+ * Sets the measurement units.
  * Accepts "km" for kilometers or "mi" for miles. Default is "mi".
  */
 [simplemap units="mi"]
@@ -148,7 +148,7 @@ The code below explains how to use the shortcode and the more common attributes 
 [simplemap radius=12]
 
 /**
- * Limits the quantity of how results are returned. 
+ * Limits the quantity of how results are returned.
  * Use an integer. Default is 20.
  */
 [simplemap limit=12]

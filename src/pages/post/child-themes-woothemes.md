@@ -1,10 +1,10 @@
 ---
 layout: layout:Post
 title: "Child themes for WooThemes"
-date: "2014-09-08"
+pubDate: "2014-09-08"
 category: ["Development"]
-heroAccount: 'sixstreetunder'
-heroPhotographer: 'Craig Whitehead'
+heroAccount: "sixstreetunder"
+heroPhotographer: "Craig Whitehead"
 description: "Instead of altering an existing theme, the best practice is to create a child theme. This is the hidden secret to styling child themes for WooThemes."
 slug: child-themes-woothemes
 ---

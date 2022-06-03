@@ -1,21 +1,21 @@
 ---
 layout: layout:Post
 title: "The Structure of the WordPress Plugin Boilerplate"
-date: "2017-05-29"
+pubDate: "2017-05-29"
 category: ["WordPress Plugin Boilerplate"]
-heroAccount: 'alain_pham'
-heroPhotographer: 'Alain Pham'
+heroAccount: "alain_pham"
+heroPhotographer: "Alain Pham"
 description: "Understanding the structure of the boilerplate makes building your plugin much easier. Learn how the boilerplate structures your plugin."
 slug: the-structure-of-the-wordpress-plugin-boilerplate
 relatedPosts:
-- guide-using-wordpress-plugin-boilerplate
-- why-use-the-boilerplate
-- understanding-loader-class
-- using-plugin-generator
-- editing-the-readme
+  - guide-using-wordpress-plugin-boilerplate
+  - why-use-the-boilerplate
+  - understanding-loader-class
+  - using-plugin-generator
+  - editing-the-readme
 ---
 
-In the [previous post](/post/why-use-the-boilerplate) of the [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we looked at why one would use the boilerplate. This post will explore the organized structure in more detail.
+In the [previous post](/post/why-use-the-boilerplate/) of the [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we looked at why one would use the boilerplate. This post will explore the organized structure in more detail.
 
 The structure makes plugin development more predictable and easier to maintain in the future. The boilerplate organizes files into four main folders:
 

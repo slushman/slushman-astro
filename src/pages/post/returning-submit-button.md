@@ -1,10 +1,10 @@
 ---
 layout: layout:Post
 title: "Returning a submit button"
-date: "2013-01-17"
+pubDate: "2013-01-17"
 category: ["Code Samples"]
-heroAccount: 'joshcala'
-heroPhotographer: 'Josh Calabrese'
+heroAccount: "joshcala"
+heroPhotographer: "Josh Calabrese"
 description: "The WordPress submit_button function normally echos the submit button. Find out how to return it, like from a function, instead."
 slug: returning-submit-button
 ---

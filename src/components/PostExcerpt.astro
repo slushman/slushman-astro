@@ -1,15 +1,15 @@
 ---
-import Debug from 'astro/debug';
 import { Markdown } from 'astro/components';
 import ExcerptImage from 'component:ExcerptImage';
 
-const { title, date, description, url } = Astro.props;
+const { title, pubDate, description, url } = Astro.props;
 ---
+
 <article class="grid p-2 my-0 mx-auto max-w-prose">
   <ExcerptImage image={`${url}/hero.jpg`} />
   <h2 class="mb-0 font-merri font-bold">
     <a class="shadow-none" href={url}>{title}</a>
   </h2>
-  <small data-test="postDate">{date}</small>
+  <small data-test="postDate">{pubDate}</small>
   <Markdown>{description}</Markdown>
 </article>

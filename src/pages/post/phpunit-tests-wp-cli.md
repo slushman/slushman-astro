@@ -1,10 +1,10 @@
 ---
 layout: layout:Post
-date: "2018-01-18"
+pubDate: "2018-01-18"
 title: "PHPUnit tests and WP-CLI"
 category: ["Development"]
-heroAccount: 'chuttersnap'
-heroPhotographer: 'chuttersnap'
+heroAccount: "chuttersnap"
+heroPhotographer: "chuttersnap"
 description: "Do you know 100% if that 'simple' code change in your plugin broke something? Setup PHPUnit to add tests and get more confidence in your code changes."
 slug: phpunit-tests-wp-cli
 ---
@@ -15,7 +15,7 @@ I recently discovered an easy way to add unit tests to my plugins. I've been usi
 
 Start by installing PHPUnit using Homebrew:
 
-```astro
+```shell
 brew install phpunit
 ```
 
@@ -23,7 +23,7 @@ That installs the latest version of PHPUnit and makes it ready to use with the g
 
 Next, use WP-CLI to setup the test suites and such needed for PHPUnit. I recommend running this command from the plugin's directory.
 
-```astro
+```shell
 wp scaffold plugin-tests my-plugin
 ```
 
@@ -31,19 +31,19 @@ Replace the "my-plugin" part with your plugin name.
 
 If you aren't already in your plugin directory, change to that now. Then you'll run the installation bash script.
 
-```astro
+```shell
 bin/install-wp-tests.sh wordpress_test root '' localhost latest
 ```
 
 Notes about this command:
 
-* 'wordpress_test' is the MySQL database created by this script and used for testing
-* 'root' is your local MySQL user
-* '' is where your local MySQL user password goes
-* 'localhost' is where your MySQL server is located; 'localhost' means its on your computer.
-* 'latest' changes the version of WordPress to use for testing.
+- 'wordpress_test' is the MySQL database created by this script and used for testing
+- 'root' is your local MySQL user
+- '' is where your local MySQL user password goes
+- 'localhost' is where your MySQL server is located; 'localhost' means its on your computer.
+- 'latest' changes the version of WordPress to use for testing.
 
-Once you've run this script, you're ready to start writing tests and running them using the 'phpunit' command. Here's the rub though: the script installs WordPress and the testing suite in the /tmp directory. Why is that a  problem? On my computer, at least, the /tmp directory removes anything installed there upon reboot. Which means I need to re-run the tests bash script every time I reboot the computer.
+Once you've run this script, you're ready to start writing tests and running them using the 'phpunit' command. Here's the rub though: the script installs WordPress and the testing suite in the /tmp directory. Why is that a problem? On my computer, at least, the /tmp directory removes anything installed there upon reboot. Which means I need to re-run the tests bash script every time I reboot the computer.
 
 Since we developers prefer not repeating ourselves, here's how to configure things for a more permanent solution.
 
@@ -53,7 +53,7 @@ What I'm advising here is to move the stuff installed in /tmp to somewhere else,
 
 Go to your Home folder and either open or create the .bash_profile file. You'll probably need to tell Finder to show Hidden files first. In your .bash_profile file, add the following line, using your new directory location:
 
-```astro
+```php
 export WP_TESTS_DIR="/Your/New/Folder/Location/unittests/wordpress-tests-lib"
 ```
 
@@ -61,7 +61,7 @@ This line tells the PHPUnit bootstrap.php file where to find the test WordPress 
 
 Now, go to the wordpress-tests-lib directory and open the wp-tests-config.php file. Edit the ABSPATH constant to the '/wordpress' directory you copied over from /tmp earlier. Something like:
 
-```astro
+```php
 define('ABSPATH', '/Your/New/Folder/Location/unittests/wordpress//');
 ```
 

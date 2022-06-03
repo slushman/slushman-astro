@@ -1,16 +1,16 @@
 ---
 layout: layout:Post
-date: "2018-06-05"
+pubDate: "2018-06-05"
 title: "Deploying a React App to Netlify"
 category: ["React"]
-heroAccount: 'badashphotos'
-heroPhotographer: 'Ash Edmonds'
+heroAccount: "badashphotos"
+heroPhotographer: "Ash Edmonds"
 description: "After you've built your headless WordPress front-end, you'll want to publish it. This is process for how I published mine to Netlify."
 slug: deploying-a-react-app-to-netlify
 relatedPosts:
-- editor-links-for-headless-wordpress-themes
-- headless-theme-for-wordpress
-- headless-wordpress-create-react-app
+  - editor-links-for-headless-wordpress-themes
+  - headless-theme-for-wordpress
+  - headless-wordpress-create-react-app
 ---
 
 As part of the creating a headless React-based frontend for my WordPress site, I decided to try hosting my files on Netlify. They tout being super fast when serving a non-database site; a natural fit for a React project. Wes Bos's [React for Beginners course](https://reactforbeginners.com) shows how to deploy to Netlify using the netlify-cli npm package. However, since completing that course, I updated to Node 10, which is not compatible with netlify-cli and Netlify recently deprecated it. In this post, I'll detail how to deploy a site from the command line using their new command line tool: netlifyctl.
@@ -27,19 +27,19 @@ First off, you'll need to install the new tool on your computer. On OS X, it's a
 
 If you don't already have [Homebrew](https://brew.sh/) installed, open Terminal and enter this command, then follow the prompts:
 
-```astro
+```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 With Homebrew installed, point to the netlifyctl tap:
 
-```astro
+```shell
 brew tap netlify/netlifyctl
 ```
 
 Next, install it:
 
-```astro
+```shell
 brew install netlifyctl
 ```
 
@@ -47,19 +47,19 @@ brew install netlifyctl
 
 If you don't already have [Scoop](https://scoop.sh/) installed, make sure you have [PowerShell 3](https://www.microsoft.com/en-us/download/details.aspx?id=34595) or higher installed, open it, then install Scoop using:
 
-```astro
+```shell
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 ```
 
 With Scoop installed, add the netlifyctl bucket:
 
-```astro
+```shell
 scoop bucket add netlifyctl https://github.com/netlify/scoop-netlifyctl
 ```
 
 Then install it:
 
-```astro
+```shell
 scoop install netlifyctl
 ```
 
@@ -69,7 +69,7 @@ In this case, I'm specifically talking about a project created with [create-reac
 
 With netlifyctl installed, change directories into your project:
 
-```astro
+```shell
 cd /myreactapp
 ```
 
@@ -77,12 +77,11 @@ cd /myreactapp
 
 Start by giving your app permission to access your Netlify account.
 
-```astro
+```shell
 netlifyctl login
 ```
 
 This will open your Netlify account in a web browser and ask if you want to give the CLI permission to access your account.
-
 
 ![](/post/deploying-a-react-app-to-netlify/authorize-netlify-cli.png "Netlify grant permissions prompt")
 
@@ -92,7 +91,7 @@ Click the Authorize button. Once it confirms the CLI has permission to access yo
 
 If you haven't already, run the build process for your app. For create-react-app, that's:
 
-```astro
+```shell
 npm run build
 ```
 
@@ -100,7 +99,7 @@ npm run build
 
 Next, use this command to start the deploy process to Netlify:
 
-```astro
+```shell
 netlify deploy
 ```
 
@@ -108,7 +107,7 @@ It begins by asking if this is a new site. Entering "no" allows you to search by
 
 Either way, it then asks for the path you'd like deployed. For a create-react-app project, it is:
 
-```astro
+```shell
 ./build
 ```
 
@@ -122,13 +121,13 @@ That's it! Your site should be visible on Netlify! A few last things: you'll not
 
 If you forget how all this works, you can use:
 
-```astro
+```shell
 netlifyctl --help
 ```
 
 This lists out the commands available and how to use them. You can also use it with a specific command like:
 
-```astro
+```shell
 netlifyctl deploy --help
 ```
 
@@ -136,13 +135,13 @@ netlifyctl deploy --help
 
 If you need to make changes to your app - say you're like me and you forgot to run "npm run build" first so you deployed the default create-react-app build folder - and you need to re-deploy the project. Fortunately, it's very simple:
 
-```astro
+```shell
 netlify deploy
 ```
 
 However, each time, the script prompts for the build path. This"feature" grows tiresome when you forget another thing, then another thing, then another thing and perform several deployments in a row (not that I would know from experience...). To avoid this, edit the netlify.toml file and add the build path. The default file includes your Netlify site ID and:
 
-```astro
+```shell
 [Build]
   Publish = ""
   Functions = ""
@@ -150,7 +149,7 @@ However, each time, the script prompts for the build path. This"feature" grows t
 
 Add your build path in the Publish value between the double quotes:
 
-```astro
+```shell
 [Build]
   Publish = "./build"
 ```

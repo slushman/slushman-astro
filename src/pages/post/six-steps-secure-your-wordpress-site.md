@@ -1,12 +1,14 @@
 ---
 layout: layout:Post
 title: "Six Steps to Secure Your WordPress Site"
-date: "2013-04-16"
+pubDate: "2013-04-16"
 category: ["Security"]
-heroAccount: 'cristina_gottardi'
-heroPhotographer: 'Cristina Gottardi'
+heroAccount: "cristina_gottardi"
+heroPhotographer: "Cristina Gottardi"
 description: "How is breakdancing related to securing your WordPress site? Find out inside, then read these six steps to secure your WordPress site."
 slug: six-steps-secure-your-wordpress-site
+setup: |
+  import Youtube from 'component:Youtube';
 ---
 
 There's a great breakdancing move called 6-step. If you've seen breakdancing, you've probably seen this before, but, like me, didn't know what to call it. Basically, the dancer supports himself on his arms while moving his feet around in a circle. It's great for getting momentum and launching other moves.
@@ -19,11 +21,11 @@ Here's the WP 6-step, which will help secure your WordPress site against attacks
 
 ## Get Rid of admin
 
-1) If you have a username "admin" on your site, create another administrator user with a different name, log in as that user, and delete "admin". If you don't have a user named "admin", attackers will just waste their time attacking your site. From my first-hand experience, changing this is extremely important to make your site secure. Attackers always start by using the "admin" username. Just having it as a valid account will leave you vulnerable.
+1. If you have a username "admin" on your site, create another administrator user with a different name, log in as that user, and delete "admin". If you don't have a user named "admin", attackers will just waste their time attacking your site. From my first-hand experience, changing this is extremely important to make your site secure. Attackers always start by using the "admin" username. Just having it as a valid account will leave you vulnerable.
 
 ## Beef-Up Passwords
 
-2) While standard practice for a secure password is to use eight digits with a mix of lowercase and uppercase letters, numbers, and symbols - there's a better way. Create a password from a story. Something memorable to you. Something people can't easily find out without knowing you personally.
+2. While standard practice for a secure password is to use eight digits with a mix of lowercase and uppercase letters, numbers, and symbols - there's a better way. Create a password from a story. Something memorable to you. Something people can't easily find out without knowing you personally.
 
 As an example: My band and I played a show in Johnson City, TN at a coffee shop and while we played one song, this guy gets up and starts dancing. He was probably in his late 50's and he's doing this wiggly, hippie dancing literally feet from us. We were trying not to die laughing while finishing the song. After the show, we discovered the coffee shop owner also owned the laundromat next door and had to go fix a washer. Did I mention it took an hour longer than normal to get there because a bunch of big rigs crashed on the same stretch of highway?
 
@@ -31,7 +33,7 @@ Some passwords one could glean from this story: DanceWasherBigRigCoffee, CoffeeW
 
 ## Limit Login Attempts
 
-3) Part of this current attack is trying different passwords over and over again until they get it correct. While its silly WordPress allows this, you don't have to. There are several great security plugins that allow you to limit login attempts before locking that IP address out of your WordPress site:
+3. Part of this current attack is trying different passwords over and over again until they get it correct. While its silly WordPress allows this, you don't have to. There are several great security plugins that allow you to limit login attempts before locking that IP address out of your WordPress site:
 
 - [Better WP Security iThemes Security](https://wordpress.org/plugins/better-wp-security/)
 - [WordFence](https://wordpress.org/plugins/wordfence/)
@@ -41,14 +43,14 @@ I'm sure there are more, but those are three I have experience with. Each has th
 
 ## Use Caching
 
-4) WordPress, by itself, is pretty good, but it still needs to talk to the database to load each page. Caching plugins make copies of everything so your site loads faster. While it doesn't seem like this can help make your site secure, this can prevent certain types of attacks as well as sudden increases in popularity.
+4. WordPress, by itself, is pretty good, but it still needs to talk to the database to load each page. Caching plugins make copies of everything so your site loads faster. While it doesn't seem like this can help make your site secure, this can prevent certain types of attacks as well as sudden increases in popularity.
 
 ## Update, Update, Update
 
-5) This is standard WordPress advice: keep WordPress, plugins, and themes up-to-date. I usually advise people to check once a week. You should be adding content each week anyway, so knock out both at the same time.
+5. This is standard WordPress advice: keep WordPress, plugins, and themes up-to-date. I usually advise people to check once a week. You should be adding content each week anyway, so knock out both at the same time.
 
 ## Delete Unused Plugins and Themes
 
-6) While this won't help much with the current attack, these unused items could cause problems in the future. And if you're not using them, why keep them around?
+6. While this won't help much with the current attack, these unused items could cause problems in the future. And if you're not using them, why keep them around?
 
 See? Six simple steps and you're more secure and don't need to worry about people attacking your site. Yeah ok, I'm not a comedian and the dance thing was random. But seriously, take steps to secure your site before you have to call someone like to me to fix it.

@@ -1,19 +1,16 @@
 ---
 import Bio from 'component:Bio';
-import PostExcerpt from 'component:PostExcerpt';
+import Posts from 'component:Posts';
 import { checkIsHome, getSortedPosts } from 'utils';
 
 const { limit = null } = Astro.props;
 const { url } = Astro.request;
 
-const allPosts = Astro.fetchContent('../pages/post/**/*.md');
+const allPosts = await Astro.glob('../pages/post/**/*.md');
 const posts = getSortedPosts(allPosts, limit);
 
 const isHome = checkIsHome(url);
 ---
-{ isHome && <Bio isHeader={ true } /> }
-<div class="post-list">
-{posts.map((post) => (
-  <PostExcerpt {...post} />
-))}
-</div>
+
+{isHome && <Bio isHeader={true} />}
+<Posts posts={posts} />

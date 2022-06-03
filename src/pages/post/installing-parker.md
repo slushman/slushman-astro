@@ -1,19 +1,19 @@
 ---
 layout: layout:Post
 title: "Installing Parker"
-date: "2016-10-24"
+pubDate: "2016-10-24"
 category: ["Parker"]
-heroAccount: 'teckhonc'
-heroPhotographer: 'T.H. Chia'
+heroAccount: "teckhonc"
+heroPhotographer: "T.H. Chia"
 description: "If you want to use the CSS analysis tool, Parker, you first have to install it and set it up. Here's the six step process."
 slug: installing-parker
 relatedPosts:
-- parker-and-wordpress-theme-development
-- creating-a-baseline-for-parker
-- improving-underscores-stylesheet-using-parker
-- simplifying-wordpress-menu-styling
-- results-underscores-stylesheet
-- parker-wordpress-menus
+  - parker-and-wordpress-theme-development
+  - creating-a-baseline-for-parker
+  - improving-underscores-stylesheet-using-parker
+  - simplifying-wordpress-menu-styling
+  - results-underscores-stylesheet
+  - parker-wordpress-menus
 ---
 
 In my [introductory post](/post/parker-and-wordpress-theme-development/), I shared about the CSS analysis tool named Parker. In this post, we'll cover installing Parker on your local machine so you are able to analyze your own code.
@@ -24,13 +24,13 @@ Before performing any of the following steps, you'll need to install Parker and 
 - Homebrew
 - node.js & npm
 - Parker
-- _s
+- \_s
 
 ### Installing Xcode and the Developer Tools
 
 ![Install Xcode before installing Parker](/post/installing-parker/xcode.png) Open Terminal and hit enter after typing/pasting:
 
-```astro
+```shell
 xcode-select --install
 ```
 
@@ -40,7 +40,7 @@ This should open an application installer wizard for the developer tools. Go thr
 
 Once that's finished, install Homebrew, which makes installing packages on OS X easier. In Terminal, hit enter after typing/pasting:
 
-```astro
+```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
@@ -50,7 +50,7 @@ This script installs Homebrew. It will ask for confirmation that you want to ins
 
 Once Homebrew is installed, installing node.js is fairly simple. In Terminal, hit enter after typing/pasting (Source: [George Ornbo](https://shapeshed.com/setting-up-nodejs-and-npm-on-mac-osx/)):
 
-```astro
+```shell
 brew install node
 ```
 
@@ -58,23 +58,23 @@ brew install node
 
 Installing Parker at this point should be fairly simple. In Terminal, hit enter after typing/pasting:
 
-```astro
+```shell
 npm install -g parker
 ```
 
 The "-g" installs Parker globally, so you can access it from anywhere in your system (rather than just inside a specific project or folder). (Source: [Harry Roberts](https://csswizardry.com/2016/06/improving-your-css-with-parker/))
 
-### Copy _s
+### Copy \_s
 
-Lastly, we'll need a copy of _s. Open Finder and decide where you want to save _s. This can be any folder; I put my copy of _s in Dropbox. In Terminal type/paste:
+Lastly, we'll need a copy of \_s. Open Finder and decide where you want to save \_s. This can be any folder; I put my copy of \_s in Dropbox. In Terminal type/paste:
 
-```astro
-cd 
+```shell
+cd
 ```
 
-Be sure to leave a space at the end! Drag your work folder from Finder to Terminal. This puts the path to your work folder into Terminal. Hit enter and your working directory in Terminal changes to your work folder. Use git to clone the _s repo from Github and work with it on your computer. In Terminal, hit enter after typing/pasting:
+Be sure to leave a space at the end! Drag your work folder from Finder to Terminal. This puts the path to your work folder into Terminal. Hit enter and your working directory in Terminal changes to your work folder. Use git to clone the \_s repo from Github and work with it on your computer. In Terminal, hit enter after typing/pasting:
 
-```astro
+```shell
 git clone git@github.com:Automattic/_s.git
 ```
 

@@ -1,7 +1,7 @@
 ---
 layout: layout:Post
 title: "How to Add a Class to a Metabox"
-date: "2012-09-08"
+pubDate: "2012-09-08"
 category: ["Code Samples"]
 heroAccount: 'noodle-kimm'
 heroPhotographer: 'noodle kimm'
@@ -12,7 +12,7 @@ While developing a new plugin, I needed to toggle the visibility of some metabox
 
 ## The Simple Way
 
-```astro
+```php
 /**
  * The simplistic way to add a custom class to a specific metabox
  *
@@ -46,7 +46,7 @@ I've recently updated this method in four ways to make it simpler and easier. Fi
 
 The more thorough way checks if the class already exists in the metabox classes before adding it. Obviously, this is better, so use this method.
 
-```astro
+```php
 /**
  * The more thorough way to add a custom class to a specific metabox
  *

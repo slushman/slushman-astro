@@ -1,29 +1,29 @@
 ---
 layout: layout:Post
-date: "2017-04-16"
+pubDate: "2017-04-16"
 title: "Parker and WordPress Menus"
 category: ["Parker"]
-heroAccount: 'bookcrafters'
-heroPhotographer: 'Joe McDaniel'
+heroAccount: "bookcrafters"
+heroPhotographer: "Joe McDaniel"
 description: "Using the CSS tool Parker can help you fix your theme's menu styling. Learn the filters you'll need to make your WordPress menu styling simpler."
 slug: parker-wordpress-menus
 relatedPosts:
-- parker-and-wordpress-theme-development
-- installing-parker
-- creating-a-baseline-for-parker
-- improving-underscores-stylesheet-using-parker
-- simplifying-wordpress-menu-styling
-- results-underscores-stylesheet
+  - parker-and-wordpress-theme-development
+  - installing-parker
+  - creating-a-baseline-for-parker
+  - improving-underscores-stylesheet-using-parker
+  - simplifying-wordpress-menu-styling
+  - results-underscores-stylesheet
 ---
 
 As a sort-of follow up to my previous posts, I ran across an issue with styling menu items and found a great way to add classes so I can style those items directly.
 
 Many of our designs have a vertical bar between menu items. While there are several ways to accomplish this, I've been using something like this in recent projects to style the top-level menu items:
 
-```astro
+```css
 .primary-menu-item-0 :not(:first-child) a {
-    border-left: 1px solid; 
-    padding-left: 1em;
+  border-left: 1px solid;
+  padding-left: 1em;
 }
 ```
 
@@ -37,12 +37,12 @@ In the menus part of the Parker series, we added classes to each menu item and m
 
 In the nav_menu_css_class hook, the $item parameter is the menu item object. We're going to check the menu_order property value and if its either the first or last menu item, we'll add classes so we can style those two menu items directly.
 
-```astro
+```php
 /**
  * Adds a class with the menu name and depth level to each menu item.
  * Makes styling menus much easier.
  *
- * @hooked nav_menu_css_class 10  
+ * @hooked nav_menu_css_class 10
  * @param array $classes The current menu item classes.
  * @param object $item The current menu item.
  * @param array $args The wp_nav_menu args.
@@ -53,8 +53,8 @@ function example_add_menu_order_to_menu_item_classes($classes, $item, $args, $de
     if (empty($item)) { return $classes; }
 
     if (1 === $item->menu_order) {
-        $classes[] = $args->menu_id . '-item-first';  
-        $classes[] = $args->menu_id . '-item-' . $depth . '-first';  
+        $classes[] = $args->menu_id . '-item-first';
+        $classes[] = $args->menu_id . '-item-' . $depth . '-first';
     }
 
     if ($args->menu->count === $item->menu_order) {
@@ -76,7 +76,7 @@ To add the "last" classes, we compare the menu item count from the menu $args ob
 
 However, my first example was actually styling the menu item link. We can add classes using the nav_menu_link_attributes filter, just like we did when we added the depth classes.
 
-```astro
+```php
 /**
  * Adds classes to menu item links.
  *
@@ -93,16 +93,16 @@ However, my first example was actually styling the menu item link. We can add cl
 function example_add_menu_order_to_menu_item_links($atts, $item, $args, $depth) {
     if (empty($item)) { return $atts; }
 
-    if (1 === $item->menu_order) { 
+    if (1 === $item->menu_order) {
         $atts['class'] .= $args->menu_id . '-item-link-first ';
         $atts['class'] .= $args->menu_id . '-item-link-' . $depth . '-first ';
     }
-	
+
     if ($args->menu->count === $item->menu_order) {
         $atts['class'] .= $args->menu_id . '-item-link-last ';
-        $atts['class'] .= $args->menu_id . '-item-link-' . $depth . '-last ';	
-    } 
-	
+        $atts['class'] .= $args->menu_id . '-item-link-' . $depth . '-last ';
+    }
+
     return $atts;
 } // example_add_menu_order_to_menu_item_links()
 
@@ -115,24 +115,24 @@ This function follows the same basic pattern, except how the class is added. Now
 
 So instead of this:
 
-```astro
-.primary-menu-item-0 :not(:first-child) a { 
-    border-left: 1px solid; 
-    padding-left: 1em;
+```css
+.primary-menu-item-0 :not(:first-child) a {
+  border-left: 1px solid;
+  padding-left: 1em;
 }
 ```
 
 We do this:
 
-```astro
+```css
 .primary-menu-item-link-0 {
-    border-left : 1px solid $teal;
-    padding : 0 1em; 
-} 
+  border-left: 1px solid $teal;
+  padding: 0 1em;
+}
 
-.primary-menu-item-link-0-first { 
-    border-left: none; 
-    padding-left: 0; 
+.primary-menu-item-link-0-first {
+  border-left: none;
+  padding-left: 0;
 }
 ```
 

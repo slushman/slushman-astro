@@ -2,13 +2,17 @@
 import { categorySlugs } from 'utils';
 
 const { categories } = Astro.props;
+
+console.log('CategoryMeta', { categories });
+
 const fullCats = categorySlugs(categories);
 ---
+
 <ul class="flex list-reset">
   {fullCats.map(
-    ({ category, slug }, index) => (
-      <li key={index}>
-        <a href={`/category/${slug}`}>{category}</a>{index === (fullCats.length - 1) ? '' : ', '}
-      </li>
-    ))}
+  ({ category, slug }, index) => (
+  <li>
+    <a href={`/category/${slug}/`}>{category}</a>{index === (fullCats.length - 1) ? '' : ', '}
+  </li>
+  ))}
 </ul>

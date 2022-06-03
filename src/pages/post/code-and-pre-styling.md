@@ -1,17 +1,17 @@
 ---
 layout: layout:Post
-date: "2018-05-23"
+pubDate: "2018-05-23"
 title: "Code Sample Styling"
 category: ["Design"]
-gallery: ["library","existing-ideas"]
-heroAccount: 'markusspiske'
-heroPhotographer: 'Markus Spiske'
+gallery: ["library", "existing-ideas"]
+heroAccount: "markusspiske"
+heroPhotographer: "Markus Spiske"
 description: "While redesigning my site, I wanted to customize the way code samples are displayed. Let's look at the options I explored."
 slug: code-and-pre-styling
 setup: |
-    import Codepen from 'component:Codepen';
-    import LibraryGallery from 'gallery:LibraryGallery';
-    import ExistingIdeasGallery from 'gallery:ExistingIdeasGallery';
+  import Codepen from 'component:Codepen';
+  import LibraryGallery from 'gallery:LibraryGallery';
+  import ExistingIdeasGallery from 'gallery:ExistingIdeasGallery';
 ---
 
 I'm starting the process of redesigning this site. One of the components I have found most difficult to style are the code samples. Unfortunately, finding examples of what other people have done is not simple since googling words like "code", "HTML", "CSS", "styling", "code sample", and/or "pre" result in all kinds of randomness. So I thought it would be helpful to publish what I've found so far in case anyone else wants inspiration or to explore possibilities.
@@ -32,19 +32,19 @@ Here's the [CodePen Collection](https://codepen.io/collection/nxqYdx/) of all th
 
 While exploring these libraries, I found many either didn't include any specific design at all. I'm not posting screenshots of these since they would be really boring, but here's the list:
 
-* [Tachyons](https://tachyons.io)
-* [Semantic UI](https://semantic-ui.com)
-* [Pure CSS](https://purecss.io)
-* [Blueprint CSS](https://blueprintcss.io)
-* [BassCSS](http://basscss.com)
-* [Tailwind CSS](https://tailwindcss.com)
-* [Kickstart](http://getkickstart.com)
-* [Materialize](https://materializecss.com)
-* [MUI CSS](https://www.muicss.com)
-* [Solid](https://solid.buzzfeed.com)
-* [Expressive CSS](http://johnpolacek.github.io/expressive-css/)
-* [Beard](http://buildwithbeard.com)
-* [Inuit CSS](https://github.com/inuitcss/inuitcss)
+- [Tachyons](https://tachyons.io)
+- [Semantic UI](https://semantic-ui.com)
+- [Pure CSS](https://purecss.io)
+- [Blueprint CSS](https://blueprintcss.io)
+- [BassCSS](http://basscss.com)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Kickstart](http://getkickstart.com)
+- [Materialize](https://materializecss.com)
+- [MUI CSS](https://www.muicss.com)
+- [Solid](https://solid.buzzfeed.com)
+- [Expressive CSS](http://johnpolacek.github.io/expressive-css/)
+- [Beard](http://buildwithbeard.com)
+- [Inuit CSS](https://github.com/inuitcss/inuitcss)
 
 ### Results for Libraries
 
@@ -82,15 +82,15 @@ The HTML is just like an y other: a code element wrapped in a pre element. Howev
 
 This label text appears using a CSS property I hadn't heard of yet: attr(). The attr() CSS function takes the content of the rel attribute and makes that the content of the pseudo element its applied to.
 
-```astro
+```css
 content: attr(rel);
 ```
 
 The content CSS property only works with pseudo elements. In this case, the :before pseudo element of any pre element that has a rel attribute:
 
-```astro
+```css
 pre[rel]::before {
-    content: attr(rel);
+  content: attr(rel);
 }
 ```
 
@@ -98,11 +98,11 @@ From here, the additional styling makes the label readable and positions it at t
 
 However, that's not all. The background color of the header changes for each language on the CSS Tricks blog. Purple is the color for JavaScript, jQuery, and JSX code samples, assigned using an attribute selector:
 
-```astro
+```css
 pre[rel="jQuery"]::before,
 pre[rel="JavaScript"]::before,
 pre[rel="JSX"]::before {
-    background: #9c27b0;
+  background: #9c27b0;
 }
 ```
 

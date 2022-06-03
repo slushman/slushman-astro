@@ -1,10 +1,10 @@
 ---
 layout: layout:Post
 title: "ArtistDataPress Expiration"
-date: "2016-10-05"
+pubDate: "2016-10-05"
 category: ["ArtistDataPress"]
-heroAccount: 'simbrock'
-heroPhotographer: 'Spencer Imbrock'
+heroAccount: "simbrock"
+heroPhotographer: "Spencer Imbrock"
 description: "In case you haven't heard, ArtistData is shutting down, so the ArtistDataPress plugin will also be shutting down as of October 14."
 slug: artistdatapress-expiration
 ---

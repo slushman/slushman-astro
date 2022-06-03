@@ -1,18 +1,19 @@
 ---
 layout: layout:Post
 title: "How to Add a Select Menu of Formidable Forms in Customizer"
-date: "2016-07-18"
+pubDate: "2016-07-18"
 category: ["Code Samples"]
-heroAccount: 'bearock'
-heroPhotographer: 'Yan Xiong'
+heroAccount: "bearock"
+heroPhotographer: "Yan Xiong"
 description: "Formidable is a great WordPress forms plugin, but it doesn't include a Customizer control for listing your forms. Here's I made one."
 slug: add-select-menu-formidable-forms-customizer
 relatedPosts:
-- how-to-link-to-the-customizer
+  - how-to-link-to-the-customizer
 ---
+
 I recently had a need to list all the published Formidable forms as a select control in Customizer. Formidable doesn't spell out how to get this list, but I eventually stumbled on this method.
 
-```astro
+```php
 $forms = FrmForm::get_published_forms();
 $choices = [];
 

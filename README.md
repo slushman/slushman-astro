@@ -1,47 +1,47 @@
 # Slushman Astro site
 
 Built with [Astro](https://astro.build)
+
 ## 🚀 Project Structure
 
 This is basic structure of the Astro project:
 
-```astro
+```markdown
 /
 ├── public/
-│   ├── robots.txt
-│   └── favicon.ico
-│   └── cjw-caricature.ico
-│   └── logo.svg
-|   └── gallery/
-|       └── gallery-name/
-│           └── gallery-image-1.jpg
-│           └── gallery-image-2.jpg
-│           └── gallery-image-3.jpg
-│   └── post/
-│       └── past-name/
-│           └── hero.jpg
-│           └── image-in-content.jpg
+│ ├── robots.txt
+│ └── favicon.png
+│ └── cjw-caricature.ico
+│ └── logo.svg
+| └── gallery/
+| └── gallery-name/
+│ └── gallery-image-1.jpg
+│ └── gallery-image-2.jpg
+│ └── gallery-image-3.jpg
+│ └── post/
+│ └── past-name/
+│ └── hero.jpg
+│ └── image-in-content.jpg
 ├── src/
-│   ├── components/
-│   │   └── Header.astro
-│   │   └── SVGs/
-│   │       └── Facebook.astro
-│   └── galleries/
-│       └── ExampleGallery.astro
-│   └── layouts/
-│   │   └── BaseLayout.astro
-│   └── pages/
-│   │   └── 404.astro
-│   │   └── index.astro
-│   │   └── category/
-│   │       └── [category].astro
-│   │   └── post/
-│   │       └── example.md
-│   └── styles/
-│   │   └── global.css
-│   │   └── home.css
-│   └── utilities/
-│   │   └── index.js
+│ ├── components/
+│ │ └── Header.astro
+│ │ └── SVGs/
+│ │ └── Facebook.astro
+│ └── galleries/
+│ └── ExampleGallery.astro
+│ └── layouts/
+│ │ └── BaseLayout.astro
+│ └── pages/
+│ │ └── 404.astro
+│ │ └── index.astro
+│ │ └── category/
+│ │ └── [category].astro
+│ │ └── post/
+│ │ └── example.md
+│ └── styles/
+│ │ └── global.css
+│ └── utilities/
+│ │ └── index.js
 └── package.json
 ```
 
@@ -49,7 +49,7 @@ The public/gallery contains each image gallery's images. Gallery names should be
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-The public/images folder contains all images used for posts. Each folder needs to match the slug for the post, which is also the name of the*.md file for that post. To add the hero image for a post, put an image named hero.jpg in the post folder. Add any other images used in the content in that same folder.
+The public/images folder contains all images used for posts. Each folder needs to match the slug for the post, which is also the name of the\*.md file for that post. To add the hero image for a post, put an image named hero.jpg in the post folder. Add any other images used in the content in that same folder.
 
 Example:
 
@@ -64,12 +64,12 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 All commands are run from the root of the project, from a terminal:
 
-| Command           | Action                                       |
-|:----------------  |:-------------------------------------------- |
-| `yarn install`    | Installs dependencies                        |
-| `yarn start`      | Starts local dev server at `localhost:3000`  |
-| `yarn build`      | Build your production site to `./dist/`      |
-| `yarn preview`    | Preview your build locally, before deploying |
+| Command        | Action                                       |
+| :------------- | :------------------------------------------- |
+| `yarn install` | Installs dependencies                        |
+| `yarn start`   | Starts local dev server at `localhost:3000`  |
+| `yarn build`   | Build your production site to `./dist/`      |
+| `yarn preview` | Preview your build locally, before deploying |
 
 ## Adding content
 

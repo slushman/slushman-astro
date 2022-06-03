@@ -1,41 +1,41 @@
 ---
 layout: layout:Post
-date: "2016-10-26"
+pubDate: "2016-10-26"
 title: "Improving Underscores Stylesheet Using Parker"
 category: ["Parker"]
-heroAccount: 'element5digital'
-heroPhotographer: 'Element5 Digital'
+heroAccount: "element5digital"
+heroPhotographer: "Element5 Digital"
 description: "Underscores is a great starting point for building your custom WordPress theme. Here are four ways to improve the stylsheet using the CSS tool Parker."
 slug: improving-underscores-stylesheet-using-parker
 relatedPosts:
-- parker-and-wordpress-theme-development
-- installing-parker
-- creating-a-baseline-for-parker
-- simplifying-wordpress-menu-styling
-- results-underscores-stylesheet
-- parker-wordpress-menus
+  - parker-and-wordpress-theme-development
+  - installing-parker
+  - creating-a-baseline-for-parker
+  - simplifying-wordpress-menu-styling
+  - results-underscores-stylesheet
+  - parker-wordpress-menus
 ---
 
-In the [previous post](/post/creating-a-baseline-for-parker/) in this [series about Parker](/post/parker-and-wordpress-theme-development/), we created a baseline for the _s stylesheet and went through the results to understand them better. We also get some ideal scores for each metric. Now that we understand what we're trying to do and why, let's see how we can change the default _s stylesheet to get better scores from Parker and create a simpler, more maintainable stylesheet.
+In the [previous post](/post/creating-a-baseline-for-parker/) in this [series about Parker](/post/parker-and-wordpress-theme-development/), we created a baseline for the \_s stylesheet and went through the results to understand them better. We also get some ideal scores for each metric. Now that we understand what we're trying to do and why, let's see how we can change the default \_s stylesheet to get better scores from Parker and create a simpler, more maintainable stylesheet.
 
-## Changing the _s Stylesheet
+## Changing the \_s Stylesheet
 
 When examining the baseline results, we can spot several places where the results differ from the ideal score and we can achieve:
 
-* Reduced Total Stylesheet Size
-* Reduced Total Selectors
-* Reduced Total Identifiers
-* Reduced Selectors Per Rule
-* Reduced Identifiers Per Selector
-* Reduced Specificity Per Selector
-* Reduced Top Selector Specificity
-* Reduced Total ID Selectors
+- Reduced Total Stylesheet Size
+- Reduced Total Selectors
+- Reduced Total Identifiers
+- Reduced Selectors Per Rule
+- Reduced Identifiers Per Selector
+- Reduced Specificity Per Selector
+- Reduced Top Selector Specificity
+- Reduced Total ID Selectors
 
 ### Top Selector Specificity
 
 Let's start with the Top Selector Specificity. This one actually knocks out the Total ID Selectors as well since its the same selector. In style.css (and/or sass > modules > accessibility.scss), remove the "#content" at line 682 to become:
 
-```astro
+```css
 [tabindex="-1"]:focus {
 ```
 
@@ -43,11 +43,11 @@ There's no reason any element with a tabindex value of -1 would need an outline.
 
 Now, if we rerun Parker on the style.css file, we get:
 
-* Total Identifiers: 507
-* Identifiers Per Selector: 1.825, down from 1.8285714285714285
-* Specificity Per Selector: 10.089285714285714, down from 10.446428571428571
-* Top Selector Specificity: 30, down from 120
-* Total Id Selectors: 0
+- Total Identifiers: 507
+- Identifiers Per Selector: 1.825, down from 1.8285714285714285
+- Specificity Per Selector: 10.089285714285714, down from 10.446428571428571
+- Top Selector Specificity: 30, down from 120
+- Total Id Selectors: 0
 
 In addition to improving several of our stats, the Top Selector Specificity Selector has changed to the next "worst offending" selector. However, all the infinite-scroll classes fall into the "we can't control what other coders give us" category, so we'll leave that alone.
 
@@ -65,20 +65,20 @@ To this:
 
 When we rerun Parker on the updated stylesheet, we get:
 
-* Total Stylesheet Size: 14647, down from 15424
-* Total Selectors: 252, down from 280
-* Total Identifiers: 423, down from 507
-* Selectors Per Rule: 1.8805970149253732, down from 2.08955223880597
-* Identifiers Per Rule: 1.6944444444444444, down from 1.825
-* Specificity Per Selector: 9.305555555555555, down from 10.089285714285714
+- Total Stylesheet Size: 14647, down from 15424
+- Total Selectors: 252, down from 280
+- Total Identifiers: 423, down from 507
+- Selectors Per Rule: 1.8805970149253732, down from 2.08955223880597
+- Identifiers Per Rule: 1.6944444444444444, down from 1.825
+- Specificity Per Selector: 9.305555555555555, down from 10.089285714285714
 
 ### Normalize
 
 We can reduce that even further by changing the Normalize.css section to update it closer to the current version (v 5.0.0 as of this writing). Remove all the "input" prefixes in the Normalize section at the top. This changes results in:
 
-* Total Identifiers: 413
-* Identifiers Per Selector: 1.6547619047619047
-* Specificity Per Selector: 9.265873015873016
+- Total Identifiers: 413
+- Identifiers Per Selector: 1.6547619047619047
+- Specificity Per Selector: 9.265873015873016
 
 ### Clearings
 
@@ -92,12 +92,12 @@ Open footer.php and add the clear class to the footer element, then remove the "
 
 The results from this change have no effect on the styling or appearance, but we get much better stats from Parker:
 
-* Total Selectors: 240, down from 252
-* Total identifiers: 389, down from 413
-* Selectors Per Rule: 1.791044776119403, down from 1.8805970149253732
-* Identifiers Per Selector: 1.6375, down from 1.6547619047619047
-* Specificity Per Selector: 8.729166666666666, down from 9.265873015873016
+- Total Selectors: 240, down from 252
+- Total identifiers: 389, down from 413
+- Selectors Per Rule: 1.791044776119403, down from 1.8805970149253732
+- Identifiers Per Selector: 1.6375, down from 1.6547619047619047
+- Specificity Per Selector: 8.729166666666666, down from 9.265873015873016
 
 ## Wrapping Up
 
-We've gone through the majority of the _s stylesheet and optimized it to improve our Parker scores. However, the biggest optimization we can make is with the menus. In the [next post](/post/simplifying-menu-styling/), we'll go through all the code and changes we'll need to add, in addition to the changes to the stylesheet.
+We've gone through the majority of the \_s stylesheet and optimized it to improve our Parker scores. However, the biggest optimization we can make is with the menus. In the [next post](/post/simplifying-menu-styling/), we'll go through all the code and changes we'll need to add, in addition to the changes to the stylesheet.

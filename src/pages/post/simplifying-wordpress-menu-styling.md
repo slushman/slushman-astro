@@ -1,28 +1,28 @@
 ---
 layout: layout:Post
-date: "2016-10-27"
+pubDate: "2016-10-27"
 title: "Simplifying WordPress Menu Styling"
 category: ["Parker"]
-heroAccount: 'mikphotopro'
-heroPhotographer: 'Dmitriy Adamenko'
+heroAccount: "mikphotopro"
+heroPhotographer: "Dmitriy Adamenko"
 description: "Using results from the CSS Tool Parker, you can simplify the WordPress menu styling with a combination of custom classes and a menu walker."
 slug: simplifying-wordpress-menu-styling
 relatedPosts:
-- parker-and-wordpress-theme-development
-- installing-parker
-- creating-a-baseline-for-parker
-- improving-underscores-stylesheet-using-parker
-- results-underscores-stylesheet
-- parker-wordpress-menus
+  - parker-and-wordpress-theme-development
+  - installing-parker
+  - creating-a-baseline-for-parker
+  - improving-underscores-stylesheet-using-parker
+  - results-underscores-stylesheet
+  - parker-wordpress-menus
 ---
 
-In the [previous post](/post/improving-underscores-stylesheet-using-parker/) in this [series about Parker](/post/parker-and-wordpress-theme-development/), we optimized parts of the _s stylesheet and improved our Parker scores. However, one of the more difficult optimizations by working on the menus. Simplifying menu styling involves more than just a stylesheet tweak though. We'll need to add some PHP code to underscores that adds classes to each menu ul tag, menu item, and menu item link.
+In the [previous post](/post/improving-underscores-stylesheet-using-parker/) in this [series about Parker](/post/parker-and-wordpress-theme-development/), we optimized parts of the \_s stylesheet and improved our Parker scores. However, one of the more difficult optimizations by working on the menus. Simplifying menu styling involves more than just a stylesheet tweak though. We'll need to add some PHP code to underscores that adds classes to each menu ul tag, menu item, and menu item link.
 
 ## The Menu
 
-The styling for menus in _s involves some pretty insane selectors, like this one:
+The styling for menus in \_s involves some pretty insane selectors, like this one:
 
-```astro
+```css
 .main-navigation ul ul li:hover > ul
 ```
 
@@ -36,7 +36,7 @@ In the inc/extras.php file, we're going to create two functions. The first adds 
 
 The following function adds two classes, derived from the menu name and the menu item depth, to each menu item.
 
-```astro
+```php
 /**
  * Adds a class with the menu name and depth level to each menu item.
  * Makes styling menus much easier.
@@ -47,7 +47,7 @@ The following function adds two classes, derived from the menu name and the menu
  * @param    array   $args     The wp_nav_menu args.
  * @param    int     $depth    The menu item depth.
  * @return   array   The modified menu item classes.
- */ 
+ */
 function _s_add_depth_to_menu_items($classes, $item, $args, $depth) {
      if (empty($item)) { return $classes; }
      $classes[] = $args->menu_id . '-item';
@@ -63,35 +63,32 @@ The function first checks if the item is empty and returns if it is. We're not g
 
 The $classes parameter is an array, so we create the two new classes, add them to the array, and return the modified array. Here are examples of the resulting class names for a menu titled "Primary Menu":
 
-```astro
-.primary-menu-item
-.primary-menu-item-0
+```css
+.primary-menu-item .primary-menu-item-0;
 ```
 
 The class that includes the depth changes for each menu item according to its depth in the menu:
 
-```astro
-.primary-menu-item-1
-.primary-menu-item-2
-.primary-menu-item-3
+```css
+.primary-menu-item-1 .primary-menu-item-2 .primary-menu-item-3;
 ```
 
 So instead of using:
 
-```astro
-.primary-menu ul ul ul li
+```css
+.primary-menu ul ul ul li;
 ```
 
 We could use this to style just the menu items at this depth:
 
-```astro
+```css
 .primary-menu-item-2
 ```
 
 Or this to style the menu items at this depth and all its descendants:
 
-```astro
-.primary-menu-item-1 li
+```css
+.primary-menu-item-1 li;
 ```
 
 This works great for the menu item, but what about the link inside the menu item?
@@ -100,7 +97,7 @@ This works great for the menu item, but what about the link inside the menu item
 
 The following function adds two classes, derived from the menu name and the menu item depth, to each menu item link.
 
-```astro
+```php
 /**
  * Adds classes to menu item links.
  * Adds the depth and menu name to make styling easier
@@ -126,19 +123,19 @@ The function first checks if the item is empty and returns if it is. We're not g
 
 Since the classes for menu item links aren't arrays, like the menu items, we append each newly created class to the existing class string. In this case, I'm adding two new classes:
 
-* `{menu-name}`-item-link
-* `{menu-name}`-item-link-`{depth}`
+- `{menu-name}`-item-link
+- `{menu-name}`-item-link-`{depth}`
 
 This allows for styling menu links in this menu and menu links in this menu at any particular depth. So we can apply styles to:
 
-```astro
+```css
 .primary-menu-item-link-2
 ```
 
 Rather than:
 
-```astro
-.primary-menu ul ul ul li > a
+```css
+.primary-menu ul ul ul li > a;
 ```
 
 ### Custom Menu Walker
@@ -147,7 +144,7 @@ Now that we have the depth and menu name added to each menu item (li tag) and me
 
 In the main-menu-walker.php file, we're going to create a simple class that only includes one method. This method replaces the one used by the default menu walker class used in WordPress and inserts the new classes in each menu and submenu. Here's the entire main-menu-walker.php file code:
 
-```astro
+```php
 <?php
 /**
  * Custom walker for adding a wrapper around submenus in the main menu
@@ -177,12 +174,12 @@ class _s_Main_Menu_Walker extends Walker_Nav_Menu {
 
 The function adds two classes to each ul tag in the menus:
 
-* `{menu-name}`-items
-* `{menu-name}`-items-`{depth}`
+- `{menu-name}`-items
+- `{menu-name}`-items-`{depth}`
 
 Before we can optimize our stylesheet with all these new classes, open the header.php file and find the wp_nav_menu function call (around line 45). We need to tell the primary menu to use our new walker class and add two classes to the top-level ul tag. Add the following just after 'menu_id' => 'primary-menu' and save the files:
 
-```astro
+```php
 , 'menu_class' => 'primary-menu-items primary-menu-items-0', 'walker' => new _s_Main_Menu_Walker()
 ```
 
@@ -192,7 +189,7 @@ At this point, you should have classes that include the menu name and depth on e
 
 Since we can now access each part of the menu directly with a class, lets look at what needs to change in the current stylesheet. Here are the rules we can change in the Menus section:
 
-```astro
+```css
 * .main-navigation ul
 * .main-navigation li
 * .main-navigation a
@@ -219,7 +216,7 @@ Since we can now access each part of the menu directly with a class, lets look a
 
 We're going change these, respectively, to:
 
-```astro
+```css
 * .primary-menu-items
 * .primary-menu-item
 * .primary-menu-item-link
@@ -250,10 +247,10 @@ A quick note about the numbering before we move on. Computers start counting at 
 
 Here are the results from our changes:
 
-* Total Stylesheet Size: 14405, up from 14344, but this expected since the class names are longer, therefore increase the byte size.
-* Total Identifiers: 350, down from 389
-* Identifiers Per Selector: 1.475, down from 1.6375
-* Specificity Per Selector: 8.566666666666666, down from 8.729166666666666
+- Total Stylesheet Size: 14405, up from 14344, but this expected since the class names are longer, therefore increase the byte size.
+- Total Identifiers: 350, down from 389
+- Identifiers Per Selector: 1.475, down from 1.6375
+- Specificity Per Selector: 8.566666666666666, down from 8.729166666666666
 
 ## Wrapping Up
 

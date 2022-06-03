@@ -1,34 +1,34 @@
 ---
 layout: layout:Post
-date: "2016-10-25"
+pubDate: "2016-10-25"
 title: "Creating a Baseline for Parker"
 category: ["Parker"]
-heroAccount: 'elisamichelet'
-heroPhotographer: 'Elisa Michelet'
+heroAccount: "elisamichelet"
+heroPhotographer: "Elisa Michelet"
 description: "In order to optimize the Underscores stylesheet using the CSS tool Parker, we need to start by creating a baseline, so we can compare the changes."
 slug: creating-a-baseline-for-parker
 relatedPosts:
-- parker-and-wordpress-theme-development
-- installing-parker
-- improving-underscores-stylesheet-using-parker
-- simplifying-wordpress-menu-styling
-- results-underscores-stylesheet
-- parker-wordpress-menus
+  - parker-and-wordpress-theme-development
+  - installing-parker
+  - improving-underscores-stylesheet-using-parker
+  - simplifying-wordpress-menu-styling
+  - results-underscores-stylesheet
+  - parker-wordpress-menus
 ---
 
-In the [previous post](/post/installing-parker/) in this [series about Parker](/post/parker-and-wordpress-theme-development/), we installed the stylesheet analysis tool and all its dependencies. Now, we're going to create a baseline measurement of the default _s stylesheet and explain the results from Parker.
+In the [previous post](/post/installing-parker/) in this [series about Parker](/post/parker-and-wordpress-theme-development/), we installed the stylesheet analysis tool and all its dependencies. Now, we're going to create a baseline measurement of the default \_s stylesheet and explain the results from Parker.
 
 ## Create a Baseline
 
-First, open Finder/Windows Explorer and navigate to the folder where you cloned _s. Open Terminal (or your preferred command line app), type in:
+First, open Finder/Windows Explorer and navigate to the folder where you cloned \_s. Open Terminal (or your preferred command line app), type in:
 
-```astro
-parker 
+```shell
+parker
 ```
 
-Note the space at the end! Drag the _s stylesheet file to Terminal. This puts the path to the stylesheet in Terminal. Hit enter to run Parker. The results will be something like this:
+Note the space at the end! Drag the \_s stylesheet file to Terminal. This puts the path to the stylesheet in Terminal. Hit enter to run Parker. The results will be something like this:
 
-```astro
+```shell
 PARKER-JS
 
 Total Stylesheets: 1
@@ -92,26 +92,25 @@ The total quantity of CSS rules in the stylesheet. A "rule" is the selector and 
 
 The total quantity of selectors used in the stylesheet. Selectors are combinations of identifiers for selecting an element on the site to which styles are applied. There's not an ideal number of total selectors to achieve, but a smaller number means the stylesheet is simpler. Here are some examples, each of these counts as one selector:
 
-* .this-is-a-class
-* .this-is-a-class a
-* .this-is-a-class a:hover
-* .main-navigation ul ul ul li a
-
+- .this-is-a-class
+- .this-is-a-class a
+- .this-is-a-class a:hover
+- .main-navigation ul ul ul li a
 
 ### Total Identifiers
 
 The total quantity of identifiers used in the stylesheet. Not to be confused with IDs, identifiers are each part of a selector. There's not an ideal number of total identifiers to achieve, but a smaller number means the stylesheet is simpler. Here are some examples with their identifier count:
 
-* .this-is-a-class - 1
-* .this-is-a-class a - 2
-* .this-is-a-class:hover- 2 (pseudo selectors count separately)
-* .main-navigation ul ul ul li a - 6
+- .this-is-a-class - 1
+- .this-is-a-class a - 2
+- .this-is-a-class:hover- 2 (pseudo selectors count separately)
+- .main-navigation ul ul ul li a - 6
 
 ### Total Declarations
 
 The total quantity of declarations in the stylesheet. Declarations are the CSS property and value. There's not an ideal number of total declarations to achieve, but a smaller number means the stylesheet is simpler. An example declaration is:
 
-```astro
+```css
 color: #fff;
 ```
 
@@ -119,7 +118,7 @@ color: #fff;
 
 The total quantity of selectors used in each rule. Rules can apply to more than one selector, like ".this-is-a-class, .this-is-another-class". This metric shows the mean of selectors used for each rule. Ideally, this number would 1 and each class would be reusable and only contain the styles needed for that class. This is one of those opinionated things I mentioned before. In Harry's opinion, using multiple selectors like this should be avoided:
 
-```astro
+```css
 button,
 [type="button"],
 [role="button"],
@@ -139,30 +138,36 @@ The total quantity of identifiers per selector. An ideal value is between 1 & 2.
 
 The mean of the specificity score of each selector. The easiest way to explain specificity is through examples:
 
-```astro
-a { color: #000; }
+```css
+a {
+  color: #000;
+}
 ```
 
 Applies to all links, so it's not very specific.
 
-```astro
-.link-to-home { color: #000; }
+```css
+.link-to-home {
+  color: #000;
+}
 ```
 
 Applies to any element with the class "link-to-home". More specific than styling all the "a" tags, but less specific than using an ID.
 
-```astro
-#link-to-home { color: #000; }
+```css
+#link-to-home {
+  color: #000;
+}
 ```
 
 Only applies to the element with the ID "link-to-home". There should only be one of these elements, so it is extremely specific.
 
 Parker is intended to help make your CSS classes reusable, so your specificity score should be as low as possible. This means your styles are reusable and don't apply to super-specific elements. Typically, between 10 and 20 is doing pretty well, since we'll mostly use classes for applying styles. Here's the scoreboard used by Parker:
 
-* Universal selectors (like *): 0
-* Element selectors (like input or a): 1
-* Classes, attributes, and pseudo selectors: 10
-* IDs: 100
+- Universal selectors (like \*): 0
+- Element selectors (like input or a): 1
+- Classes, attributes, and pseudo selectors: 10
+- IDs: 100
 
 ### Top Selector Specificity
 
@@ -198,4 +203,4 @@ A comma-separated list of all the media queries used in the stylesheet. Useful f
 
 ## Wrapping Up
 
-Now that we've learned what each result from Parker means and the ideal scores for each metric, we can start tweaking the _s stylesheet to get better scores and create a simpler, more maintainable stylesheet. In the [next post](/post/improving-underscores-stylesheet-using-parker/), we'll cover some easy wins to get closer to our goal.
+Now that we've learned what each result from Parker means and the ideal scores for each metric, we can start tweaking the \_s stylesheet to get better scores and create a simpler, more maintainable stylesheet. In the [next post](/post/improving-underscores-stylesheet-using-parker/), we'll cover some easy wins to get closer to our goal.

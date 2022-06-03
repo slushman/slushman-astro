@@ -1,10 +1,10 @@
 ---
 layout: layout:Post
 title: "How to Change the Featured Image Labels"
-date: "2015-11-03"
+pubDate: "2015-11-03"
 category: ["Code Samples"]
-heroAccount: 'snehachekuri93'
-heroPhotographer: 'Sneha Chekuri'
+heroAccount: "snehachekuri93"
+heroPhotographer: "Sneha Chekuri"
 description: "Did you know you can customize the terminology around featured images in WordPress? Check out how to use filters to change the terms."
 slug: how-to-change-the-featured-image-labels
 ---
@@ -13,13 +13,13 @@ When creating a site for a client or creating a plugin, I've found its helpful t
 
 I'm currently writing a plugin with a custom post type and using the featured image as a headshot for an employee. While "featured image" may work fine, "headshot" is more specific and makes more sense in this context. I haven't been able to find anything recent about how to change the labels on the existing Featured Image metabox. The most [commonly referenced code](http://themergency.com/featured-image-metabox-customization/) only works some of the time. Specifically, when one removes a featured image, the label for the link changes back to referencing "featured image" instead of the customized label.
 
-I dug through the core and found the [post_type_labels_$post_type](https://developer.wordpress.org/reference/hooks/post_type_labels_post_type/) filter, which was added in version 3.5. This filter makes customizing the featured image labels super easy:
+I dug through the core and found the [post*type_labels*$post_type](https://developer.wordpress.org/reference/hooks/post_type_labels_post_type/) filter, which was added in version 3.5. This filter makes customizing the featured image labels super easy:
 
-```astro
+```php
 /**
  * Changes strings referencing Featured Images for a post type
- * 
- * In this example, the post type in the filter name is "employee" 
+ *
+ * In this example, the post type in the filter name is "employee"
  * and the new reference in the labels is "headshot".
  *
  * @see    https://developer.wordpress.org/reference/hooks/post_type_labels_post_type/
@@ -37,7 +37,7 @@ function change_featured_image_labels($labels) {
 } // change_featured_image_labels()
 
 add_filter('post_type_labels_employee', 'change_featured_image_labels', 10, 1);
-```astro
+```
 
 [Gist of the code above](https://gist.github.com/slushman/454cc8b26c330727df13)
 

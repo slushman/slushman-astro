@@ -1,18 +1,18 @@
 ---
 layout: layout:Post
-date: "2017-06-19"
+pubDate: "2017-06-19"
 title: "Editing the README"
 category: ["WordPress Plugin Boilerplate"]
-heroAccount: 'jaysung'
-heroPhotographer: 'Jehyun Sung'
+heroAccount: "jaysung"
+heroPhotographer: "Jehyun Sung"
 description: "The WordPress Plugin Boilerplate include a typically README file needed for any plugin. Explore the eight parts and what to do with them."
 slug: editing-the-readme
 relatedPosts:
-- guide-using-wordpress-plugin-boilerplate
-- why-use-the-boilerplate
-- the-structure-of-the-wordpress-plugin-boilerplate
-- understanding-loader-class
-- using-plugin-generator
+  - guide-using-wordpress-plugin-boilerplate
+  - why-use-the-boilerplate
+  - the-structure-of-the-wordpress-plugin-boilerplate
+  - understanding-loader-class
+  - using-plugin-generator
 ---
 
 In the [previous post](/post/using-plugin-generator/) of this [WordPress Plugin Boilerplate series](/post/guide-using-wordpress-plugin-boilerplate/), we created the WP Starter Plugin using the plugin generator. However, before we begin developing, there is at least one thing we need to edit: the README file.
@@ -23,14 +23,14 @@ The plugin generator barely touches the README file (remind me to file a bug rep
 
 The README consists of several parts which are typical for most plugin README files:
 
-* Tags (at the top)
-* Description
-* Installation Instructions
-* Frequently Asked Questions
-* Screenshot List
-* Changelog
-* Upgrade Notices
-* Arbitrary Section
+- Tags (at the top)
+- Description
+- Installation Instructions
+- Frequently Asked Questions
+- Screenshot List
+- Changelog
+- Upgrade Notices
+- Arbitrary Section
 
 ### Tags
 
@@ -80,9 +80,10 @@ Provide some screenshots of your plugin in action. These could be the settings p
 
 The changelog provides details about the changes from one version to the next. I recommend providing as much as detail as you can. For example, if the next version has 10 commits, use the commit messages as list items in the changelog for this version. If you don't use the commit messages, at least tell what major things changed in this new version. For a new plugin, there isn't a changelog yet, so remove the examples and enter something like:
 
-```astro
+```markdown
 = 1.0.0 =
-* New plugin.
+
+- New plugin.
 ```
 
 ### Upgrade Notices

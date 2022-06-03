@@ -1,0 +1,11 @@
+---
+import PostExcerpt from 'component:PostExcerpt';
+
+const { posts } = Astro.props;
+---
+
+<div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list">
+  {posts.map(({ frontmatter, url }) => (
+  <PostExcerpt date={frontmatter.pubDate} description={frontmatter.description} title={frontmatter.title} url={url} />
+  ))}
+</div>

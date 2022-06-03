@@ -7,10 +7,10 @@ import LatestPosts from 'component:LatestPosts';
 import RelatedPosts from 'component:RelatedPosts';
 
 const { url } = Astro.request;
-const { content }  = Astro.props;
+const { content } = Astro.props;
 const {
   category: categories,
-  date,
+  pubDate,
   description,
   featuredImage,
   heroAccount,
@@ -20,11 +20,12 @@ const {
   title,
 } = content;
 ---
-<BaseLayout {description} {title} permalink={url} >
+
+<BaseLayout {description} {title} permalink={url}>
   <PostHero account={heroAccount} imageUrl={featuredImage} photographer={heroPhotographer} slug={slug} title={title} />
-  <section class="blue-section flex justify-between">
+  <section class="blue-section flex justify-between flex-col sm:flex-row">
     <p class="block m-0">
-      Published {date}
+      Published {pubDate}
     </p>
     <CategoryMeta categories={categories ?? []} />
   </section>
@@ -32,6 +33,8 @@ const {
     <slot />
   </article>
   <Shurls description={description} title={title} url={url} />
-  {relatedPosts && relatedPosts.length > 0 && (<RelatedPosts relatedPosts={relatedPosts} />)}
-  {!relatedPosts && (<LatestPosts current={slug} />)}
+  {relatedPosts && relatedPosts.length > 0 && (
+  <RelatedPosts relatedPosts={relatedPosts} />)}
+  {!relatedPosts && (
+  <LatestPosts current={slug} />)}
 </BaseLayout>
