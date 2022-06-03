@@ -1,21 +1,16 @@
 ---
-import { categorySlugs } from 'utils';
 import BaseLayout from 'layout:BaseLayout';
 import Posts from 'component:Posts';
+import { getCategories, getCategoryPosts } from 'utils';
 
 export async function getStaticPaths() {
   const allPosts = await Astro.glob('../post/**/*.md');
-  const allCats = allPosts.map(post => post.frontmatter.category).flat();
-  const uniqueCats = [...new Set(allCats)];
-  const uniqueFullCats = categorySlugs(uniqueCats);
-
-  return uniqueFullCats.map(({ category, slug }) => ({ params: { category: slug }, props: { category, slug } }));
+  return getCategories(allPosts);
 };
 
 const { category, slug } = Astro.props;
 const allPosts = await Astro.glob('../post/**/*.md');
-const categoryPosts = allPosts.filter(({ frontmatter }) => frontmatter.category.includes(category));
-const posts = categoryPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
+const posts = getCategoryPosts(allPosts);
 ---
 
 <BaseLayout title={category}>

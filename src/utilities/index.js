@@ -12,12 +12,21 @@ export const checkIsHome = (url) => {
   return "/" === parsedUrl.pathname;
 };
 
-export const getSortedPosts = (posts, limit, exclude = null) => {
-  let sortedPosts = posts.sort(
+export const excludeDrafts = (posts) => {
+  return posts.filter((post) => post.frontmatter?.draft !== true);
+};
+
+export const sortPosts = (posts) => {
+  return posts.sort(
     (a, b) =>
       new Date(b.frontmatter.pubDate).valueOf() -
       new Date(a.frontmatter.pubDate).valueOf()
   );
+};
+
+export const getSortedPosts = (posts, limit, exclude = null) => {
+  const published = excludeDrafts(posts);
+  let sortedPosts = sortPosts(published);
 
   if (exclude !== null) {
     sortedPosts = posts.filter((post) => post.frontmatter.slug !== exclude);
@@ -27,12 +36,29 @@ export const getSortedPosts = (posts, limit, exclude = null) => {
 };
 
 export const getRelatedPosts = (posts, related) => {
-  const filteredPosts = posts.filter((post) =>
+  const published = excludeDrafts(posts);
+  const filteredPosts = published.filter((post) =>
     related.includes(post.frontmatter.slug)
   );
-  return filteredPosts.sort(
-    (a, b) =>
-      new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf()
+  return sortPosts(filteredPosts);
+};
+
+export const getCategoryPosts = (posts) => {
+  const published = excludeDrafts(posts);
+  const categoryPosts = published.filter(({ frontmatter }) =>
+    frontmatter.category.includes(category)
   );
+  return sortPosts(categoryPosts);
+};
+
+export const getCategories = (posts) => {
+  const published = excludeDrafts(posts);
+  const allCats = published.map((post) => post.frontmatter.category).flat();
+  const uniqueCats = [...new Set(allCats)];
+  const uniqueFullCats = categorySlugs(uniqueCats);
+
+  return uniqueFullCats.map(({ category, slug }) => ({
+    params: { category: slug },
+    props: { category, slug },
+  }));
 };

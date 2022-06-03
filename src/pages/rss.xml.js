@@ -1,9 +1,10 @@
 import rss from "@astrojs/rss";
 
+import { getSortedPosts } from "utils";
 import { SiteMeta } from "../siteMeta";
 
-const postImportResult = import.meta.globEager("./post/*.md");
-const posts = Object.values(postImportResult);
+const postImportResult = import.meta.globEager("./post/**/*.md");
+const posts = getSortedPosts(Object.values(postImportResult));
 
 export const get = () =>
   rss({
