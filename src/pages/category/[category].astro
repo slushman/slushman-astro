@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 
 const { category, slug } = Astro.props;
 const allPosts = await Astro.glob('../post/**/*.md');
-const posts = getCategoryPosts(allPosts);
+const posts = getCategoryPosts(allPosts, category);
 ---
 
 <BaseLayout title={category}>

@@ -43,7 +43,7 @@ export const getRelatedPosts = (posts, related) => {
   return sortPosts(filteredPosts);
 };
 
-export const getCategoryPosts = (posts) => {
+export const getCategoryPosts = (posts, category) => {
   const published = excludeDrafts(posts);
   const categoryPosts = published.filter(({ frontmatter }) =>
     frontmatter.category.includes(category)
