@@ -1,16 +1,18 @@
 ---
 layout: layout:Post
-title: "How to get a job as a web developer"
-pubDate: "2022-06-24"
+title: "Resumes and cover letters for web developers (or anyone else)"
+pubDate: "2022-07-15"
 category: ["Job"]
 heroAccount: "craftedbygc"
 heroPhotographer: "Green Chameleon"
 description: "Crafting a resume and cover letter for each position you want to apply for gets easier with tese tips."
 slug: resumes-and-cover-letters
 draft: true
+relatedPosts:
+  - web-developer-job
 ---
 
-Resumes and cover letters for web developers (or anyone else)
+In my [previous post](/post/web-developer-job/), I wrote about what you would need to learn to get a job as a web developer. In this post, let's look at two items you'll need to create: a resume and a cover letter.
 
 Many people think writing a resume and/or cover letter is a once-and-done task, but it’s not. Ideally, you should customize both for each job. Here are some of the practical tips I used to land my current position.
 
@@ -72,25 +74,25 @@ Keep it easy to read and not too wordy
 Use the description keywords
 Customize the letter to the job
 
-When I wrote my last cover letter, I used a brilliant template that was like a helpful, professional mad-libs fill-in-the-blank. Here it is (from (https://www.themuse.com/amp/advice/the-perfect-cover-letter-template-to-show-off-your-skills )[themuse.com]):
+When I wrote my last cover letter, I used a brilliant template that was like a helpful, professional mad-libs fill-in-the-blank. Here it is (from [themuse.com](https://www.themuse.com/amp/advice/the-perfect-cover-letter-template-to-show-off-your-skills)):
 
-Dear [Name],
-
-With the utmost enthusiasm, I would like to express my interest in the [position title] position at [Company]. My interest in [field, industry, or other theme] has taken me from [experience] to [experience]. I believe that my passion for [aspect of your field or background], strong commitment to [aspect of your field or background], and interest in [aspect of your field or background] make me an ideal candidate to join the [department] staff at [Company].
-
-There are several skills I’d immediately bring to the table, as I am:
-
-An effective [descriptor that reflects transferable skill #1]: In my role as a [previous job] at [Company], I [action or accomplishment]. I was also able to showcase my [skill] abilities as a [role] in [project name] project by [what you did].
-
-A disciplined [descriptor that reflects transferable skill #2]: I have always displayed my careful approach to [job duty] by [action]. At [Previous Company], I frequently [action]. In addition, I had the opportunity to [action or accomplishment], which further shows my dedication to [aspect of your field].
-
-A passionate [descriptor that reflects transferable skill #3]: Everything I have engaged in so far has been driven by my keen interest in [aspect of your field]. Even as a [previous role], I made sure to dedicate some part of my day to [action]. It is this passion that has motivated every one of my career decisions thus far.
-
-I look forward to contributing my skills and experiences to the [position title] position at [Company] and hope to have the opportunity to speak with you further about how I can be an asset to your team.
-
-Sincerely,
-
-[Your Name]
+> Dear [Name],
+>
+> With the utmost enthusiasm, I would like to express my interest in the [position title] position at [Company]. My interest in [field, industry, or other theme] has taken me from [experience] to [experience]. I believe that my passion for [aspect of your field or background], strong commitment to [aspect of your field or background], and interest in [aspect of your field or background] make me an ideal candidate to join the [department] staff at [Company].
+>
+> There are several skills I’d immediately bring to the table, as I am:
+>
+> An effective [descriptor that reflects transferable skill #1]: In my role as a [previous job] at [Company], I [action or accomplishment]. I was also able to showcase my [skill] abilities as a [role] in [project name] project by [what you did].
+>
+> A disciplined [descriptor that reflects transferable skill #2]: I have always displayed my careful approach to [job duty] by [action]. At [Previous Company], I frequently [action]. In addition, I had the opportunity to [action or accomplishment], which further shows my dedication to [aspect of your field].
+>
+> A passionate [descriptor that reflects transferable skill #3]: Everything I have engaged in so far has been driven by my keen interest in [aspect of your field]. Even as a [previous role], I made sure to dedicate some part of my day to [action]. It is this passion that has motivated every one of my career decisions thus far.
+>
+> I look forward to contributing my skills and experiences to the [position title] position at [Company] and hope to have the opportunity to speak with you further about how I can be an asset to your team.
+>
+> Sincerely,
+>
+> [Your Name]
 
 Using that template, the response I got was (quote):
 

@@ -1,7 +1,7 @@
 ---
 layout: layout:Post
 title: "How to get a job as a web developer"
-pubDate: "2022-06-17"
+pubDate: "2022-07-08"
 category: ["Job"]
 heroAccount: "flowforfrank"
 heroPhotographer: "Ferenc Almasi"
@@ -28,7 +28,7 @@ HTML is the foundation of everything on the web. Whether building websites or we
 
 CSS is the styling language for the internet. Combined with HTML, you can build great websites.
 
-Specifically, I’d recommend the book HTML & CSS: Design and Build Websites by Jon Duckett. It can be a slightly dry read but gives you a solid understanding of these foundational web technologies.
+Specifically, I’d recommend the book [HTML & CSS: Design and Build Websites by Jon Duckett](https://amzn.to/3GRMTeh). It can be a slightly dry read but gives you a solid understanding of these foundational web technologies.
 
 ### JavaScript & Typescript
 
@@ -38,13 +38,13 @@ From there, learn Typescript, which makes your Javascript apps better and keeps 
 
 There are tons of tutorials and courses for learning JavaScript and Typescript. So many I don’t have any specific recommendations.
 
-A while back I read Typescript In 50 Lessons by Stefan Baumgartner and found it easy to understand.
+A while back I read [Typescript In 50 Lessons by Stefan Baumgartner](https://amzn.to/3mgKksO) and found it easy to understand.
 
 ### React
 
 Now that you have the foundation of HTML, CSS, JavaScript, and Typescript, try React next. React came from Facebook, but is one of the most popular JavaScript-based frameworks for building web apps.
 
-Again, there are loads of courses, books, etc. However, I think Wes Bos has pretty great courses. They are more expensive, but you get lifetime access and he’s a great teacher.
+Again, there are loads of courses, books, etc. However, I think [Wes Bos](https://wesbos.com/courses) has pretty great courses. They are more expensive, but you get lifetime access and he’s a great teacher.
 
 ## Other Things to Learn
 
@@ -54,13 +54,13 @@ Every reputable company uses some form of version control to manage its software
 
 #### Oh My Zsh
 
-An optional tool to learn is Oh My Zsh. Zsh is a command-line scripting language, like bash, and Oh My Zsh has a bunch of git shortcuts that make working with git even easier.
+An optional tool to learn is [Oh My Zsh](https://ohmyz.sh). Zsh is a command-line scripting language, like bash, and Oh My Zsh has a bunch of git shortcuts that make working with git even easier.
 
 ### Accessibility
 
 This is one of the most overlooked aspects of developing for the web and that’s a shame. Accessibility isn’t about making things work for someone with a disability, it’s about making the web work better for everyone. When something works well for someone with a disability or impairment, it works well for everyone else too.
 
-At the bare minimum, learn the US Federal Section 508 standards and how to implement them. When I did this the first time, I discovered these standards are just the best way to build any website.
+At the bare minimum, learn the [US Federal Section 508 standards](https://www.section508.gov) and how to implement them for web sites. When I did this the first time, I discovered these standards are just the best way to build any website.
 
 ### Testing
 
@@ -68,7 +68,11 @@ Making your software reliable and trustworthy goes a long way towards becoming a
 
 When I started at my current company, I knew nothing about testing, so I was thrown into the deep end. I spent my learning time every week writing tests for React components that didn’t have any. During that process, I found some bugs and was able to fix them. It also made our software that much more reliable and we were about to catch future mistakes because the tests showed a problem.
 
-I’ll talk a lot more about testing in future posts, but this is a great way to level up your career.
+I’ll talk a lot more about testing in future posts, but this is a great way to level up your career. If you want to get a head-start on my future posts, check out:
+
+- [Jest](https://jestjs.io)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Cypress](https://www.cypress.io)
 
 Having a giant list of things to learn is nice, but it can be overwhelming. Especially if you’re not sure how to go about learning it all.
 
@@ -78,20 +82,22 @@ Having a giant list of things to learn is nice, but it can be overwhelming. Espe
 
 I am a learn-by-doing kind of person. Many courses and tutorials have you follow along while building something, which I think is very effective.
 
-Udemy
-Free Code Camp
-Wes Bos
+- [Udemy](https://www.udemy.com)
+- [Free Code Camp](https://www.freecodecamp.org)
+- [Wes Bos](https://wesbos.com/courses)
+- [ui.dev](https://ui.dev)
+- [Frontend Masters](https://frontendmasters.com)
 
 ### Step Two - immerse yourself in the community
 
 Find newsletters, Twitter accounts, blogs, YouTube channels, books, podcasts, or whatever else works for you and subscribe. While you may not understand everything at first, over time, concepts become more familiar and you are better able to keep up with changes in the languages and community.
 
-CSS Tricks blog
-React Status newsletter
-Front End Focus newsletter
-Robin Wieruch blog
-Rendezvous with Cassidoo newsletter/blog
-React Newsletter by ui.dev
+[CSS Tricks blog](https://css-tricks.com)
+[React Status newsletter](https://react.statuscode.com)
+[Front End Focus newsletter](https://frontendfoc.us)
+[Robin Wieruch blog](https://www.robinwieruch.de/blog/)
+[Rendezvous with Cassidoo newsletter/blog](https://cassidoo.co/newsletter/)
+[React Newsletter by ui.dev](https://reactnewsletter.com)
 
 ### Step Three - build stuff
 

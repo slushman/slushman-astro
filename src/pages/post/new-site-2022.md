@@ -1,7 +1,7 @@
 ---
 layout: layout:Post
 title: "New Site for 2022"
-pubDate: "2022-06-10"
+pubDate: "2022-07-01"
 category: ["News"]
 heroAccount: "ninjason"
 heroPhotographer: "Jason Leung"
@@ -12,13 +12,13 @@ draft: true
 
 So you're looking at a completely rebuilt site! Yeah, the design didn't change at all, but under the hood, it's all-new.
 
-My previous site was built with Gatsby, which uses React. At the time, I was learning React and thought I'd get some additional practice by building my site. Gatsby was also relatively new at the time and seemed to fit the bill. While it was a bit of a challenge to work with, especially as a newer React developer, it was even more challenging to update it to the latest version this year. So, I opted for something else.
+My previous site was built with [Gatsby](https://www.gatsbyjs.com), which uses React. At the time, I was learning React and thought I'd get some additional practice by building my site. Gatsby was also relatively new at the time and seemed to fit the bill. While it was a bit of a challenge to work with, especially as a newer React developer, it was even more challenging to update it to the latest version this year. So, I opted for something else.
 
-I used Astro because it promises to be a simple and easy static site generator that can use Markdown files for the content. It can use any JS-based library. It even has a custom component system, if you want to use that. So, I did. I'm glad I did because frankly, it makes updating my blog much, much easier. But getting the project built took more engineering muscle than I thought I would need. So, here are some things I learned while working with Astro.
+I used [Astro](https://astro.build/) because it promises to be a simple and easy static site generator that can use Markdown files for the content. It can use any JS-based library. It even has a custom component system, if you want to use that. So, I did. I'm glad I did because frankly, it makes updating my blog much, much easier. But getting the project built took more engineering muscle than I thought I would need. So, here are some things I learned while working with Astro.
 
 ## Tailwind
 
-Ok, this technically isn't part of working with Astro, but I used the Tailwind library to style the entire site. Well, almost the entire site. I found the utility classes easy to work with and much simpler to keep track of how things are styled vs css-in-js. I still have to keep the documentation open when styling things because some of the style classes don't use the numbers I would use or immediately understand, but I've still found it fun to use.
+Ok, this technically isn't part of working with Astro, but I used [Tailwind](https://tailwindcss.com/) to style the entire site. I found the utility classes easy to work with and much simpler to keep track of how things are styled vs css-in-js. I still have to keep the documentation open when styling things because some of the style classes don't use the numbers I would use or immediately understand, but I've still found it fun to use.
 
 Astro has built-in support for Tailwind and clear instructions, so it would very easy to set up and use. The biggest challenge I had with Tailwind was trying some more advanced things, like combining pseudo-classes. I think it may still be possible, but falling back to the global stylesheet was easier.
 
