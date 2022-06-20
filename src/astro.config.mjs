@@ -7,7 +7,7 @@ import { SiteMeta } from "./siteMeta";
 export default defineConfig({
   site: SiteMeta.url,
   trailingSlash: "always",
-  integrations: [sitemap()],
+  integrations: [sitemap(), robotsTxt()],
   markdown: {
     drafts: true,
     render: [
@@ -17,6 +17,9 @@ export default defineConfig({
         rehypePlugins: [],
       },
     ],
+  },
+  experimental: {
+    integrations: true,
   },
 });
 

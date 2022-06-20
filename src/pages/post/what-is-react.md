@@ -1,11 +1,11 @@
 ---
 layout: layout:Post
-title: "Waht is React?"
+title: "What is React?"
 pubDate: "2022-07-29"
 category: ["React Basics"]
 heroAccount: "flowforfrank"
 heroPhotographer: "Ferenc Almasi"
-description: ""
+description: "Building interactive web-based applications with React is much simpler than using plan Javascript. So, what is React?"
 slug: what-is-react
 draft: true
 ---
