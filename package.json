@@ -17,7 +17,7 @@
   "dependencies": {
     "@astrojs/react": "^0.1.2",
     "@astrojs/rss": "^0.2.0",
-    "@astrojs/sitemap": "^0.1.0",
+    "@astrojs/sitemap": "^0.2.4",
     "feed": "^4.2.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
