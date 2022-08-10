@@ -1,0 +1,96 @@
+---
+/**
+ * Inspired by https://github.com/TheLastProject/CSSBox
+ */
+
+type GalleryImage = {
+  caption?: string;
+  url: string;
+};
+
+interface Props {
+  gallery: string;
+  images: GalleryImage[];
+}
+
+const { gallery, images } = Astro.props;
+
+const getPrevIndex = (index, gallery) => {
+  if (index === 0) {
+    return '';
+  } else {
+    return `#${gallery}-${index - 1}`;
+  }
+};
+
+const getNextIndex = (index, gallery, images) => {
+  if (index === images.length - 1) {
+    return '';
+  } else {
+    return `#${gallery}-${index + 1}`;
+  }
+};
+---
+
+<figure class="">
+  <ul class="grid m-0 gap-4 grid-cols-three-across">
+    {images.map(({ caption, url }, index) => (
+    <li class="">
+      <figure class="">
+        <a class="image-link" id={`${gallery}-${index}`} href={`#${gallery}-${index}`} role="button">
+          <img alt={caption} class="cursor-zoom-in thumb" loading="lazy" src={`/gallery/${gallery}/${url}`} />
+          <figcaption class="text-center">{caption}</figcaption>
+        </a>
+        <a class="z-[999999] fixed h-full w-full top-0 left-0 cursor-default transition-opacity duration-250 ease-linear bg-[rgba(0,0,0,0.75)] no-underline image-full"
+          href="#void" role="button">
+          <img
+            class="fixed bg-white m-0 p-0 mr-[-50%] max-h-[90%] max-w-[90%] top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%] image-full-image"
+            src={`/gallery/${gallery}/${url}`} />
+          <span class="image-button top-5 right-5 image-close" role="button"></span>
+          {getPrevIndex(index, gallery) ? <a class="image-button image-prev-next left-[5%] image-prev"
+            href={getPrevIndex(index, gallery)} role="button">&lt;</a> : null}
+          {getNextIndex(index, gallery, images) ? <a class="image-button image-prev-next right-[5%] image-next"
+            href={getNextIndex(index, gallery, images)} role="button">&gt;</a> : null}
+        </a>
+      </figure>
+    </li>
+    ))}
+  </ul>
+</figure>
+
+<style>
+  .image-button {
+    @apply text-white text-3xl fixed no-underline invisible z-[999999];
+  }
+
+  .image-prev-next {
+    @apply top-1/2 translate-x-[0%] translate-y-[-50%];
+  }
+
+  .image-close::after {
+    content: '\00d7';
+  }
+
+  .image-full {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .image-link:target+.image-full .image-button,
+  .image-link:target+.image-full~.image-button {
+    visibility: visible;
+  }
+
+  .image-link:target+.image-full {
+    opacity: 1;
+    pointer-events: initial;
+  }
+</style>
+
+<script>
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27) {
+      // figure out how to reset the link's target state to close the full size image.
+    }
+  });
+</script>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import PostHero from 'component:PostHero';
+import PostList from 'layout:PostList';
+
+const { url } = Astro.request;
+
+const description = 'Senior software engineer at Pushpay in Colorado Springs, CO specializing in React, React Native, and PHP.';
+const title = '404: Not Found';
+---
+<BaseLayout title="Slushman" {description} {title} permalink={url}>
+  <PostHero
+    account="benjaminjohnelliott"
+    photographer="Benjamin Elliott"
+    slug="404"
+    title="Content Not Found"
+  />
+  <div class="content-width pb-2 pt-8">
+    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <h2>Maybe try one of these:</h2>
+  </div>
+	<PostList limit={6} />
+</BaseLayout>

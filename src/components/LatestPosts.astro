@@ -1,0 +1,14 @@
+---
+import Posts from 'component:Posts';
+import { getSortedPosts } from 'utils';
+
+const { current } = Astro.props;
+
+const allPosts = await Astro.glob('../pages/post/**/*.mdx');
+const posts = getSortedPosts(allPosts, 6, current);
+---
+
+<section class="">
+  <h2 class="m-0 p-6">Check out these most recent posts:</h2>
+  <Posts posts={posts} />
+</section>

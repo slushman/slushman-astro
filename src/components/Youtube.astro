@@ -1,0 +1,120 @@
+---
+export enum YoutubeColors {
+  Red = 'red',
+  White = 'white',
+}
+
+export enum ListTypes {
+  PLAYLIST = 'PLAYLIST',
+  SEARCH = 'SEARCH',
+  USER_UPLOADS = 'USER_UPLOADS',
+}
+
+export interface Props {
+  autoplay?: boolean;
+  cc_load_policy?: boolean;
+  color?: YoutubeColors,
+  controls?: boolean;
+  disablekb?: boolean;
+  enablejsapi?: boolean;
+  end?: number;
+  fs?: boolean;
+  height?: number;
+  hl?: string;
+  iv_load_policy?: 1 | 3;
+  list?: string;
+  listType?: ListTypes;
+  loop?: boolean;
+  modestbranding?: boolean;
+  playlist?: string;
+  playsinline?: boolean;
+  start?: number;
+  videoId: string;
+  width?: number;
+}
+const {
+  autoplay = 0,
+  cc_load_policy = 0,
+  color = 'red',
+  controls = 1,
+  disablekb = 0,
+  enablejsapi = 0,
+  end = 0,
+  fs = 1,
+  height = 315,
+  hl = '',
+  iv_load_policy = 1,
+  list = '',
+  listType = 'SEARCH',
+  loop = 0,
+  modestbranding = 0,
+  playlist = '',
+  playsinline = 0,
+  start = 0,
+  videoId,
+  width = 560,
+} = Astro.props;
+
+/**
+ * Returns an string of URL parameters.
+ * 
+ * @param {array} parameters Array of parameter objects
+ * @return {string}
+ */
+const returnUrlParameterString = parameters => {
+  if (parameters.length < 1) return '';
+
+  return parameters.map((parameter) => {
+    return `${encodeURIComponent(parameter.name)}=${encodeURIComponent(parameter.value)}`;
+    }).join('&');
+};
+
+let sourceUrl = `https://www.youtube.com/embed/${videoId}`;
+const urlParams = [
+  {name: 'autoplay', value: autoplay},
+  {name: 'cc_load_policy', value: cc_load_policy},
+  {name: 'controls', value: controls},
+  {name: 'disablekb', value: 1},
+  {name: 'enablejsapi', value: enablejsapi},
+  {name: 'fs', value: fs},
+  {name: 'iv_load_policy', value: iv_load_policy},
+  {name: 'loop', value: loop},
+  {name: 'modestbranding', value: modestbranding},
+  {name: 'playsinline', value: playsinline},
+  {name: 'color', value: color},
+];
+
+if (end > 0) {
+  urlParams.push({name: 'end', value: end});
+}
+
+if (hl !== '') {
+  urlParams.push({name: 'hl', value: hl});
+}
+
+if (list !== '') {
+  urlParams.push({name: 'list', value: list});
+  urlParams.push({name: 'listType', value: listType});
+}
+
+if (playlist !== '') {
+  urlParams.push({name: 'playlist', value: playlist});
+}
+
+if (start > 0) {
+  urlParams.push({name: 'start', value: start});
+}
+
+const urlParameters = returnUrlParameterString(urlParams);
+const styledHeight = height ? 'h-[' + height + ']' : 'h-[268px]';
+---
+<figure class={`m-0 ${styledHeight}`}>
+  <iframe
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+    frameBorder="0"
+    height={height}
+    src={`${sourceUrl}?${urlParameters}`}
+    width={width}
+  ></iframe>
+</figure>

@@ -1,0 +1,46 @@
+---
+export interface Props {
+  caption?: string;
+  height?: string;
+  id: number;
+  tab?: string;
+  theme?: string;
+  title: string;
+  user?: string;
+  width?: string;
+}
+const {
+  caption = '',
+  height = '268px',
+  id,
+  tab = 'result',
+  theme = '0',
+  title,
+  user = 'slushman',
+  width = '100%',
+} = Astro.props;
+
+const styledHeight = height ? 'h-[' + height + ']' : 'h-[268px]';
+
+const src = `//codepen.io/${user}/embed/${id}/?height=${height}&theme-id=${theme}&default-tab=${tab}`;
+const userUrl = `https://codepen.io/${user}`;
+const pen = `${userUrl}/pen/${id}/`;
+---
+<figure class={`m-0 ${styledHeight}`}>
+  <div class="w-full">
+    <iframe
+      allowFullScreen={true}
+      allowtransparency={true}
+      class={` ${styledHeight}`}
+      frameBorder="no"
+      height={height}
+      scrolling="no"
+      src={src}
+      title={title}
+      width={width}
+    >
+      <a href={pen}>See this pen</a> by {user} (<a href={userUrl}>@{user}</a>) on <a href='http://codepen.io'>CodePen</a>.
+    </iframe>
+  </div>
+  {caption.length < 0 && <figcaption>{caption}</figcaption>}
+</figure>

@@ -1,0 +1,40 @@
+---
+import PostHero from 'component:PostHero';
+import CategoryMeta from 'component:CategoryMeta';
+import Shurls from 'component:Shurls';
+import BaseLayout from 'layout:BaseLayout';
+import LatestPosts from 'component:LatestPosts';
+import RelatedPosts from 'component:RelatedPosts';
+
+const { url } = Astro.request;
+const { content } = Astro.props;
+const {
+  category: categories,
+  pubDate,
+  description,
+  featuredImage,
+  heroAccount,
+  heroPhotographer,
+  relatedPosts,
+  slug,
+  title,
+} = content;
+---
+
+<BaseLayout {description} {title} permalink={url}>
+  <PostHero account={heroAccount} imageUrl={featuredImage} photographer={heroPhotographer} slug={slug} title={title} />
+  <section class="blue-section flex justify-between flex-col sm:flex-row">
+    <p class="block m-0">
+      Published {pubDate}
+    </p>
+    <CategoryMeta categories={categories ?? []} />
+  </section>
+  <article class="post">
+    <slot />
+  </article>
+  <Shurls description={description} title={title} url={url} />
+  {relatedPosts && relatedPosts.length > 0 && (
+  <RelatedPosts relatedPosts={relatedPosts} />)}
+  {!relatedPosts && (
+  <LatestPosts current={slug} />)}
+</BaseLayout>

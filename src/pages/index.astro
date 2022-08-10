@@ -1,0 +1,14 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import PostList from 'layout:PostList';
+import { SiteMeta } from '../siteMeta';
+
+const { url } = Astro.request;
+
+const title = SiteMeta.title;
+const description = SiteMeta.description;
+---
+
+<BaseLayout title="Slushman" {description} {title} permalink={url}>
+	<PostList />
+</BaseLayout>

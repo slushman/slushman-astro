@@ -1,0 +1,58 @@
+---
+import Email from 'svg:Email';
+import Facebook from 'svg:Facebook';
+import LinkedIn from 'svg:LinkedIn';
+import Pinterest from 'svg:Pinterest';
+import Stumbleupon from 'svg:Stumbleupon';
+import Tumblr from 'svg:Tumblr';
+import Twitter from 'svg:Twitter';
+
+const { description, title, url } = Astro.props;
+
+const shareMedia = null;
+
+const shurlLinks = [
+  {
+    Icon: Email,
+    url: `mailto:?subject=${title}&body=${description}`,
+  },
+  {
+    Icon: Facebook,
+    url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+  },
+  {
+    Icon: LinkedIn,
+    url: `https://www.linkedin.com/shareArticle?mini=true&url=${url}&source=${url}`,
+  },
+  {
+    Icon: Pinterest,
+    url: `https://pinterest.com/pin/create/button/url=${url}&description=${description}&media=${shareMedia}`,
+  },
+  {
+    Icon: Stumbleupon,
+    url: `http://www.stumbleupon.com/submit?url=${url}&title=${title}`,
+  },
+  {
+    Icon: Tumblr,
+    url: `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${url}&title=${title}`,
+  },
+  {
+    Icon: Twitter,
+    url: `https://twitter.com/intent/tweet?url=${url}`,
+  },
+];
+---
+
+<section class="blue-section py-6">
+  <h2 class="mb-0">Share this post!</h2>
+  <ul class="grid list-reset grid-cols-shurls-sm sm:grid-cols-shurls-lg">
+    {shurlLinks.map(({ Icon, url }) => (
+    <li class="flex-1 text-center">
+      <a class="flex text-center justify-center items-center min-h-[64px] min-w-[64px] rounded-[50%]" href={url}
+        rel="noopener noreferrer" target="_blank">
+        <Icon />
+      </a>
+    </li>
+    ))}
+  </ul>
+</section>
