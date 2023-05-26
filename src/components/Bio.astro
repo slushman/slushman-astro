@@ -1,12 +1,11 @@
 ---
+import { SiteMeta } from '../siteMeta';
+
 export interface Props {
 }
 ---
 
 <section class="content-width blue-section flex py-2 items-center">
   <img alt="Chris Wilcoxson" class="mb-0 mr-2 max-w-[50px] max-h-[50px] rounded-[100%]" src="/cjw-caricature.jpg" />
-  <p class="my-0">
-    Slushman is <strong>Chris Wilcoxson</strong>, a software engineer at Pushpay in Colorado Springs, CO specializing in
-    React, React Native, SwiftUI, and PHP. In a previous life, he built things with WordPress.
-  </p>
+  <p class="my-0">{SiteMeta.description}</p>
 </section>
