@@ -1,0 +1,151 @@
+---
+category: ["React Basics"]
+description: ""
+draft: true
+heroAccount: "ryanquintal"
+heroPhotographer: "Ryan Quintal"
+pubDate: "2022-08-05"
+title: "How to Build React Components"
+---
+
+Components are the heart of React. A good component is simple, reusable, and allows for building more complex interfaces.
+
+## Simple
+
+It's tempting to build a component that outputs almost anything based on what props you give it. However, this is confusing to maintain and use. React components should still follow development best practices, like the single-responsibility principle - only doing one thing and doing it well. If the component name is List, it should output a list and only take props for outputting a list.
+
+## Reusable
+
+Reusable components take props that change component content, which allows for flexibility. The previously mentioned List component could take the props 'items' containing all the information needed for displaying each item. The List component would display items based on the given props.
+
+```js
+const items1 = [0, 1];
+const items2 = ['Colorado', 'Tennessee'}];
+
+const ExamplePage = () => {
+    return (
+        <div>
+            <List items={items1} />
+            <List items={items2} />
+        </div>
+    );
+};
+```
+
+The output might be something like:
+
+```html
+<div>
+  <ul>
+    <li>0</li>
+    <li>1</li>
+  </ul>
+  <ul>
+    <li>Colorado</li>
+    <li>Tennessee</li>
+  </ul>
+</div>
+```
+
+For creating React components, there are two flavors: class-based and functional.
+
+## Class-based Components
+
+Before React 16.8, the only way to build React components was using classes. Here's a simple example:
+
+```js
+class Example extends React.component {
+  render() {
+    return <div>Example component</div>;
+  }
+}
+```
+
+Class components already have all the lifecycle functions available. They also have constructors and other class-related functionality like any other JavaScript [ES6 class] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
+
+```js
+class Example extends React.Component {
+  constructor() {
+    super();
+    this.state = { showThing: false };
+  }
+
+  componentDidMount() {
+    const apiData = this.props.callEndpoint();
+
+    if (apiData.hasData) {
+      this.setState({ showThing: true });
+    }
+  }
+
+  render() {
+    if (!this.state.showThing) {
+      return null;
+    }
+
+    return <div>Example component</div>;
+  }
+}
+```
+
+As these components get more and more complex, the verbosity of this syntax makes them increasingly difficult to read. If code is hard to read, it's hard to maintain. In my next post, I'll go into more detail about using class-based components since many companies still use them. Considering how large and verbose these components become, React made developers' lives easier in React 16.8 by introducing hooks and stateful functional components.
+
+## Hooks and Functional Components
+
+Functional components create a component as simple functions. All of these examples are valid components in React:
+
+```js
+const ExampleComponent = <div>Example component</div>;
+
+function ExampleComponent() {
+  return <div>Example component</div>;
+}
+
+const ExampleComponent = () => <div>Example component</div>;
+```
+
+As you can see, this is much simpler and easier to understand. Using props is also much simpler compared to class-based components.
+
+Class Component
+
+```js
+class Example extends React.component {
+  render() {
+    return <div>Example component is {this.props.adjective}</div>;
+  }
+}
+```
+
+Functional Component
+
+```js
+const Example = ({ adjective }) => <div>Example component is {adjective}</div>;
+```
+
+### Hooks vs Lifecycle Functions
+
+When we looked at class-based components, I mentioned lifecycle functions, like componentDidMount, which I showed in a code example. However, those are not available in functional components since they are methods only available when extending classes. React uses hooks for the same purpose. This is the class component example refactored as a functional component:
+
+```js
+const Example = () => {
+  const [showThing, setShowThing] = React.useState(false);
+
+  React.useEffect(() => {
+    const apiData = this.props.callEndpoint();
+
+    if (apiData.hasData) {
+      setShowThing(true);
+    }
+  }, []);
+
+  if (!showThing) return null;
+
+  return <div>Example component</div>;
+};
+```
+
+This code is more concise and easier to understand and read. You might notice the useState and useEffect functions. Those are some of the hooks provided by React. In future posts, I'll go over each hook in greater detail.
+
+## Conclusion
+
+This post barely touches on all the best practices for creating React components. In future posts, I'll present more details about each React hook, more best practices, and how to know when to break up a component. In my next post, we'll look deeper into class-based components.

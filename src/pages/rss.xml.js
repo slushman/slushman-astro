@@ -1,22 +1,24 @@
+import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 
 import { getSortedPosts } from "utils";
 import { SiteMeta } from "../siteMeta";
 
-const postImportResult = import.meta.globEager("./post/**/*.mdx");
-const posts = getSortedPosts(Object.values(postImportResult));
+export async function get(context) {
+  const posts = await getCollection("blog", ({ data }) => data.draft !== true);
+  const sortedPosts = getSortedPosts(posts);
 
-export const get = () =>
-  rss({
+  return rss({
+    customData: `<language>en-us</language>`,
+    description: SiteMeta.description,
+    items: sortedPosts.map(({ data, slug }) => ({
+      description: data.description,
+      link: `${SiteMeta.url}/post/${slug}/`,
+      pubDate: data.pubDate,
+      title: data.title,
+    })),
+    site: SiteMeta.url,
     stylesheet: "/styles.xsl",
     title: SiteMeta.title,
-    description: SiteMeta.description,
-    site: SiteMeta.url,
-    items: posts.map(({ frontmatter }) => ({
-      description: frontmatter.description,
-      link: `${SiteMeta.url}/post/${frontmatter.slug}/`,
-      pubDate: frontmatter.pubDate,
-      title: frontmatter.title,
-    })),
-    customData: `<language>en-us</language>`,
   });
+}

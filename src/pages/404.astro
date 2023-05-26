@@ -1,14 +1,21 @@
 ---
 import BaseLayout from 'layout:BaseLayout';
 import PostHero from 'component:PostHero';
-import PostList from 'layout:PostList';
+import PostExcerpt from 'component:PostExcerpt';
 
-const { url } = Astro.request;
+import { getSortedPosts } from 'utils';
+import { getCollection } from 'astro:content';
 
-const description = 'Senior software engineer at Pushpay in Colorado Springs, CO specializing in React, React Native, and PHP.';
+import { Debug } from 'astro/components';
+
+import { SiteMeta } from '../siteMeta';
+
 const title = '404: Not Found';
+const { url } = Astro.request;
+const blogEntries = await getCollection('blog', ({ data }) => data.draft !== true);
+const posts = getSortedPosts(blogEntries, 6);
 ---
-<BaseLayout title="Slushman" {description} {title} permalink={url}>
+<BaseLayout title="Slushman" description={SiteMeta.description} {title} permalink={url}>
   <PostHero
     account="benjaminjohnelliott"
     photographer="Benjamin Elliott"
@@ -16,8 +23,12 @@ const title = '404: Not Found';
     title="Content Not Found"
   />
   <div class="content-width pb-2 pt-8">
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <p>You just hit a route that doesn&#39;t exist... 😔.</p>
     <h2>Maybe try one of these:</h2>
   </div>
-	<PostList limit={6} />
+  <div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list">
+    {posts.map(({ data, slug }) => (
+      <PostExcerpt date={data.pubDate} description={data.description} slug={slug} title={data.title} />
+    ))}
+  </div>
 </BaseLayout>

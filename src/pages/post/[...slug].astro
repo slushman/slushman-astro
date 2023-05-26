@@ -1,0 +1,59 @@
+---
+import { CollectionEntry, getCollection, getEntries } from 'astro:content';
+import { Debug } from 'astro/components';
+
+import BaseLayout from 'layout:BaseLayout';
+import PostHero from 'component:PostHero';
+import CategoryMeta from 'component:CategoryMeta';
+import Shurls from 'component:Shurls';
+import LatestPosts from 'component:LatestPosts';
+import PostExcerpt from 'component:PostExcerpt';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post: CollectionEntry<'blog'>) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { data, slug } = post;
+const {
+  category,
+  description,
+  heroAccount,
+  heroPhotographer,
+  pubDate,
+  relatedPosts,
+  title,
+} = data;
+const { Content } = await post.render();
+const related = await getEntries(relatedPosts ?? []);
+const date = new Date(pubDate).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
+---
+<BaseLayout {...post.data}>
+	<PostHero account={heroAccount} imageUrl={`/post/${slug}/hero.jpg`} photographer={heroPhotographer} slug={slug} title={title} />
+  <section class="blue-section flex justify-between flex-col sm:flex-row">
+    <p class="block m-0">
+      Published {date}
+    </p>
+    <CategoryMeta categories={category ?? []} />
+  </section>
+  <article class="post">
+	  <Content />
+  </article>
+  <Shurls description={description} title={title} url={slug} />
+  {related && related.length > 0 && (
+    <section class="">
+      <h2 class="m-0 p-6">Check out these related posts:</h2>
+      <div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list">
+        {related.map(({ data, slug }) => (
+          <PostExcerpt date={data.pubDate} description={data.description} slug={slug} title={data.title} />
+        ))}
+      </div>
+    </section>
+  )}
+  {related.length === 0 && <LatestPosts current={slug} />}
+</BaseLayout>

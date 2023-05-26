@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from 'layout:BaseLayout';
+import PostExcerpt from 'component:PostExcerpt';
+import { getCategories, getSortedPosts } from 'utils';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+  return getCategories(posts);
+};
+
+export interface Props {
+  category: string;
+  slug: string;
+}
+
+const { category, slug } = Astro.props;
+
+const posts = await getCollection('blog', ({ data }) => {
+  return data.category.includes(category) && data.draft !== true;
+});
+const sortedPosts = getSortedPosts(posts);
+---
+
+<BaseLayout title={category}>
+  <section class="blue-section py-4">
+    <h1 class="m-0 text-center">{category}</h1>
+  </section>
+  <div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list">
+    {sortedPosts.map(({ data, slug }) => (
+      <PostExcerpt date={data.pubDate} description={data.description} slug={slug} title={data.title} />
+    ))}
+  </div>
+</BaseLayout>
