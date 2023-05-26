@@ -1,14 +1,25 @@
 ---
 import BaseLayout from 'layout:BaseLayout';
-import PostList from 'layout:PostList';
+import Bio from 'component:Bio';
+import PostExcerpt from 'component:PostExcerpt';
 import { SiteMeta } from '../siteMeta';
+import { getCollection } from 'astro:content';
+import { getSortedPosts } from 'utils';
 
 const { url } = Astro.request;
 
 const title = SiteMeta.title;
 const description = SiteMeta.description;
+
+const posts = await getCollection('blog', ({ data }) => data.draft !== true);
+const sortedPosts = getSortedPosts(posts);
 ---
 
 <BaseLayout title="Slushman" {description} {title} permalink={url}>
-	<PostList />
+	<Bio />
+	<div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list">
+    {sortedPosts.map(({ data, slug }) => (
+      <PostExcerpt date={data.pubDate} description={data.description} slug={slug} title={data.title} />
+    ))}
+  </div>
 </BaseLayout>

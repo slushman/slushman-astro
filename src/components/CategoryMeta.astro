@@ -8,9 +8,9 @@ const fullCats = categorySlugs(categories);
 
 <ul class="flex list-reset">
   {fullCats.map(
-  ({ category, slug }, index) => (
-  <li>
-    <a href={`/category/${slug}/`}>{category}</a>{index === (fullCats.length - 1) ? '' : ', '}
-  </li>
+    ({ category, slug }, index) => (
+    <li>
+      <a href={`/category/${slug}/`}>{category}</a>{index === (fullCats.length - 1) ? '' : ', '}
+    </li>
   ))}
 </ul>
