@@ -9,7 +9,7 @@ const { title, description, permalink } = Astro.props;
 const thisYear = new Date().getFullYear();
 ---
 
-<html lang="en">
+<html class="bg-offwhite dark:bg-darkblue" lang="en">
 <head>
   <Head {title} description={description} permalink={permalink} />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@ const thisYear = new Date().getFullYear();
   <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
 </head>
 
-<body class="bg-offwhite text-darkblue dark:bg-darkblue dark:text-offwhite text-[20px] font-sans">
+<body class="text-darkblue dark:text-offwhite text-[20px] font-sans">
   <main>
     <header class="grid justify-center w-full py-4 content-width mb-0">
       <Header />

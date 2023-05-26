@@ -16,6 +16,7 @@ module.exports = {
       mono: ["ui-monospace", '"Source Code Pro"', "monospace"],
       sans: ["ui-sans-serif", '"Source Sans Pro"', "sans-serif"],
       merri: ["ui-serif", "Merriweather", "serif"],
+      nunito: ["ui-sans-serif", "Nunito", "sans-serif"],
     },
     fontSize: settingsFontSizes,
     maxWidth: {
