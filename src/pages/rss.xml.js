@@ -1,13 +1,15 @@
-import rss from "@astrojs/rss";
+import rss, { pagesGlobToRssItems } from "@astrojs/rss";
 
 import { getSortedPosts } from "utils";
 import { SiteMeta } from "../siteMeta";
 
-const postImportResult = import.meta.globEager("./post/**/*.mdx");
-const posts = getSortedPosts(Object.values(postImportResult));
+export async function get(context) {
+  const postImportResult = await pagesGlobToRssItems(
+    import.meta.globEager("./post/**/*.mdx")
+  );
+  const posts = getSortedPosts(Object.values(postImportResult));
 
-export const get = () =>
-  rss({
+  return rss({
     stylesheet: "/styles.xsl",
     title: SiteMeta.title,
     description: SiteMeta.description,
@@ -20,3 +22,4 @@ export const get = () =>
     })),
     customData: `<language>en-us</language>`,
   });
+}
