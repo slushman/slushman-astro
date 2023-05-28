@@ -388,13 +388,6 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
-"new-site-2023.mdx": {
-	id: "new-site-2023.mdx";
-  slug: "new-site-2023";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
 "parker-and-wordpress-theme-development.mdx": {
 	id: "parker-and-wordpress-theme-development.mdx";
   slug: "parker-and-wordpress-theme-development";
@@ -535,14 +528,26 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"write-comments-in-css.mdx": {
+	id: "write-comments-in-css.mdx";
+  slug: "write-comments-in-css";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
+"write-comments-in-html.mdx": {
+	id: "write-comments-in-html.mdx";
+  slug: "write-comments-in-html";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 };
 
 	};
 
 	type DataEntryMap = {
-		"courses": {
-};
-
+		
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;

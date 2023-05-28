@@ -14,6 +14,7 @@ const blog = defineCollection({
       .transform((val) => new Date(val)),
     relatedPosts: z.array(reference('blog')).optional(),
     title: z.string(),
+    videoURL: z.string().optional(),
   }),
 });
 

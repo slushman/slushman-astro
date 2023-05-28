@@ -28,6 +28,7 @@ const {
   pubDate,
   relatedPosts,
   title,
+  videoURL,
 } = data;
 const { Content } = await post.render();
 const related = await getEntries(relatedPosts ?? []);
@@ -42,6 +43,19 @@ const date = new Date(pubDate).toLocaleDateString('en-us', { year:"numeric", mon
     <CategoryMeta categories={category ?? []} />
   </section>
   <article class="post">
+    {videoURL && (
+      <section>
+        <p>TLDR: watch the YouTube video instead</p>
+        <a class="video-thumbnail w-1/2 justify-center items-center flex relative" href={videoURL}>
+          <img
+            alt={title}
+            class=""
+            loading="lazy"
+            src={`/post/${slug}/thumbnail.jpg`}
+          />
+        </a>
+      </section>
+    )}
 	  <Content />
   </article>
   <Shurls description={description} title={title} url={slug} />

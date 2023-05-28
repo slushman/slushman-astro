@@ -1,0 +1,80 @@
+---
+category: ["HTML", "Videos", "Commenting Code"]
+description: "Learn the different ways to write comments in HTML , where you can and cannot put them, and how it can help you write code."
+heroAccount: "florianolv"
+heroPhotographer: "Florian Olivo"
+pubDate: "2023-05-13"
+title: "Write Comments in HTML"
+videoURL: "https://www.youtube.com/watch?v=nBFt48cYwiM"
+---
+
+When building a website have you ever wanted to leave a note, an explanation, a warning, or maybe even a joke or an Easter egg for someone looking at that code in the future?
+
+Comments are a common feature in many programming languages, including HTML.
+
+## Why use HTML comments?
+
+1. Comment out code as you learn to write what you want
+2. Group code together logically
+3. For fun, like leaving some ASCII art, a joke, an Easter egg, or a poem
+
+## How do you write comments in HTML?
+
+The syntax for writing an HTML comment is:
+
+```html
+<!-- This is the comment content -->
+```
+
+You can put whatever you want between the opening and closing tags, like a URL:
+
+```html
+<!-- https://www.slushman.com -->
+```
+
+Or even code:
+
+```html
+<!--
+<div class="example">
+  <p>Part of the website I want commented out.</p>
+</div>
+-->
+```
+
+Notice that last example covers multiple lines!
+
+## Where can you put HTML comments
+
+The following code sample shows all the valid ways to write comments in HTML, like:
+
+- On the line before code
+- On the line after code
+- Before code, on the same line
+- After code, on the same line
+- Inside the content
+
+```html
+<!-- On the line before code -->
+<div class="example">
+  <!-- Before code, same line --><p>Some content on the website.</p>
+  <p>Some content <!-- Comment inside content --> on the website.</p>
+  <p>Some content on the website.</p><!-- After code, same line -->
+</div>
+<!-- On the line after code -->
+```
+
+## Where not to put HTML comments
+
+There are places where you should not put comments, like:
+
+- Inside a tag
+- Inside an attribute
+
+```html
+<div <!-- Invalid comments inside a tag --> class="example">
+  <p>Some content on the website.</p>
+  <p>Some content on the website.</p>
+  <p class="example <!-- Invalid comments inside an attribute -->">Some content on the website.</p>
+</div>
+```
