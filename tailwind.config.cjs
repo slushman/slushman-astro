@@ -13,10 +13,10 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      mono: ["ui-monospace", '"Source Code Pro"', "monospace"],
-      sans: ["ui-sans-serif", '"Source Sans Pro"', "sans-serif"],
-      merri: ["ui-serif", "Merriweather", "serif"],
-      nunito: ["ui-sans-serif", "Nunito", "sans-serif"],
+      mono: ['"Source Code Pro"', "ui-monospace", "monospace"],
+      sans: ['"Source Sans Pro"', "ui-sans-serif", "sans-serif"],
+      merri: ["Merriweather", "ui-serif", "serif"],
+      nunito: ["Nunito", '"Source Sans Pro"', "sans-serif"],
     },
     fontSize: settingsFontSizes,
     maxWidth: {
