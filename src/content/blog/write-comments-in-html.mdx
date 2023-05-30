@@ -8,51 +8,45 @@ title: "Write Comments in HTML"
 videoURL: "https://www.youtube.com/watch?v=nBFt48cYwiM"
 ---
 
-When building a website have you ever wanted to leave a note, an explanation, a warning, or maybe even a joke or an Easter egg for someone looking at that code in the future?
+HTML, the backbone of the web, offers a plethora of features to enhance the development process. One such powerful yet often underutilized feature is HTML comments. Let's explore the reasons why you should leverage HTML comments, the creative possibilities they offer, and how to use them effectively in your code.
 
-Comments are a common feature in many programming languages, including HTML.
+## Why Use HTML Comments?
 
-## Why use HTML comments?
+1. Experimentation: HTML comments serve as an excellent tool for experimentation. By commenting out blocks of code, you can easily try different ideas or alternative solutions without deleting the original code. This allows for a seamless and efficient trial-and-error process.
 
-1. Comment out code as you learn to write what you want
-2. Group code together logically
-3. For fun, like leaving some ASCII art, a joke, an Easter egg, or a poem
+2. Grouping Items: Comments in HTML can be used to organize your code and create logical groupings. By adding comments to your markup, you can easily navigate through complex structures and identify specific sections, making your code more readable and maintainable.
 
-## How do you write comments in HTML?
+3. Fun and Creativity: Beyond their practical applications, HTML comments provide a canvas for artistic expression, humor, or Easter eggs within your code. Developers often include jokes, poems, or hidden surprises, adding a touch of amusement and personalization to their work. Let's dive into some examples of funny comments that have amused programmers around the world:
 
-The syntax for writing an HTML comment is:
+   <!-- I have no idea why this works, but it does. -->
+   <!-- Abandon all hope, ye who enter here. -->
+   <!-- When I wrote this, only God and I understood what I was doing. Now, only God knows. -->
+   <!-- Do not touch this code unless you're brave or completely insane. -->
 
-```html
-<!-- This is the comment content -->
-```
+## How to Write Comments in HTML
 
-You can put whatever you want between the opening and closing tags, like a URL:
+### Basic Syntax - Single Line
 
-```html
-<!-- https://www.slushman.com -->
-```
+HTML comments follow a simple syntax, using `<!--` to begin a comment and `-->` to end it. Here's an example of a single-line comment:
 
-Or even code:
+   <!-- This is a comment in HTML. -->
 
-```html
-<!--
-<div class="example">
-  <p>Part of the website I want commented out.</p>
-</div>
--->
-```
+### Content within HTML Comments
 
-Notice that last example covers multiple lines!
+HTML comments can contain any text, characters, or even special characters like emojis. However, it's important to note that comments should be used for annotations and not for critical information intended for users or browsers.
 
-## Where can you put HTML comments
+### Multi-line Syntax
 
-The following code sample shows all the valid ways to write comments in HTML, like:
+To create multi-line comments, you can simply continue the comment across multiple lines. Here's an example:
 
-- On the line before code
-- On the line after code
-- Before code, on the same line
-- After code, on the same line
-- Inside the content
+   <!-- This is a multi-line
+        comment in HTML.
+        It can span across
+        multiple lines. -->
+
+## Where You Can Put HTML Comments
+
+HTML comments can be placed anywhere within your markup. They can be inserted between HTML tags, before or after lines of code, or even within the `<head>` section of your document. Comments won't be rendered or affect the visual output of your webpage.
 
 ```html
 <!-- On the line before code -->
@@ -64,12 +58,9 @@ The following code sample shows all the valid ways to write comments in HTML, li
 <!-- On the line after code -->
 ```
 
-## Where not to put HTML comments
+## Where Not to Put Comments
 
-There are places where you should not put comments, like:
-
-- Inside a tag
-- Inside an attribute
+While HTML comments are flexible, it's important to avoid placing comments within self-closing tags like `<img>`, `<input>`, or `<br>`, as these tags do not support content and would break your HTML structure. You also cannot put them inside other tags or inside attributes.
 
 ```html
 <div <!-- Invalid comments inside a tag --> class="example">
@@ -78,3 +69,7 @@ There are places where you should not put comments, like:
   <p class="example <!-- Invalid comments inside an attribute -->">Some content on the website.</p>
 </div>
 ```
+
+## Conclusion
+
+HTML comments are a valuable asset in web development, allowing for experimentation, organization, and even a touch of creativity. By using comments effectively, you can streamline your coding process, make your code more readable, and inject a bit of personality into your projects. So go ahead, unleash your imagination, and start leveraging the power of HTML comments in your web development endeavors.

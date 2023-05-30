@@ -8,20 +8,31 @@ title: "Write Comments in CSS"
 videoURL: "https://www.youtube.com/watch?v=3RoH-XdHPXU"
 ---
 
-Have you ever used a magic number in your CSS and wanted to leave a comment to explain it?
+When it comes to writing clean and maintainable CSS code, comments play a crucial role in improving readability, collaboration, and long-term code management. By providing context, explanations, and reminders, comments help both current and future developers understand the purpose and functionality of the code. CSS comments can serve as notes for developers and have no impact on the appearance or behavior of the webpage.
 
-## How do you write comments in CSS?
+Let’s learn the syntax for CSS comments and where you can and cannot put comments in your stylesheets.
 
-The syntax for writing a CSS comment is:
 
+## CSS Comment Syntax
+
+The syntax for writing comments in CSS is the same for both single-line and multi-li e comments. They are enclosed between a forward slash and an asterisk (`/*`) to start the comment block and an asterisk and a forward slash (`*/`) to end the comment block.
+
+Single-line example:
 ```css
-/* This is a single-line comment in CSS */
+.selector {
+    property: value; /* This is a single-line comment */
+}
 ```
 
+Multi-line example:
 ```css
-/* This is a 
-multiple-line comment
-in CSS */
+/* This is a multi-line comment
+   spanning multiple lines of code */
+.selector {
+    /* Commented out code
+       property: value;
+    */
+}
 ```
 
 ## Where can you put CSS comments
@@ -43,3 +54,7 @@ p {
 }
 /* On the line after the styles */
 ```
+
+## Conclusion
+
+Well-crafted comments in CSS code can significantly enhance code readability, collaboration, and maintainability. By using single-line and multi-line comments effectively, you can provide essential context, explanations, and reminders to yourself and fellow developers.
