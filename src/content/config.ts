@@ -5,8 +5,8 @@ const blog = defineCollection({
     category: z.array(z.string()),
     description: z.string(),
     draft: z.boolean().optional(),
-    heroAccount: z.string(),
-    heroPhotographer: z.string(),
+    heroAccount: z.string().optional(),
+    heroPhotographer: z.string().optional(),
     // Transform string to Date object
 		pubDate: z
       .string()

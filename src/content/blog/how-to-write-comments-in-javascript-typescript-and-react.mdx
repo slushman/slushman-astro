@@ -1,0 +1,68 @@
+---
+category: ["JavaScript", "TypeScript", "React", "Videos", "Commenting Code"]
+description: "Learn the multiple ways to write comments in JavaScript, TypeScript, and React."
+pubDate: "2023-05-26"
+relatedPosts:
+  - write-comments-in-html
+  - write-comments-in-css
+  - should-you-comment-code-or-not
+title: "How to Write Comments in JavaScript, TypeScript, and React"
+videoURL: "https://www.youtube.com/watch?v=ZnNUYNYt8SI"
+---
+
+Comments play a crucial role in code documentation and collaboration. They help programmers understand the purpose and functionality of different sections of code, making it easier to maintain and debug. In this blog post, we will explore how to write comments in JavaScript, TypeScript, and React files. We will cover single-line syntax, multi-line syntax, docblocks, valid places to put comments, and invalid places to put comments.
+
+## Comment Syntax
+
+### Single-line syntax
+
+To write a comment on a single line in JavaScript, start the line with two forward slashes (//). Anything after the slashes will be ignored by the interpreter. For example:
+javascript
+
+```js
+// This is a single-line comment in JavaScript.
+```
+
+### Multi-line syntax
+
+JavaScript also allows multi-line comments using the /* */ syntax. This type of comment can span across multiple lines.
+
+```js
+/*
+This is a multi-line comment
+in JavaScript.
+*/
+```
+
+Docblocks, also known as JSDoc comments, are a specific type of comment used to document functions, classes, and variables. They provide structured information about the code and can be processed by documentation generators.
+
+```js
+/**
+ * Calculates the sum of two numbers.
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} The sum of the two numbers.
+ */
+function sum(a, b) {
+  return a + b;
+}
+```
+
+## Valid Places to Put Comments
+
+- At the beginning of a file to provide an overview.
+- Before a function or method declaration to explain its purpose and parameters.
+- Inside functions or complex code blocks to clarify their functionality.
+- Anywhere else where additional context or explanations are necessary.
+
+In React files, comments can be placed anywhere within React components to explain their purpose, describe props, or document complex logic.
+
+## Invalid Places to Put Comments
+
+- Inside strings or regular expressions, as they will be treated as part of the code.
+
+In React files, comments should not be placed inside JSX tags or expressions, as they will be treated as part of the render output.
+
+## Conclusion
+
+Comments are an essential tool for code documentation and understanding. In JavaScript, TypeScript, and React, you can use single-line syntax, multi-line syntax, and docblocks to provide context and explanations for your code. By utilizing comments effectively and placing them in valid locations, you can improve code readability and maintainability, making collaboration and debugging easier for yourself and your team.

@@ -11,26 +11,28 @@ const { account, photographer, slug, title } = Astro.props;
       src={`/post/${slug}/hero.jpg`}
     />
   </div>
-  <a
-    class="flex rounded bottom-2 text-xs leading-5 text-darkblue font-bold py-[4px] px-[6px] absolute right-2 decoration-transparent z-10 bg-offwhite dark:bg-lightblue"
-    href={`https://unsplash.com/@${account}?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge`}
-    target="_blank"
-    rel="noopener noreferrer"
-    title={`Download free do whatever you want high-resolution photos from
-    ${photographer}`}
-  >
-    <span class="photographer">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-[12px] relative align-middle fill-darkblue"
-        viewBox="0 0 32 32"
-      >
-        <title>unsplash-logo</title>
-        <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-      </svg>
-    </span>
-    <span class="photographer" data-test="photographer">{photographer}</span>
-  </a>
+  {photographer && account && (
+    <a
+      class="flex rounded bottom-2 text-xs leading-5 text-darkblue font-bold py-[4px] px-[6px] absolute right-2 decoration-transparent z-10 bg-offwhite dark:bg-lightblue"
+      href={`https://unsplash.com/@${account}?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge`}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={`Download free do whatever you want high-resolution photos from
+      ${photographer}`}
+    >
+      <span class="photographer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-[12px] relative align-middle fill-darkblue"
+          viewBox="0 0 32 32"
+        >
+          <title>unsplash-logo</title>
+          <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+        </svg>
+      </span>
+      <span class="photographer" data-test="photographer">{photographer}</span>
+    </a>)
+  }
   <h1 class="absolute-center m-0 p-2 text-center z-10 w-full max-w-[600px]">
     {title}
   </h1>
