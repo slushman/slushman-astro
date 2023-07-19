@@ -1,0 +1,85 @@
+---
+category: ["HTML"]
+description: "Avoid these common mistakes to write cleaner, more accessible, and future-proof HTML."
+heroAccount: "rojekilian"
+heroPhotographer: "Sarah Kilian"
+pubDate: "2023-07-14"
+title: "Ten Common HTML Mistakes"
+videoURL: "https://www.youtube.com/watch?v=Ad4-qpAK2J8"
+---
+
+HTML (Hypertext Markup Language) is the foundation of the web, allowing us to create and structure web pages. However, even seasoned developers can make mistakes when working with HTML. In this article, we'll explore ten common mistakes people make in HTML and how to avoid them.
+
+## 1. Missing Character Encoding
+
+One of the most common mistakes is forgetting to specify the character encoding of the HTML document. This can lead to rendering issues, especially when handling special characters or different languages. To avoid this mistake, always include the following meta tag within the head of your HTML document:
+
+```html
+<meta charset="UTF-8">
+```
+
+## 2. Missing Lang Attribute
+
+The `lang` attribute is essential for indicating the language of the web page. It helps search engines and screen readers understand the content correctly. Make sure to include the `lang` attribute within the opening `html` tag, like this:
+
+```html
+<html lang="en">
+```
+
+Replace "en" with the appropriate language code for your content.
+
+## 3. Improperly Formatted Tags
+
+Improperly formatted tags can cause issues with the structure and rendering of your HTML. Some common mistakes include:
+
+- Missing closing tags: Always ensure that each opening tag has a corresponding closing tag.
+- Mixing up self-closing and non-self-closing tags: Self-closing tags, like `<img />` and `<br />`, should not have closing tags, while others, like `<div>`, require both opening and closing tags.
+- Not using double quotes for attribute values: Attribute values should be enclosed in double quotes, like this: `<img src="image.jpg" alt="Description">`.
+
+Always double-check your tags to ensure they are properly formatted.
+
+## 4. Using Unsupported or Deprecated Tags and Attributes
+
+HTML evolves over time, and some tags and attributes become deprecated or unsupported in modern browsers. Avoid using tags like `<marquee>` and `<blink>`, as well as deprecated attributes like `marginwidth` on the `body` element or using `border=0` to style tables.
+
+Stay up-to-date with HTML standards and use supported tags and attributes for better compatibility and future-proofing your code.
+
+## 5. Using Head Tags Outside the Head
+
+The `<head>` section of an HTML document contains metadata and other important information about the page. It should only include elements like `<title>`, `<meta>`, and `<link>`. These elements should only be used inside `<head>`.
+
+Avoid placing other tags, such as `<div>` or `<p>`, directly within the `<head>`. Keep the `<head>` section clean and focused on metadata and relevant information.
+
+## 6. Missing Alt Attributes on Image Tags
+
+Images play a crucial role in web design, but forgetting to add the `alt` attribute to the `<img>` tag is an unfortunately common accessibility issue. The `alt` attribute provides alternative text that describes the image when it cannot be displayed or for visually impaired users.
+
+Always include descriptive and meaningful `alt` attributes to ensure accessibility and enhance SEO.
+
+## 7. Making Spaces with Tags
+
+Creating spaces using inappropriate tags can result in poor code quality and unnecessary markup. Some examples include using multiple `<br>` tags or empty `<p>` tags. Instead, use CSS for spacing purposes or consider using appropriate HTML elements like `<div>` with proper styling.
+
+Separate content and presentation by using HTML for structure and CSS for styling.
+
+## 8. Misusing Tags
+
+Misusing tags is a common mistake, such as placing block-level elements inside inline elements or using incorrect markup for lists, forms, headings, and tables. Each of these topics requires in-depth exploration and will be covered in separate articles.
+
+Make sure to learn and understand the proper usage of HTML tags to maintain a well-structured and semantically meaningful document.
+
+## 9. Missing Script Type
+
+When including JavaScript code within your HTML document, always specify the `type` attribute for the `<script>` tag. For modern JavaScript, use the `type="module"` attribute. If you're using traditional JavaScript, set the `type` attribute to `text/javascript`.
+
+Including the `type` attribute ensures proper handling and interpretation of your scripts.
+
+## 10. Not Using Semantic Tags
+
+Semantic tags provide meaning and context to the structure of your HTML document. Instead of using generic tags like `<div>` for everything, consider using semantic tags like `<header>`, `<nav>`, `<article>`, and `<footer>` to improve accessibility and search engine optimization.
+
+Take advantage of HTML5's semantic elements to enhance the readability and structure of your code.
+
+## Conclusion
+
+By avoiding these common mistakes, you can write cleaner, more accessible, and future-proof HTML code. Remember to always double-check your markup, stay up-to-date with web standards, and follow best practices to create exceptional web experiences.
