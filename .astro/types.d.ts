@@ -381,6 +381,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"new-react-app-with-vite.mdx": {
+	id: "new-react-app-with-vite.mdx";
+  slug: "new-react-app-with-vite";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "parker-and-wordpress-theme-development.mdx": {
 	id: "parker-and-wordpress-theme-development.mdx";
   slug: "parker-and-wordpress-theme-development";
