@@ -1,0 +1,81 @@
+---
+const { author, title } = Astro.props;
+---
+
+<html class="bg-offwhite dark:bg-medblue" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content={title} />
+  <meta name="author" content={author} />
+  <title>{title}</title>
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</head>
+
+<body class="presentation">
+  <main class="text-white scroll-smooth snap-x snap-mandatory overflow-x-scroll relative w-screen h-screen flex">
+    <slot />
+  </main>
+</body>
+
+</html>
+<style is:global>
+  body {
+    font-family: 'system-ui';
+    font-size: 48px;
+  }
+
+  h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  img {
+    max-height: 95vh;
+  }
+
+  .astro-code {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.5em;
+    padding: 1em;
+    text-align: left;
+  }
+
+  p:has(img) {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+<!-- <script>
+  document.addEventListener('keyup', (event) => {
+    var name = event.key;
+    var code = event.code;
+
+    if (code === 'ArrowRight' || code === 'ArrowDown') {
+      alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+    }
+
+    if (code === 'ArrowLeft' || code === 'ArrowUp' || code === 'Space') {
+      alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+    }
+
+    // alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+
+  }, false);
+</script> -->
