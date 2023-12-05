@@ -29,17 +29,17 @@ const pen = `${userUrl}/pen/${id}/`;
 <figure class={`m-0 ${styledHeight}`}>
   <div class="w-full">
     <iframe
-      allowFullScreen={true}
+      allowfullscreen={true}
       allowtransparency={true}
       class={` ${styledHeight}`}
-      frameBorder="no"
+      frameborder="no"
       height={height}
       scrolling="no"
       src={src}
       title={title}
       width={width}
     >
-      <a href={pen}>See this pen</a> by {user} (<a href={userUrl}>@{user}</a>) on <a href='http://codepen.io'>CodePen</a>.
+      <a href={pen}>See this pen</a> by {user} (<a href={userUrl}>@{user}</a>) on <a href='https://codepen.io'>CodePen</a>.
     </iframe>
   </div>
   {caption.length < 0 && <figcaption>{caption}</figcaption>}
