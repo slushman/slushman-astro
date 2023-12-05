@@ -1,0 +1,21 @@
+---
+
+// Source for JS-less slides:
+// https://alvarotrigo.com/blog/create-a-slider-with-pure-CSS/
+
+---
+<article class="flex flex-col items-center justify-center w-screen h-screen text-center">
+  <div class="block">
+    <slot />
+  </div>
+</article>
+<style>
+  article {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    margin-right: 0px;
+    scroll-snap-align: center;
+    transform-origin: center center;
+    transform: scale(1);
+  }
+</style>

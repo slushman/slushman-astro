@@ -564,6 +564,22 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 };
+"presentations": {
+"building-your-first-widget.mdx": {
+	id: "building-your-first-widget.mdx";
+  slug: "building-your-first-widget";
+  body: string;
+  collection: "presentations";
+  data: any
+} & { render(): Render[".mdx"] };
+"using-wp-plugin-boilerplate.mdx": {
+	id: "using-wp-plugin-boilerplate.mdx";
+  slug: "using-wp-plugin-boilerplate";
+  body: string;
+  collection: "presentations";
+  data: any
+} & { render(): Render[".mdx"] };
+};
 
 	};
 
