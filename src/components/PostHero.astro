@@ -6,6 +6,7 @@ const { account, photographer, slug, title } = Astro.props;
   <div class="relative, overflow-hidden max-h-[400px] max-w-screen">
     <div class="w-full pb-[66.75%] max-w-screen"></div>
     <img
+      alt=""
       class="absolute top-0 left-0 w-full h-full object-cover object-center delay-500"
       loading="lazy"
       src={`/post/${slug}/hero.jpg`}
@@ -22,7 +23,7 @@ const { account, photographer, slug, title } = Astro.props;
     >
       <span class="photographer">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="https://www.w3.org/2000/svg"
           class="h-[12px] relative align-middle fill-darkblue"
           viewBox="0 0 32 32"
         >
