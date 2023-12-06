@@ -5,9 +5,6 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx({ drafts: true }), sitemap(), tailwind()],
-  markdown: {
-    drafts: true,
-  },
+  integrations: [mdx(), sitemap(), tailwind()],
   site: "https://www.slushman.com",
 });

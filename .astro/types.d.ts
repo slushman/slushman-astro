@@ -570,14 +570,14 @@ declare module 'astro:content' {
   slug: "building-your-first-widget";
   body: string;
   collection: "presentations";
-  data: any
+  data: InferEntrySchema<"presentations">
 } & { render(): Render[".mdx"] };
 "using-wp-plugin-boilerplate.mdx": {
 	id: "using-wp-plugin-boilerplate.mdx";
   slug: "using-wp-plugin-boilerplate";
   body: string;
   collection: "presentations";
-  data: any
+  data: InferEntrySchema<"presentations">
 } & { render(): Render[".mdx"] };
 };
 
