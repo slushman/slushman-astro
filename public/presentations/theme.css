@@ -1,0 +1,323 @@
+:root {
+  --font-body: 'system-ui', 'sans-serif';
+  --font-mono: Consolas, Monaco, 'Andale Mono', monospace;
+}
+
+html {
+	color-scheme: dark;
+  background-color: #03649C;
+  color: white;
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2;
+	text-align: center;
+	text-wrap: balance;
+}
+
+a {
+	color: inherit;
+	text-decoration-color: hsla(0,0%,100%,.4);
+}
+
+strong, b {
+	font-weight: bold; /* FF is weird */
+}
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+img {
+	max-height: 100%;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+::selection {
+	background: canvas;
+	color: canvastext;
+	text-shadow: none;
+}
+
+ul, ol {
+  text-align: left;
+}
+
+/* Code Blocks */
+
+code, textarea, pre {
+	color: inherit;
+	font-family: var(--font-mono);
+  font-size: 0.4em;
+	margin: 0;
+	tab-size: 4;
+}
+
+pre > code {
+  font-size: inherit;
+}
+
+pre:has(code) {
+  background-color: #36454F;
+  font-size: 0.6em;
+  padding: 1em;
+  text-align: left;
+}
+
+code mark {
+  border-radius: 1px;
+  box-shadow: 0 -.05em 0 .1em var(--color);
+  color: inherit;
+  text-shadow: .01em .05em .2em rgba(0,0,0,.6);
+  transition: .6s;
+}
+
+pre + pre {
+	margin-top: 1.5em;
+}
+
+/* Slides */
+
+.slide {
+	align-items: center;
+	color: canvastext;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	padding: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+	.slide {
+		padding: 3vmin;
+	}
+}
+
+.light.slide {
+  background: var(--light1);
+  color: black;
+}
+
+.slide > h1,
+.slide > header > h1 {
+  text-align: center;
+  margin: 0 0 .6em;
+  font-size: 200%;
+}
+
+.slide > header > h1 + h2,
+.slide > header > h1 + p {
+  margin-top: 0;
+}
+
+.slide h2 {
+  font-size: 120%;
+}
+
+:where(section) > header.slide { /* exclude cover */
+	> h1 {
+		font-size: 250%;
+		font-weight: 300;
+		line-height: 1.2;
+		margin: auto;
+		padding: .5em .7em;
+		text-align: center;
+	}
+}
+
+#indicator {
+	color: canvastext;
+}
+
+/* Full image slides */
+
+.image.slide {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	background: center / cover no-repeat black;
+	image-rendering: crisp-edges;
+}
+
+.bottom-heavy.image.slide {
+	justify-content: start;
+	background-position: center bottom;
+}
+
+.top-heavy.image.slide {
+	background-position: center top;
+}
+
+.slide > .caption,
+.image.slide > h1:only-child {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  padding: .2em 0;
+  margin: 0;
+  /* margin-top: calc(50vh - 1em); */
+  text-align: center;
+  font-family: inherit;
+  font-weight: inherit;
+  color: white;
+  background: rgba(0,0,0,.4);
+  text-shadow: 0 .05em .1em rgba(0,0,0,.3);
+}
+
+@supports (backdrop-filter: blur(2px)) {
+  .slide > .caption,
+  .image.slide > h1:only-child {
+    background: rgba(0,0,0,.2);
+    backdrop-filter: blur(9px);
+  }
+}
+
+.slide > .caption,
+.image.slide > h1:only-child {
+  font-size: 200%;
+  line-height: 1.2;
+}
+
+.top-heavy.slide > .caption,
+.top-heavy.slide > h1:only-child {
+  position: fixed;
+  left: 0; right: 0;
+  bottom: .5in;
+}
+
+.bottom-heavy.slide > .caption,
+.bottom-heavy.slide > h1:only-child {
+  margin: .5in 0 0;
+}
+
+.slide > .caption h1 {
+  font: inherit;
+  margin-bottom: 0;
+}
+
+.slide > .caption h1 + a {
+  font-size: 30%;
+  display: block;
+  text-shadow: inherit;
+}
+
+.slide[data-credits]:after {
+	content: "Media credits: " attr(data-credits);
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	z-index: 100;
+	color: canvastext;
+	font-size: 15px;
+	font-weight: 300;
+	text-shadow: 0 0 .1em canvas;
+	text-shadow: 0 0 .1em .1em canvas;
+}
+
+.image.slide > h1:only-child,
+.slide > .caption {
+	text-shadow: none;
+	background: rgba(0,0,0,.5);
+}
+
+/* Quotes */
+
+blockquote {
+	position: relative;
+	font-style: italic;
+	max-width: calc(80vw - 4.5em);
+}
+
+blockquote::before {
+  content: "❝";
+  position: absolute;
+  right: 100%;
+  top: -.3em;
+  margin-right: .2em;
+  font-size: 300%;
+  color: var(--color-accent-1);
+  font-style: normal;
+}
+
+blockquote .cite {
+  text-align: right;
+  font-style: normal;
+  font-size: 60%;
+  font-weight: bold;
+  color: var(--color-accent-1);
+}
+
+blockquote .cite::before {
+  content: "— "
+}
+
+blockquote .cite a:not(:hover) {
+  text-decoration: none;
+}
+
+/* Syntax highlighting */
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: hsla(220, 10%, 90%, .5);
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+	color: var(--color-accent-2);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+	color: var(--color-accent-1);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css > .token.string,
+.token.inserted,
+.token.function {
+	color: var(--color-accent-4); /* deep pink */
+}
+
+.token.attr-value,
+.token.keyword,
+.token.variable {
+	color: var(--color-accent-3);
+}
+
+.token.atrule,
+.token.regex,
+.token.important {
+	color: orange;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
