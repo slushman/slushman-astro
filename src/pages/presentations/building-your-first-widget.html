@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Building Your First Widget</title>
+
+    <link href="https://inspirejs.org/inspire.css" rel="stylesheet" />
+    <link href="/presentations/theme.css" rel="stylesheet" />
+  </head>
+  <body class="language-markup" data-prism-plugins="normalize-whitespace">
+
+    <header id="intro" class="slide">
+      <h1>Building Your First Widget</h1>
+      <h2>Chris Wilcoxson</h2>
+      <p>WordCamp Nashville 2013</p>
+    </header>
+
+    <section>
+      <header class="slide">
+        <h1>Introduction</h1>
+      </header>
+
+      <article class="slide">
+        <h1>Who am I?</h1>
+
+        <details>
+          <p>Introduce yourself</p>
+          <p>Pastor&apos;s kid – moved around</p>
+          <p>Call Nashville home, coming up on 9 years in a row here</p>
+          <p>I&apos;m also a musician and play with the Band The Vibe Dials.</p>
+        </details>
+      </article>
+
+
+
+      <article class="slide">
+        <img src="/presentations/building-your-first-widget/three-loves.jpg" />
+
+        <details>
+          <p>The three loves of my life: Anna, Ginger, and Asher</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <img src="/presentations/building-your-first-widget/slushman-white.png" />
+
+        <details>
+          <p>I&apos;ve been working with WordPress since 2007, starting as a blogger on WordPress.com and eventually learning to build sites with the downloadable version.</p>
+          <p>I&apos;ve been developing plugins for two years and I started with a widget for BuddyPress.</p>
+          <p>I currently do development and design under the name Slushman. You can view my portfolio and contact me at slushman.com</p>
+          <p>My most popular plugin is ArtistDataPress, which allows musicians to style their ArtistData calendars to match their WP sites.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <img src="/presentations/building-your-first-widget/belmont-cemb.png" />
+
+        <details>
+          <p>During the day, I work at Belmont University as a computer technician and web admin for the Mike Curb College of Entertainment and Music Business. I&apos;m also currently working towards a web development degree while I build sites, design themes, and code plugins for the CEMB sites.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <img src="/presentations/building-your-first-widget/jump.jpg" />
+
+        <details>
+          <p>Let&apos;s jump in</p>
+          <p>How many have already developed their widget?</p>
+          <p>How many are starting development?</p>
+          <p>If you&apos;re planning to build your own widget, it should be written as a separate plugin. You have the advantage of removing the widget without affecting your theme or the WordPress core code.</p>
+          <p>FYI – we&apos;re going to take a look at some boilerplate code I&apos;ve written for creating widgets. This file will be available for download from my website: slushman.com.</p>
+          <p>When you create a plugin, there are a several things you&apos;ll need at the top of your file.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <ul>
+          <li>Plugin Name
+          <li>Plugin URI
+          <li>Description
+          <li>Version
+          <li>Author
+          <li>Author URI
+          <li>License
+        </ul>
+
+        <details>
+          <p>Plugin name – the name of your plugin</p>
+          <p>Plugin URI – where you have info about this plugin</p>
+          <p>Description – a brief description of what your plugin does</p>
+          <p>Version – the version of your plugin</p>
+          <p>Author – who wrote this</p>
+          <p>Author URI – where can people contact you</p>
+          <p>License – the rules about how people can use your work. Most WordPress plugins use GPL2</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            Plugin Name: Boilerplate Widget
+            Plugin URI: https://slushman.com/plugins/boilerplate-widget
+            Description: Boilerplate code to start building your widget.
+            Version: 0.1
+            Author: Slushman
+            Author URI: https://www.slushman.com
+            License: GPLv2
+          </code>
+        </pre>
+
+        <details>
+          <p>Here&apos;s an example from our Boilerplate Widget code.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            ***********************************************************************
+
+              Copyright (C) 2013 Slushman
+
+              This program is free software: you can redistribute it and/or modify
+              it under the terms of the GNU General License as published by
+              the Free Software Foundation, either version 3 of the License, or
+              (at your option) any later version.
+
+              This program is distributed in the hope that it will be useful,
+              but WITHOUT ANY WARRANTY; without even the implied warranty of
+              MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+              GNU General License for more details.templates/classic.php
+
+              You should have received a copy of the GNU General License
+              along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+            ***********************************************************************
+          </code>
+        </pre>
+
+        <details>
+          <p>This is the full GPL2 notification. Adding at the top of your plugin is completely optional, but recommended.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            class boilerplate_widget extends WP_Widget {
+          </code>
+        </pre>
+
+        <details>
+          <p>This would be the first line of code for your widget.</p>
+          <p>For those who aren&apos;t experienced developers, you&apos;re probably wondering:</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <h1>What is a class?</h1>
+
+        <details>
+          <p>A class is a set of instructions to build a specific type of object, in this case, it&apos;s a set of instructions for building a widget within WordPress.</p>
+          <p>Using a class allows us to keep our code completely separated from the other widgets, plugins, and WordPress. Plus, it&apos;s the only way to build one in WordPress, without rebuilding large parts of WP.</p>
+          <p>It also allows us to create multiple instances of our widgets.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <h1>Instances</h1>
+
+        <details>
+          <p>Instances are clones of our widget.</p>
+          <p>Think of it this way: if everyone in here drove a Toyota Camry. But we wouldn&apos;t be driving the exact same Camry, like literally the same car. We would each drive our own Camry. Each one can have different properties, power windows, white paint job, premium stereo, etc.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            class boilerplate_widget extends WP_Widget {
+          </code>
+        </pre>
+
+        <details>
+          <p>boilerplate_widget is the name of our example class</p>
+          <p>Extends:</p>
+          <p>Inherits the methods and properties of another class </p>
+          <p>In this case, our widget inherits the methods and properties of the WP Widget class. All we need to do is define our widget&apos;s unique properties and functions.</p>
+          <p>So, there are five parts you have to have for your widget.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            function __construct() {
+              $name = __( &apos;Slushman Boilerplate&apos; );
+              $opts[&apos;description&apos;] = __(
+                &apos;Create your own widget using this code.&apos;,
+                &apos;slushman-boilerplate-widget&apos;
+              );
+              $opts[&apos;classname&apos;] = &apos;&apos;;
+          </code>
+        </pre>
+
+        <details>
+          <p>First is the constructor for our widget. It tells WordPress two pieces of information:</p>
+          <p>The name of the widget</p>
+          <p>The description of the widget</p>
+          <p>You can optionally include a classname in the $opts array.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <img src="/presentations/building-your-first-widget/widget-name.jpg" />
+
+        <details>
+          <p>These are what you see when you look at the Widgets page to choose a widget.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+              parent::__construct( false, $name, $opts, $control );
+            } // End of __construct function
+          </code>
+        </pre>
+
+        <details>
+          <p>parent::__construct() refers to the WP_Widget class</p>
+          <p>This tells the WP_Widget class to create a new widget with this and description.</p>
+          <p>False refers to an optional parameter for construct that allows you to specify the base of the your ID attributes for your widget. If you just use FALSE here, it uses part of the unique class name. This argument does need to be unique, so I&apos;ve found its better to just let WordPress figure this out for you.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            $control = array( &apos;width&apos; => &apos;&apos;, &apos;height&apos; => &apos;&apos; );
+          </code>
+        </pre>
+
+        <details>
+          <p>There is a fourth argument that can be passed here, which sets the width and height of the widget, but height is currently not used.</p>
+          <p>I&apos;ve rarely seen a need for this last argument. </p>
+          <p>If your widget is going to be wider than 250px, the width argument is required.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            function form( $instance ) {
+          </code>
+        </pre>
+
+        <details>
+          <p>The form() function creates the form you see on the widget page</p>
+          <p>This function has one parameter, $instance, which contains the settings for that instance of the widget.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            $defaults[&apos;title&apos;] = &apos;Boilerplate Widget&apos;;
+            $instance = wp_parse_args( (array) $instance, $defaults );
+          </code>
+        </pre>
+
+
+        <details>
+          <p>$defaults is an array of the default settings for the widget.</p>
+          <p>Next is wp_parse_args(), which takes the defaults and merges the defaults array with the $instance array. The $instance array takes precedence, so the settings you&apos;ve set there override any settings in $default.</p>
+          <p>We reassign this to the $instance variable to use for the rest of this function</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+              $textfield = &apos;title&apos;;
+              echo &apos;&lt;p&gt;
+                &lt;label for="&apos; . $this->get_field_id( $textfield ) . &apos;"&gt;&apos;
+                  . __( ucwords( $textfield ) ) . &apos;: 
+                  <input class="widefat” 
+                    id="&apos; . $this->get_field_id( $textfield ) . &apos;"
+                    name="&apos; . $this->get_field_name( $textfield ) . &apos;"
+                    type="text"
+                    value="&apos; . esc_attr( $instance[$textfield] ) . &apos;" /&gt;
+                &lt;/label&gt;&apos;;
+            } // End of form function
+          </code>
+        </pre>
+
+        <details>
+          <p>Basically, we&apos;re creating the HTML for a field, but there are some specific WordPress bits we need to use instead of the standard HTML.</p>
+          <p>Lets break this down into individual easier to read chunks so we can see what&apos;s going here</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            $textfield = &apos;title&apos;;
+          </code>
+        </pre>
+
+        <details>
+          <p>First, we&apos;ll assign the $textfield variable the name of our field, which makes it easier to use. In this case, the field name is “title”.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            echo &apos;&lt;p&gt;
+            &lt;label for="&apos; . 
+            $this->get_field_id( $textfield ) . &apos;"&gt;&apos; . 
+            __( ucwords( $textfield ) ) . &apos;
+          </code>
+        </pre>
+
+        <details>
+          <p>To start the input field, we wrap it in p tags, which just spaces them out nicely.</p>
+          <p>Then, we create the label for the field.</p>
+          <p>The “for” attribute on the label tag needs the field&apos;s ID, which we get using the get_field_id() function.</p>
+          <p>get_field_id() creates a unique ID for this field for this instance and it uses the field&apos;s name, so we give it that using the $textfield variable. So it may end up being something like “title15” or something. It just needs something unique compared to every other widget title.</p>
+          <p>Then, as the label for the field, we capitalize the $textfield variable for the actual field label using the PHP function ucwords(), which capitalizes the first letter of each word.</p>
+          <p>This will give us the field name “Title” with a capital T.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            function update( $new_instance, $old_instance ) {
+              $instance = $old_instance;
+              $instance[&apos;title&apos;] = sanitize_text_field( $new_instance[&apos;title&apos;] );
+              return $instance;
+            } // End of update function
+          </code>
+        </pre>
+
+        <details>
+          <p>We do that with the update() function.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            function update( $new_instance, $old_instance ) {
+          </code>
+        </pre>
+
+        <details>
+          <p>update() needs the new $instance, which are the values being submitted from the form() function and the old $instance, which are the values already saved.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            $instance = $old_instance;
+          </code>
+        </pre>
+
+        <details>
+          <p>First, reassign $old_instance to $instance, which creates a new array of values to work with in the rest of the update function.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            $instance[&apos;title&apos;] = sanitize_text_field( $new_instance[&apos;title&apos;] );
+          </code>
+        </pre>
+
+        <details>
+          <p>Then we reassign that particular value with the new value. $instance is an array of values, which means it contains several values assigned with names.</p>
+          <p>In our case, we only have “title”, so we save the new value from the form. If you had more than one field in your form, you&apos;d have a statement for each field.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            sanitize_text_field
+          </code>
+        </pre>
+
+        <details>
+          <p>But we sanitize the input first using the sanitize_text_field() function.</p>
+          <p>Without sanitizing first, it is possible to write a statement that damages our database and submit it through the widget form.</p>
+          <p>Since we&apos;re using a text field, WordPress has this built-in function, sanitize_text_field, that removes line breaks, tabs, extra white spaces, strips tags and octets, and converts < characters into HTML entities that can be saved safely in the database.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+              return $instance;
+            } // End of update function
+          </code>
+        </pre>
+
+        <details>
+          <p>Lastly, the new $instance is returned, which tells the WP_Widget class to save the new values.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            function widget( $args, $instance ) {
+              extract( $args );
+              echo $before_widget;
+              $title = ( 
+                !empty( $instance[&apos;title&apos;] ) 
+                  ? apply_filters( &apos;widget_title&apos;, $instance[&apos;title&apos;] ) 
+                  : &apos;&apos; 
+                );
+              echo ( !empty( $title ) ? $before_title . $title . $after_title : &apos;&apos; );
+              echo &apos;&lt;div id="sidebar-me"&gt;&apos;;
+          </code>
+        </pre>
+
+        <details>
+          <p>Then we come to the widget() function. This is the actual widget output you see on the sidebar.</p>
+          <p>I&apos;ve broken this function down into three parts to make it easier to see what&apos;s going on here. What you see here is the top of the function.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            function widget( $args, $instance ) {
+          </code>
+        </pre>
+
+        <details>
+          <p>You&apos;ll notice there are two parameters, $args and $instance.</p>
+          <p>$instance is the same thing we&apos;ve seen before. It&apos;s an array of values related to that particular instance of the widget.</p>
+          <p>$args comes from the WP_Widget class and contains some HTML and bits for use in the widget.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            extract( $args );
+            echo $before_widget;
+          </code>
+        </pre>
+
+        <details>
+          <p>The first thing we do is create variables from all the items contained in $args using PHP&apos;s extract function.</p>
+          <p>Then we echo the $before_widget variable, which starts the HTML for the widget output.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            $title = ( !empty( $instance[&apos;title&apos;] )
+              ? apply_filters( &apos;widget_title&apos;, $instance[&apos;title&apos;] ) 
+              : &apos;&apos;
+            );
+          </code>
+        </pre>
+
+        <details>
+          <p>Next, we create the $title variable by checking if $instance has a value for the title, if so we check for any filters for the widget&apos;s title and assign it. If there is no value for the instance title,  the $title variable is just blank.</p>
+          <p>This is useful when you want a widget, but don&apos;t need to the title bar, so you just set the title field to blank.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            echo ( !empty( $title ) ? $before_title . $title . $after_title : &apos;&apos; );
+          </code>
+        </pre>
+
+        <details>
+          <p>If there is a value for title, we output the before_title HTML, the title itself, then the after_title HTML.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            echo &apos;&lt;div id="sidebar-me"&gt;&apos;;
+          </code>
+        </pre>
+
+        <details>
+          <p>After that, we echo an HTML div that begins the wrapper for the widget content.</p>
+          <p>The second section of the widget function is…</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <h1>???</h1>
+
+        <details>
+          <p>This next part is the output of your widget. It will vary based on what your particular widget does.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+                echo &apos;&lt;/div&gt;&lt;!-- End of #sidebar-me --&gt;&apos;;
+                echo $after_widget;
+              } // End of widget function
+            } // End of boilerplate_widget class
+          </code>
+        </pre>
+
+        <details>
+          <p>After your content, we echo the end of the content div, then the $after_widget HTML.</p>
+          <p>Notice, we&apos;re also ending the class too.</p>
+          <p>But we still have one bit of code we&apos;ll need for our widget to run in WordPress.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            add_action( &apos;widgets_init&apos;, &apos;slushman_boilerplate_widget_init&apos; );
+            function slushman_boilerplate_widget_init() {
+              register_widget( &apos;boilerplate_widget&apos; );
+            } // End of slushman_boilerplate_widget_init()
+          </code>
+        </pre>
+
+        <details>
+          <p>This is the last code needed for a widget.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            add_action( &apos;widgets_init&apos;, &apos;slushman_boilerplate_widget_init&apos; );
+          </code>
+        </pre>
+
+        <details>
+          <p>add_action tells WordPress when you run this function, run this function too. In this case, when WordPress runs widgets_init(), run our function, slushman_boilerplate_widget_init(), too.</p>
+          <p>By the way, that function name does need to be unique, since we&apos;re not using within the class.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <pre class="language-php">
+          <code class="language-php">
+            function slushman_boilerplate_widget_init() {
+              register_widget( &apos;boilerplate_widget&apos; );
+            } // End of slushman_boilerplate_widget_init()
+          </code>
+        </pre>
+
+        <details>
+          <p>In slushman_boilerplate_widget_init (), we register our widget, using the unique class name we created at the top.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <img src="/presentations/building-your-first-widget/completed-widget.jpg" />
+
+        <details>
+          <p>Now, when we activate our widget plugin, WordPress will add the Boilerplate widget to the list of widgets in the Widget admin.</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <h1>What&apos;s in your widget?
+        <p><img src="/presentations/building-your-first-widget/vikings.jpg" /></p>
+
+        <details>
+          <p>What kind of widget do you want to create then?</p>
+          <p>What has no one else created that you want to create?</p>
+        </details>
+      </article>
+
+      <article class="slide">
+        <h1>Demo Widget</h1>
+
+        <details>
+          <p>Show off the Latest LOLcat widget</p>
+        </details>
+      </article>
+
+      <footer class="slide">
+        <h1>Questions?</h1>
+      </footer>
+    </section>
+
+    <script src="https://inspirejs.org/inspire.mjs" type="module"></script>
+  </body>
+</html>

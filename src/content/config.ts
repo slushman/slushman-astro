@@ -18,11 +18,4 @@ const blog = defineCollection({
   }),
 });
 
-const presentations = defineCollection({
-  schema: z.object({
-    author: z.string(),
-    title: z.string(),
-  }),
-});
-
-export const collections = { blog, presentations };
+export const collections = { blog };
