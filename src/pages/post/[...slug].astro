@@ -8,6 +8,7 @@ import CategoryMeta from 'component:CategoryMeta';
 import Shurls from 'component:Shurls';
 import LatestPosts from 'component:LatestPosts';
 import PostExcerpt from 'component:PostExcerpt';
+import { SiteMeta } from 'src/siteMeta';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -34,7 +35,7 @@ const { Content } = await post.render();
 const related = await getEntries(relatedPosts ?? []);
 const date = new Date(pubDate).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
 ---
-<BaseLayout {...post.data}>
+<BaseLayout description={post.data.description} permalink={`${SiteMeta.url}/post/${slug}/`} title={post.data.title}>
 	<PostHero account={heroAccount} imageUrl={`/post/${slug}/hero.jpg`} photographer={heroPhotographer} slug={slug} title={title} />
   <section class="blue-section flex justify-between flex-col sm:flex-row">
     <p class="block m-0">

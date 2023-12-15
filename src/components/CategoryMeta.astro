@@ -1,11 +1,12 @@
 ---
-import { categorySlugs } from 'utils';
+import { Debug } from 'astro/components';
+
+import { categorySlugs, slugify } from 'utils';
 
 const { categories } = Astro.props;
 
 const fullCats = categorySlugs(categories);
 ---
-
 <ul class="flex list-reset gap-1">
   {fullCats.map(
     ({ category, slug }, index) => (
