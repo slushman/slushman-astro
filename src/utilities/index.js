@@ -1,4 +1,4 @@
-export const slugify = (string) => string.toLowerCase().replace(" ", "-");
+export const slugify = (string) => string.toLowerCase().replaceAll(" ", "-");
 
 export const categorySlugs = (categories) => {
   return categories.map((category) => ({

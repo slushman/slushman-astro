@@ -23,8 +23,6 @@ const {
 const styledHeight = height ? 'h-[' + height + ']' : 'h-[268px]';
 
 const src = `//codepen.io/${user}/embed/${id}/?height=${height}&theme-id=${theme}&default-tab=${tab}`;
-const userUrl = `https://codepen.io/${user}`;
-const pen = `${userUrl}/pen/${id}/`;
 ---
 <figure class={`m-0 ${styledHeight}`}>
   <div class="w-full">
@@ -39,7 +37,7 @@ const pen = `${userUrl}/pen/${id}/`;
       title={title}
       width={width}
     >
-      <a href={pen}>See this pen</a> by {user} (<a href={userUrl}>@{user}</a>) on <a href='https://codepen.io'>CodePen</a>.
+      <a href={`https://codepen.io/${user}/pen/${id}/`}>See this pen</a> by {user} (<a href={`https://codepen.io/${user}`}>@{user}</a>) on <a href='https://codepen.io'>CodePen</a>.
     </iframe>
   </div>
   {caption.length < 0 && <figcaption>{caption}</figcaption>}
