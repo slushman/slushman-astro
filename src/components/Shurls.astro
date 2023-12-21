@@ -2,14 +2,12 @@
 import Email from 'svg:Email';
 import Facebook from 'svg:Facebook';
 import LinkedIn from 'svg:LinkedIn';
-import Pinterest from 'svg:Pinterest';
-import Stumbleupon from 'svg:Stumbleupon';
-import Tumblr from 'svg:Tumblr';
 import Twitter from 'svg:Twitter';
 
-const { description, title, url } = Astro.props;
+// TODO - update Shurls. Add Mastodon, Reddit, Telegram, Whatsapp
+// add a native share sheet button on mobile and tablet
 
-const shareMedia = null;
+const { description, title, url } = Astro.props;
 
 const shurlLinks = [
   {
@@ -23,18 +21,6 @@ const shurlLinks = [
   {
     Icon: LinkedIn,
     url: `https://www.linkedin.com/shareArticle?mini=true&url=${url}&source=${url}`,
-  },
-  {
-    Icon: Pinterest,
-    url: `https://pinterest.com/pin/create/button/url=${url}&description=${description}&media=${shareMedia}`,
-  },
-  {
-    Icon: Stumbleupon,
-    url: `https://www.stumbleupon.com/submit?url=${url}&title=${title}`,
-  },
-  {
-    Icon: Tumblr,
-    url: `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${url}&title=${title}`,
   },
   {
     Icon: Twitter,
