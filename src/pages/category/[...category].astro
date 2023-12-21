@@ -26,7 +26,7 @@ const posts = await getCollection('blog', ({ data }) => {
 const sortedPosts = getSortedPosts(posts);
 ---
 
-<BaseLayout description={`Posts from Slushman related to ${category}`} permalink={`${SiteMeta.url}/post/${slug}/`} title={category}>
+<BaseLayout description={`Posts from Slushman related to ${category}`} noindex permalink={`${SiteMeta.url}/post/${slug}/`} title={category}>
   <section class="blue-section py-4">
     <h1 class="m-0 text-center">{category}</h1>
   </section>
