@@ -4,12 +4,12 @@ import SocialHead from 'component:SocialHead';
 import { Debug } from 'astro/components';
 
 
-const { title, description, permalink } = Astro.props;
+const { description, noindex, permalink, title } = Astro.props;
 ---
-<Debug permalink={permalink} />
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
+{noindex && (<meta name="robots" content="noindex" />)}
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
