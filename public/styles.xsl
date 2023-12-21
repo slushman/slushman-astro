@@ -90,7 +90,7 @@ This file is in BETA. Please test and contribute to the discussion:
           <header class="py-5">
             <h1 class="border-0">
               <!-- https://commons.wikimedia.org/wiki/File:Feed-icon.svg -->
-              <svg xmlns="https://www.w3.org/2000/svg" version="1.1" style="vertical-align: text-bottom; width: 1.2em; height: 1.2em;" class="pr-1" id="RSSicon" viewBox="0 0 256 256">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="vertical-align: text-bottom; width: 1.2em; height: 1.2em;" class="pr-1" id="RSSicon" viewBox="0 0 256 256">
                 <defs>
                   <linearGradient x1="0.085" y1="0.085" x2="0.915" y2="0.915" id="RSSg">
                     <stop  offset="0.0" stop-color="#E3702D"/><stop  offset="0.1071" stop-color="#EA7D31"/>
