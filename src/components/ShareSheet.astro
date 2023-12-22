@@ -1,0 +1,51 @@
+---
+const { shareText } = Astro.props;
+---
+<share-sheet class="flex lg:hidden justify-center" shareText={shareText}></share-sheet>
+
+<script>
+  class ShareSheet extends HTMLElement {
+    static observedAttributes = ['shareText'];
+
+    constructor() {
+      super();
+
+      const shareButton = this.querySelector('button');
+      const shareText = this.getAttribute('shareText') ?? '';
+
+      shareButton?.addEventListener('click', () => {
+        if ("canShare" in navigator) {
+          window.navigator
+            .share({
+              title: "Check out this post!",
+              text: shareText,
+            })
+            .catch(console.error);
+        } else if (window.navigator.clipboard) {
+          window.navigator.clipboard.writeText(shareText);
+          alert("Copied to clipboard!");
+        } else {
+          alert(
+            "Your browser does not support sharing. Please copy the text and share it yourself."
+          );
+        }
+      });
+    }
+
+    connectedCallback() {
+      const shadow = this.attachShadow({ mode: 'open' });
+
+      const button = document.createElement('button');
+      button.setAttribute('style', 'padding: 0.5rem 1rem; background-color: rgb(2 52 81 / 1); border: solid 2px; border-radius: 0.25rem; font-size: 20px; font-family: "Source Sans Pro" ui-sans-serif, sans-serif; color: white;');
+
+      const icon = document.createElement('i');
+      icon.setAttribute('class', 'icono-share scale-75');
+
+      shadow.appendChild(button);
+      button.appendChild(icon);
+      button.append('Share');
+    }
+  }
+
+  customElements.define('share-sheet', ShareSheet);
+</script>

@@ -34,8 +34,9 @@ const {
 const { Content } = await post.render();
 const related = await getEntries(relatedPosts ?? []);
 const date = new Date(pubDate).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
+const permalink = `${SiteMeta.url}/post/${slug}/`;
 ---
-<BaseLayout description={post.data.description} permalink={`${SiteMeta.url}/post/${slug}/`} title={post.data.title}>
+<BaseLayout description={post.data.description} permalink={permalink} title={post.data.title}>
 	<PostHero account={heroAccount} imageUrl={`/post/${slug}/hero.jpg`} photographer={heroPhotographer} slug={slug} title={title} />
   <section class="blue-section flex justify-between flex-col sm:flex-row">
     <p class="block m-0">
@@ -59,7 +60,7 @@ const date = new Date(pubDate).toLocaleDateString('en-us', { year:"numeric", mon
     )}
 	  <Content />
   </article>
-  <Shurls description={description} title={title} url={slug} />
+  <Shurls description={description} title={title} url={permalink} />
   {related && related.length > 0 && (
     <section class="">
       <h2 class="m-0 p-6">Check out these related posts:</h2>
