@@ -1,30 +1,34 @@
 ---
+import Mastodon from 'component:Mastodon';
+import ShareSheet from 'component:ShareSheet';
 import Email from 'svg:Email';
 import Facebook from 'svg:Facebook';
 import LinkedIn from 'svg:LinkedIn';
+import Reddit from 'svg:Reddit';
 import Twitter from 'svg:Twitter';
-
-// TODO - update Shurls. Add Mastodon, Reddit, Telegram, Whatsapp
-// add a native share sheet button on mobile and tablet
 
 const { description, title, url } = Astro.props;
 
 const shurlLinks = [
   {
     Icon: Email,
-    url: `mailto:?subject=${title}&body=${description}`,
+    url: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description)}`,
   },
   {
     Icon: Facebook,
-    url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+    url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
   },
   {
     Icon: LinkedIn,
-    url: `https://www.linkedin.com/shareArticle?mini=true&url=${url}&source=${url}`,
+    url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&source=${encodeURIComponent(url)}`,
+  },
+  {
+    Icon: Reddit,
+    url: `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
   },
   {
     Icon: Twitter,
-    url: `https://twitter.com/intent/tweet?url=${url}`,
+    url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`,
   },
 ];
 ---
@@ -33,12 +37,14 @@ const shurlLinks = [
   <h2 class="mb-0">Share this post!</h2>
   <ul class="grid list-reset grid-cols-shurls-sm sm:grid-cols-shurls-lg">
     {shurlLinks.map(({ Icon, url }) => (
-    <li class="flex-1 text-center">
-      <a class="flex text-center justify-center items-center min-h-[64px] min-w-[64px] rounded-[50%]" href={url}
-        rel="noopener noreferrer" target="_blank">
-        <Icon />
-      </a>
-    </li>
+      <li class="flex-1 text-center">
+        <a class="flex text-center justify-center items-center min-h-[64px] min-w-[64px] rounded-[50%]" href={url}
+          rel="noopener noreferrer" target="_blank">
+          <Icon />
+        </a>
+      </li>
     ))}
+    <Mastodon permalink={url} shareText={title} />
   </ul>
+  <ShareSheet shareText={description} />
 </section>
