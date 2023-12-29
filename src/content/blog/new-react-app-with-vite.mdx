@@ -9,7 +9,7 @@ title: "How to Create a New React App Using Vite"
 
 When you find yourself looking up the same set of instructions and consistently finding the wrong ones over and over again, it's time to document things for yourself. So, future self (and everyone else), this is how to create a new React app using Vite. This uses Typescript as well.
 
-Before we get started, there a few requirements. First, use node version 18 or higher.
+Before we get started, there a few requirements. First, install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating), then use node version 18 or higher.
 
 ```
 nvm use 18
@@ -25,10 +25,10 @@ Run this command in your terminal to create the project and starter files:
 yarn create vite app-name --template react-ts
 ```
 
-Next, go into the folder, install all the dependencies, then get started:
+Next, go into the folder, install all the dependencies, initialize a git repo, then get started:
 
 ```bash
-cd app-name && yarn install
+cd app-name && yarn install && git init
 ```
 
 ## Add Tailwind
@@ -68,6 +68,89 @@ Open the `./src/index.css` file and add the @tailwind directives:
 @tailwind utilities;
 ```
 
+## Add Prettier & ESLint
+
+```bash
+yarn add --dev eslint prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
+
+node --eval "fs.writeFileSync('.prettierrc','{}\n')"
+
+touch .eslintrc.js .eslintignore prettierrc.js .prettierignore
+```
+
+### Configure ESLint
+
+Add the following to the `.eslintrc.js` file:
+
+```js
+module.exports = {
+  extends: [
+    // By extending from a plugin config, we can get recommended rules without having to add them manually.
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:import/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
+    // This disables the formatting rules in ESLint that Prettier is going to be responsible for handling.
+    // Make sure it's always the last config, so it gets the chance to override other configs.
+    'eslint-config-prettier',
+  ],
+  settings: {
+    react: {
+      // Tells eslint-plugin-react to automatically detect the version of React to use.
+      version: 'detect',
+    },
+    // Tells eslint how to resolve imports
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
+  rules: {
+    // Add your own rules here to override ones from the extended configs.
+  },
+};
+```
+
+#### ESLint ignore
+
+Add the following to the `.eslintignore` file:
+
+```js
+node_modules/
+dist/
+.prettierrc.js
+.eslintrc.js
+env.d.ts
+```
+
+### Configure Prettier
+
+Add the following to the `prettierrc.js` file:
+
+```js
+module.exports = {
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 120,
+  "bracketSpacing": true
+}
+```
+
+#### Prettier ignore
+
+Add the following to the `.prettierignore` file:
+
+```js
+node_modules/
+dist/
+.prettierrc.js
+```
+
 ## Build Stuff
 
 Start things up and test it out:
@@ -76,5 +159,11 @@ Start things up and test it out:
 yarn dev
 ```
 
+### Optional
+
+If you prefer using `yarn start` and having the development auto-open when it starts up, go to the `package.json` file and add:
+```js
+"start": "vite --open",
+```
 
 Go build stuff!
