@@ -48,7 +48,7 @@ We'll also need to redirect people trying to visit our WordPress install.
 
 ### Redirects in a WordPress Theme
 
-We only want people to see our headless React app. So if they accidentally (or purposefully) visit our WordPress install, everything should redirect them to the React app. The [index.php](https://github.com/slushman/headless-theme/blob/master/index.php) file contains a small JavaScript redirection, along with an HTML message. The HTML message links to the live site URL. The JavaScript redirects the user to the live site along with the requested route. For example, if someone tries to go to api.slushman.com/post/headless-theme-for-wordpress (that's this post), they will redirect to www.slushman.com/post/headless-theme-for-wordpress instead.
+We only want people to see our headless React app. So if they accidentally (or purposefully) visit our WordPress install, everything should redirect them to the React app. The [index.php](https://github.com/slushman/headless-theme/blob/master/index.php) file contains a small JavaScript redirection, along with an HTML message. The HTML message links to the live site URL. The JavaScript redirects the user to the live site along with the requested route. For example, if someone tries to go to https://api.slushman.com/post/headless-theme-for-wordpress (that's this post), they will redirect to https://www.slushman.com/post/headless-theme-for-wordpress instead.
 
 I started off trying to redirect using PHP, then JavaScript as a fallback, but found it wasn't working properly and the JavaScript seemed to work better overall. Anyone not using JavaScript would see the message with the link. While that's not the best experience for them, the React app definitely wouldn't function, so the link works well enough.
 
