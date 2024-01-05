@@ -1,0 +1,13 @@
+---
+import ExcerptImage from 'component:ExcerptImage';
+
+const { description, name, slug } = Astro.props;
+---
+
+<article class="grid p-2 my-0 mx-auto max-w-prose">
+  <ExcerptImage image={`/project/${slug}/hero.jpg`} />
+  <h2 class="mb-0 font-merri font-bold">
+    <a class="shadow-none" href={`/project/${slug}`}>{name}</a>
+  </h2>
+  <slot>{description}</slot>
+</article>

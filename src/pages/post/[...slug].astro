@@ -3,7 +3,7 @@ import { CollectionEntry, getCollection, getEntries } from 'astro:content';
 import { Debug } from 'astro/components';
 
 import BaseLayout from 'layout:BaseLayout';
-import PostHero from 'component:PostHero';
+import Hero from 'component:Hero';
 import CategoryMeta from 'component:CategoryMeta';
 import Shurls from 'component:Shurls';
 import LatestPosts from 'component:LatestPosts';
@@ -36,8 +36,8 @@ const related = await getEntries(relatedPosts ?? []);
 const date = new Date(pubDate).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
 const permalink = `${SiteMeta.url}/post/${slug}/`;
 ---
-<BaseLayout description={post.data.description} permalink={permalink} title={post.data.title}>
-	<PostHero account={heroAccount} imageUrl={`/post/${slug}/hero.jpg`} photographer={heroPhotographer} slug={slug} title={title} />
+<BaseLayout description={description} permalink={permalink} title={title}>
+	<Hero account={heroAccount} contentType="post" imageUrl={`/post/${slug}/hero.jpg`} photographer={heroPhotographer} slug={slug} title={title} />
   <section class="blue-section flex justify-between flex-col sm:flex-row">
     <p class="block m-0">
       Published {date}
