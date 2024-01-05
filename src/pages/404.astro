@@ -1,6 +1,6 @@
 ---
 import BaseLayout from 'layout:BaseLayout';
-import PostHero from 'component:PostHero';
+import Hero from 'component:Hero';
 import PostExcerpt from 'component:PostExcerpt';
 
 import { getSortedPosts } from 'utils';
@@ -16,8 +16,9 @@ const blogEntries = await getCollection('blog', ({ data }) => data.draft !== tru
 const posts = getSortedPosts(blogEntries, 6);
 ---
 <BaseLayout title="Slushman" description={SiteMeta.description} {title} permalink={url}>
-  <PostHero
+  <Hero
     account="benjaminjohnelliott"
+    contentType="post"
     photographer="Benjamin Elliott"
     slug="404"
     title="Content Not Found"

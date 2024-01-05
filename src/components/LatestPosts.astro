@@ -5,13 +5,13 @@ import { Debug } from 'astro/components';
 import PostExcerpt from 'component:PostExcerpt';
 import { getSortedPosts } from 'utils';
 
-const { current } = Astro.props;
+const { cta = 'Check out the most recent posts:', current = null } = Astro.props;
 
 const posts = await getCollection('blog', ({ data }) => data.draft !== true);
 const sortedPosts = getSortedPosts(posts, 6, current);
 ---
 <section class="">
-  <h2 class="m-0 p-6">Check out these most recent posts:</h2>
+  <h2 class="m-0 p-6">{cta}</h2>
   <div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list">
     {sortedPosts.map(({ data, slug }) => (
       <PostExcerpt date={data.pubDate} description={data.description} slug={slug} title={data.title} />

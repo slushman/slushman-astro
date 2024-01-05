@@ -1,0 +1,49 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content';
+import { Debug } from 'astro/components';
+
+import BaseLayout from 'layout:BaseLayout';
+import ExternalLink from 'component:ExternalLink';
+import Hero from 'component:Hero';
+import CategoryMeta from 'component:CategoryMeta';
+import Shurls from 'component:Shurls';
+import { SiteMeta } from 'src/siteMeta';
+
+export async function getStaticPaths() {
+	const projects = await getCollection('project');
+	return projects.map((project: CollectionEntry<'project'>) => ({
+		params: { slug: project.slug },
+		props: project,
+	}));
+}
+type Props = CollectionEntry<'project'>;
+
+const project = Astro.props;
+const { data, slug } = project;
+const {
+  category = [],
+  cta,
+  description,
+  heroAccount,
+  heroPhotographer,
+  link,
+  name,
+} = data;
+const { Content } = await project.render();
+const permalink = `${SiteMeta.url}/project/${slug}/`;
+---
+<BaseLayout description={description} permalink={permalink} title={name}>
+	<Hero account={heroAccount} contentType="project" photographer={heroPhotographer} slug={slug} title={name} />
+  {category.length > 0 && (
+    <section class="blue-section flex justify-between flex-col sm:flex-row">
+      <CategoryMeta categories={category ?? []} />
+    </section>
+  )}
+  <div class="blue-section flex justify-between flex-col sm:flex-row text-2xl">
+    <ExternalLink link={link} text={cta} />
+  </div>
+  <article class="post">
+	  <Content />
+  </article>
+  <Shurls cta={`Share ${name} with your friends!`}` description={description} title={name} url={link} />
+</BaseLayout>

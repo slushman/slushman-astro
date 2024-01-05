@@ -1,5 +1,5 @@
 ---
-const { account, photographer, slug, title } = Astro.props;
+const { account, contentType, photographer, slug, title } = Astro.props;
 ---
 
 <section class="relative imageWrap">
@@ -9,7 +9,7 @@ const { account, photographer, slug, title } = Astro.props;
       alt=""
       class="absolute top-0 left-0 w-full h-full object-cover object-center delay-500"
       loading="lazy"
-      src={`/post/${slug}/hero.jpg`}
+      src={`/${contentType}/${slug}/hero.jpg`}
     />
   </div>
   {photographer && account && (
