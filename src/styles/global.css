@@ -38,7 +38,10 @@
   }
 
   .post > pre {
-    @apply flex mt-0 my-auto mb-6 pt-4 px-0 justify-center;
+    @apply flex mt-0 my-auto mb-6 p-4 justify-center;
+    --pad: calc(100vw / 2 - 60rem / 2);
+    padding-left: var(--pad);
+    padding-right: var(--pad);
   }
 
   .post ol {
