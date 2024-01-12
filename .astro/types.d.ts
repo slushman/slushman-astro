@@ -297,6 +297,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"existing-react-app-to-vite.mdx": {
+	id: "existing-react-app-to-vite.mdx";
+  slug: "existing-react-app-to-vite";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "find-user-id-user-metadata.mdx": {
 	id: "find-user-id-user-metadata.mdx";
   slug: "find-user-id-user-metadata";
@@ -568,6 +575,13 @@ declare module 'astro:content' {
 "gibble.mdx": {
 	id: "gibble.mdx";
   slug: "gibble";
+  body: string;
+  collection: "project";
+  data: InferEntrySchema<"project">
+} & { render(): Render[".mdx"] };
+"mapit.mdx": {
+	id: "mapit.mdx";
+  slug: "mapit";
   body: string;
   collection: "project";
   data: InferEntrySchema<"project">
