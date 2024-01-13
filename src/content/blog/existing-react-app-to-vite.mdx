@@ -1,0 +1,104 @@
+---
+category: ["React"]
+description: "Learn the simple steps to update an app made with Create React App to use Vite instead."
+heroAccount: "socialcut"
+heroPhotographer: "SOCIAL.CUT"
+pubDate: "2023-11-17"
+title: "How to Convert an Existing React App To Vite"
+---
+
+I have several older projects created with Create React App. Since that's been deprecated, it's time to move them to something else and lately, I've been using React with Vite and I'm loving it. This article will show the step-by-step instructions for converting an existing React app to use Vite instead of CRA.
+
+First, let me give props to Robin Wieruch and [his instructions](https://www.robinwieruch.de/vite-create-react-app/) for doing this. Most of this came from there, plus the handful of things I'll need for my projects. If you haven't read [his blog](https://www.robinwieruch.de/) yet, check it out, he is sharp and explains things really well.
+
+Before we get started, there a few requirements. First, install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating), then use node version 18 or higher.
+
+```
+nvm use 18
+```
+
+Second, I'm using yarn for all the instructions here. If you prefer something else, you'll need to translate it to the correct commands; they are slightly different.
+
+Also, I use Typescript in my projects, so I'll add those instructions in with everything else here. If you don't use TypeScript, you can ignore those parts.
+
+## Instructions
+
+### Step 1: Update Dependencies
+
+Install Vite's React plugin and related libraries, then remove the scripts from Create React App.
+
+```bash
+yarn add vite @vitejs/plugin-react --dev
+yarn remove react-scripts
+```
+
+### Step 2: Update Scripts
+
+Change all the scripts in the package.json file to use vite instead of react-scripts.
+
+So this:
+
+```js
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "eject": "react-scripts eject"
+},
+```
+
+becomes:
+
+```js
+"scripts": {
+  "start": "vite",
+  "build": "vite build",
+  "serve": "vite preview"
+},
+```
+
+Note: just remove the eject script altogether. It's not a thing with Vite.
+
+### Step 3: Rename files
+
+Vite requires .js files to have the .jsx extension. For Typescript files, that would be .ts to .tsx. Go through all files in your project and rename them accordingly.
+
+### Step 4: Configure Vite
+
+Add a Vite config file
+
+```bash
+touch vite.config.js
+```
+
+Then edit the config to have the same output as CRA did.
+
+```js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig(() => {
+  return {
+    build: {
+      outDir: 'build',
+    },
+    plugins: [react()],
+  };
+});
+```
+
+### Step 5: Edit index.html
+
+Move the index.html file to the project root, since that's where Vite expects it be.
+
+```bash
+mv public/index.html .
+```
+Then edit that file to remove any occurences of %PUBLIC_URL%. You can just find/replace that string with an empty replacement.
+
+Lastly, add a script to the bottom of the body for the project index.
+
+```html
+<script type="module" src="/src/index.jsx"></script>
+```
+
+That should be it! If you have any errors or issues, check the link to Robin's article above. He goes through several errors as well as some additional common things you may run into, depending on the other dependencies in your project.

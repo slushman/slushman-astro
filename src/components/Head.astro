@@ -6,36 +6,40 @@ import { Debug } from 'astro/components';
 
 const { description, noindex, permalink, title } = Astro.props;
 ---
-<!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
-{noindex && (<meta name="robots" content="noindex" />)}
+<head>
+  <!-- Global Metadata -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  {noindex && (<meta name="robots" content="noindex" />)}
+  <title>{title}</title>
 
-<!-- Sitemap -->
-<link rel="sitemap" href="/sitemap-index.xml" />
+  <!-- Sitemap -->
+  <link rel="sitemap" href="/sitemap-index.xml" />
 
-<!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-<!-- Styles -->
-<style is:global>
-  @import "../styles/global.css";
-</style>
+  <!-- Styles -->
+  <style is:global>
+    @import "../styles/global.css";
+  </style>
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/external.css' rel='stylesheet'>
 
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
 
-{description && permalink && (
-<SocialHead description={description} permalink={permalink} title={title} />)}
+  {description && permalink && (
+  <SocialHead description={description} permalink={permalink} title={title} />)}
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@1,600&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
-  rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@1,600&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Analytics -->
+  <script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+</head>
