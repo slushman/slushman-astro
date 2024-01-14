@@ -19,7 +19,7 @@ nvm use 18
 
 Second, I'm using yarn for all the instructions here. If you prefer something else, you'll need to translate it to the correct commands; they are slightly different.
 
-Also, I use Typescript in my projects, so I'll add those instructions in with everything else here. If you don't use TypeScript, you can ignore those parts.
+Also, I use TypeScript in my projects, so I'll add those instructions in with everything else here. If you don't use TypeScript, you can ignore those parts.
 
 ## Instructions
 
@@ -32,7 +32,7 @@ yarn add vite @vitejs/plugin-react --dev
 yarn remove react-scripts
 ```
 
-### Step 2: Update Scripts
+### Step 2: Update package.json
 
 Change all the scripts in the package.json file to use vite instead of react-scripts.
 
@@ -58,9 +58,31 @@ becomes:
 
 Note: just remove the eject script altogether. It's not a thing with Vite.
 
-### Step 3: Rename files
+Finally, add this up near line 3 or 4:
 
-Vite requires .js files to have the .jsx extension. For Typescript files, that would be .ts to .tsx. Go through all files in your project and rename them accordingly.
+```js
+"type": "module",
+```
+
+### Step 3: Edit files
+
+Vite requires .js files to have the .jsx extension. For TypeScript files, that would be .ts to .tsx. Go through all files in your project and rename them accordingly.
+
+If you have a `react-app-env.d.ts` file, you can remove it. It helps TypeScript understand the Create React App scripts.
+
+#### Edit index
+
+Check the index.tsx file. You may need to make the following edits.
+
+Change the ReactDOM import to: `import ReactDOM from "react-dom/client"`
+
+Change the main output to:
+
+```js
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  ...current content
+);
+```
 
 ### Step 4: Configure Vite
 
