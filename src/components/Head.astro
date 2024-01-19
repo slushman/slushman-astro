@@ -3,7 +3,6 @@ import '../styles/global.css';
 import SocialHead from 'component:SocialHead';
 import { Debug } from 'astro/components';
 
-
 const { description, noindex, permalink, title } = Astro.props;
 ---
 <head>
@@ -17,6 +16,7 @@ const { description, noindex, permalink, title } = Astro.props;
 
   <!-- Sitemap -->
   <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="canonical" href={permalink} />
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

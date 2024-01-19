@@ -11,11 +11,12 @@ import { Debug } from 'astro/components';
 import { SiteMeta } from '../siteMeta';
 
 const title = '404: Not Found';
-const { url } = Astro.request;
+const { pathname } = Astro.url;
 const blogEntries = await getCollection('blog', ({ data }) => data.draft !== true);
 const posts = getSortedPosts(blogEntries, 6);
+const permalink = `${SiteMeta.url}${pathname}/`;
 ---
-<BaseLayout title="Slushman" description={SiteMeta.description} {title} permalink={url}>
+<BaseLayout title="Slushman" description={SiteMeta.description} {title} permalink={permalink}>
   <Hero
     account="benjaminjohnelliott"
     contentType="post"
