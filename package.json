@@ -10,13 +10,14 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^2.0.3",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.4",
+    "@astrojs/mdx": "^2.2.0",
+    "@astrojs/rss": "^4.0.5",
+    "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.0.9"
+    "astro": "^4.5.4"
   },
   "dependencies": {
-    "tailwindcss": "^3.4.0"
+    "@astrojs/upgrade": "^0.2.3",
+    "tailwindcss": "^3.4.1"
   }
 }
