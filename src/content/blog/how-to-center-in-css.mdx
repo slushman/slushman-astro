@@ -1,0 +1,239 @@
+---
+category: ["Code Samples", "CSS"]
+description: "This is the ultimate guide to centering elements like images, text, and just about anything else using CSS."
+heroAccount: "kugnharski"
+heroPhotographer: "Rodrigo Kugnharski"
+pubDate: "2024-03-15"
+title: "How to Center in CSS"
+---
+import Codepen from "../../components/Codepen.astro";
+
+Centering things in CSS is such a common thing to do, one might think there's only way to do it. Alas, this is not the case. However, having options isn't always a bad thing. &#128512;
+
+Let's look at a bunch of the ways to center elements using CSS. In these examples, we're going to assume the following simple HTML structure:
+
+```html
+<div class="center">
+	<span>Something That should be centered on the page</span>
+</div
+```
+
+I've added Codepens to each one to show how they appear. I made the wrapping div full height and full width, then added some color to the centered item so it's easier to see.
+
+
+
+## Display Grid
+
+The CSS [grid layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout) system can be used in several ways to center content on the page.
+
+
+### Place Content
+
+The simplest option, as explained by Mozilla's excellent [developer documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Layout_cookbook/Center_an_element), is to use place-content.
+
+```css
+.center {
+	display: grid;
+	place-content: center;
+}
+```
+
+<Codepen height="600px" id="OJGbVxa" title="Center with grid and place content" />
+
+
+### Align Items and Justify Content
+
+Another way to center an element with grid is using align-items and justify-content.
+
+```css
+.center {
+	align-items: center; // vertical centering
+	display: grid;
+	justify-content: center; // horizontal centering
+}
+```
+
+<Codepen height="600px" id="LYvbpGr" title="Center with grid, align items, and justify content" />
+
+
+
+## Display Flexbox
+
+The CSS [flexbox layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout) system can also be used to simply and easily center content.
+
+
+### Align Items and Justify Content
+
+Just like with grid, use align-items and justify-content with flexbox to center content.
+
+```css
+.center {
+	align-items: center; // vertical centering
+	display: flex;
+	justify-content: center; // horizontal centering
+}
+```
+
+<Codepen height="600px" id="YzMpXBj" title="Center with flex, align items, and justify content" />
+
+
+### Not Place Content
+
+One might think, like I did, that you could also just use `place-content: center` with flexbox, right? No. Flexbox expands the content span to full height, but centered horizontally.
+
+<Codepen height="600px" id="wvZoaYb" title="Center with Flexbox & Place Content" />
+
+So, don't use that, unless that's what you want that to happen.
+
+
+
+## Position Absolute
+
+[Absolute positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position) removes elements from the normal document flow. This means these elements can appear on top of other elements and can make styling things more difficult. However, there may be times when this is the best solution.
+
+
+### Translate
+
+Position absolute with left and top set to 50% puts the top left corner of your element in the center of the container. It's more noticable when the element being centered is larger. The transform with translate with two negative 50 percents moves the element 50 percent of the element's width in the other directions. The result places the element in the center of the container. This is a big improvement over the margin auto technique!
+
+```css
+.center {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%);
+}
+```
+
+<Codepen height="600px" id="MWRbwde" title="Center with position absolute and translate" />
+
+NOTE: There were some additional adjustments in this Codepen. I removed the full height and full width from the container so the absolute positioning worked properly.
+
+
+
+## Margin Auto
+
+There are several ways to center an element using margins.
+
+
+### Left and Right or Inline
+
+This is one of the oldest ways to center things and it's fairly concise too.
+
+```css
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: fit-content;
+}
+```
+
+However, there's a more modern, even more concise way to do this same thing, and it has great [browser support](https://caniuse.com/mdn-css_properties_margin-inline) too!
+
+```css
+.center {
+	margin-inline: auto;
+	max-width: fit-content;
+}
+```
+
+You could also use `margin: auto`. The downside to all of these options is its only for centering horizontally. Also, it requires the element being centered to be a block element. Inline elements would require adding `display: block` to work like the example below.
+
+<Codepen height="600px" id="BaEQwvb" title="Center a block element horizontally using margin inline" />
+
+I learned about this technique from [Josh W Comeau](https://www.joshwcomeau.com/css/center-a-div/#centering-with-auto-margins-1).
+
+
+### Position Absolute
+
+Absolute positioning can be used with margin auto to center an element in its parent. There is a caveat though. The element must have a fixed size. Unlike many of these other examples, all the styling goes on the element itself, not the container.
+
+```css
+.center {
+	bottom: 0;
+	height: 100px;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100px;
+}
+```
+
+As you can see, this is probably the most verbose way of centering an item. As I said before, this also requires the element to have a fixed height or width, which isn't always the case.
+
+<Codepen height="600px" id="WNWoZdW" title="Center a fixed-dimension element with position absolute and margin auto" />
+
+I was reminded of this technique by [Matias Kinnunen](https://mtsknn.fi/blog/css-vertical-margin-auto/).
+
+
+### Centering Images
+
+If the element you're centering has a defined width (like an image), use margin: auto to center that element. However, this only works for block elements - OR - if you set the element to display: block. The major downside of this techn ique is it only centers hor horizontally, not vertically.
+
+```css
+.centerBlock {
+	display: block;
+	height: 333px; // this can be any value
+	margin: auto;
+	width: 500px; // this can be any value
+}
+```
+
+In a real project, I'd separate these properties out to two separate classes, so the centerBlock class can be reused on other elements with a different size.
+
+```css
+.center {
+	display: block;
+	margin: auto;
+}
+
+img {
+	height: 333px; // this can be any value
+	width: 500px; // this can be any value
+}
+```
+
+<Codepen height="600px" id="JjVbrOW" title="Center an image with display block and margin auto" />
+
+
+
+## Centering Text
+
+Sometimes, you just want the text in a container to be centered.
+
+
+### Text Align With Inline Elements
+
+If you're just looking to center text (and only text) in a container, use text align center.
+
+```css
+.center {
+	text-align: center;
+}
+```
+
+<Codepen height="600px" id="ExJNjBv" title="Center text in a span" />
+
+Notice the following:
+* this only works with inline elements as the text container
+* the center class is added to the container, not the element
+* the only handles horizontal centering, not vertical
+
+
+### Text Align With Block Elements
+
+The container for your text matters though. So far, most of our examples have used a span (an inline element) as the element being centered inside a div (an block element). Text align center behaves differently when the centered element is a block element.
+
+<Codepen height="600px" id="ZEZBbzL" title="Center text in a div" />
+
+Notice the following:
+* the text background color extends all the way across the screen
+* it doesn't matter if the center class is on the container or the centered element
+
+
+
+## Conclusion
+
+As you can see, there are loads of ways to center things. Choosing which technique to use depends on the elements you're using, what it's contained in, and how you want the centered element to appear on the page.

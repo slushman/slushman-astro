@@ -25,6 +25,7 @@ const styledHeight = height ? 'h-[' + height + ']' : 'h-[268px]';
 const src = `//codepen.io/${user}/embed/${id}/?height=${height}&theme-id=${theme}&default-tab=${tab}`;
 ---
 <figure class={`m-0 ${styledHeight}`}>
+  <p>{title}</p>
   <div class="w-full">
     <iframe
       allowfullscreen={true}

@@ -290,6 +290,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"how-to-center-in-css.mdx": {
+	id: "how-to-center-in-css.mdx";
+  slug: "how-to-center-in-css";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "how-to-change-the-featured-image-labels.mdx": {
 	id: "how-to-change-the-featured-image-labels.mdx";
   slug: "how-to-change-the-featured-image-labels";
