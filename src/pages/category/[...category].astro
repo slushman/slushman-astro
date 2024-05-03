@@ -30,7 +30,7 @@ const sortedPosts = getSortedPosts(posts);
   <section class="blue-section py-4">
     <h1 class="m-0 text-center">{category}</h1>
   </section>
-  <div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list">
+  <div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list" id="content">
     {sortedPosts.map(({ data, slug }) => (
       <PostExcerpt date={data.pubDate} description={data.description} slug={slug} title={data.title} />
     ))}
