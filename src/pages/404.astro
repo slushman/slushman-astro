@@ -16,7 +16,7 @@ const blogEntries = await getCollection('blog', ({ data }) => data.draft !== tru
 const posts = getSortedPosts(blogEntries, 6);
 const permalink = `${SiteMeta.url}${pathname}/`;
 ---
-<BaseLayout title="Slushman" description={SiteMeta.description} {title} permalink={permalink}>
+<BaseLayout description={SiteMeta.description} title={title} permalink={permalink} showSkip={false}>
   <Hero
     account="benjaminjohnelliott"
     contentType="post"
