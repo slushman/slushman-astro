@@ -33,7 +33,7 @@
     @apply mb-6 mx-0;
   }
 
-  .post > *:not(code) {
+  .post > *:not(code, aside) {
     @apply content-width;
   }
 
@@ -44,15 +44,15 @@
     padding-right: var(--pad);
   }
 
-  .post ol {
+  .post > ol {
     list-style: decimal;
   }
 
-  .post ul {
+  .post > ul {
     list-style: disc;
   }
 
-  .post li {
+  .post > ul li {
     margin-inline-start: 1.25em;
   }
 
@@ -114,6 +114,10 @@
   :root {
     --color-light: #1f2937;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 header > div {

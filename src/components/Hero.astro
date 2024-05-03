@@ -7,9 +7,9 @@ const { account, contentType, photographer, slug, title } = Astro.props;
     <div class="w-full pb-[66.75%] max-w-screen"></div>
     <img
       alt=""
-      class="absolute top-0 left-0 w-full h-full object-cover object-center delay-500"
+      class="absolute top-0 left-0 w-full h-full object-cover object-center delay-500 mb-10"
       loading="lazy"
-      src={`/${contentType}/${slug}/hero.jpg`}
+      src={`/${contentType}/${slug}/hero.webp`}
     />
   </div>
   {photographer && account && (

@@ -9,6 +9,7 @@ html {
   color: white;
   font-family: var(--font-body);
   font-synthesis: none;
+	scroll-behavior: smooth;
   text-align: center;
 }
 
