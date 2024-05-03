@@ -45,7 +45,7 @@ const permalink = `${SiteMeta.url}/post/${slug}/`;
     </p>
     <CategoryMeta categories={category ?? []} />
   </section>
-  <article class="post relative">
+  <article class="post relative" id="content">
     {videoURL && (
       <section>
         <p>TLDR: watch the YouTube video instead</p>
