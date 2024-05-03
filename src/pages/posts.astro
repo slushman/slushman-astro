@@ -5,13 +5,13 @@ import PostExcerpt from 'component:PostExcerpt';
 import { SiteMeta } from '../siteMeta';
 import { getCollection } from 'astro:content';
 import { getSortedPosts } from 'utils';
+
 const { pathname } = Astro.url;
-const description = SiteMeta.description;
 const posts = await getCollection('blog', ({ data }) => data.draft !== true);
 const sortedPosts = getSortedPosts(posts);
 const permalink = `${SiteMeta.url}${pathname}/`;
 ---
-<BaseLayout title="Slushman" {description} permalink={permalink}>
+<BaseLayout description={SiteMeta.description} permalink={permalink} showSkip={false} title={SiteMeta.title}>
 	<div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list">
     {sortedPosts.map(({ data, slug }) => (
       <PostExcerpt date={data.pubDate} description={data.description} slug={slug} title={data.title} />

@@ -1,25 +1,19 @@
 ---
 import BaseLayout from 'layout:BaseLayout';
 import Bio from 'component:Bio';
-import PostExcerpt from 'component:PostExcerpt';
 import ProjectExcerpt from 'component:ProjectExcerpt';
 import { SiteMeta } from '../siteMeta';
 import { getCollection } from 'astro:content';
-import { getSortedPosts } from 'utils';
 import LatestPosts from 'component:LatestPosts';
 
 const { url } = Astro.request;
 
-const title = SiteMeta.title;
-const description = SiteMeta.description;
-
 const posts = await getCollection('blog', ({ data }) => data.draft !== true);
-const sortedPosts = getSortedPosts(posts);
 
 const projects = await getCollection('project');
 ---
 
-<BaseLayout title="Slushman" {description} {title} permalink={url}>
+<BaseLayout description={SiteMeta.description} permalink={url} showSkip={false} title={SiteMeta.title}>
 	<Bio />
   <div>
     <h2 class="m-0 p-6">Featured Projects</h2>
