@@ -2,13 +2,14 @@
 import { CollectionEntry, getCollection, getEntries } from 'astro:content';
 import { Debug } from 'astro/components';
 
+import { SiteMeta } from 'src/siteMeta';
 import BaseLayout from 'layout:BaseLayout';
-import Hero from 'component:Hero';
 import CategoryMeta from 'component:CategoryMeta';
-import Shurls from 'component:Shurls';
+import Hero from 'component:Hero';
 import LatestPosts from 'component:LatestPosts';
 import PostExcerpt from 'component:PostExcerpt';
-import { SiteMeta } from 'src/siteMeta';
+import Shurls from 'component:Shurls';
+import TableOfContents from 'component:TableOfContents';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -37,14 +38,14 @@ const date = new Date(pubDate).toLocaleDateString('en-us', { year:"numeric", mon
 const permalink = `${SiteMeta.url}/post/${slug}/`;
 ---
 <BaseLayout description={description} permalink={permalink} title={title}>
-	<Hero account={heroAccount} contentType="post" imageUrl={`/post/${slug}/hero.jpg`} photographer={heroPhotographer} slug={slug} title={title} />
+	<Hero account={heroAccount} contentType="post" imageUrl={`/post/${slug}/hero.webp`} photographer={heroPhotographer} slug={slug} title={title} />
   <section class="blue-section flex justify-between flex-col sm:flex-row">
     <p class="block m-0">
       Published {date}
     </p>
     <CategoryMeta categories={category ?? []} />
   </section>
-  <article class="post">
+  <article class="post relative">
     {videoURL && (
       <section>
         <p>TLDR: watch the YouTube video instead</p>
@@ -53,7 +54,7 @@ const permalink = `${SiteMeta.url}/post/${slug}/`;
             alt={title}
             class=""
             loading="lazy"
-            src={`/post/${slug}/thumbnail.jpg`}
+            src={`/post/${slug}/thumbnail.webp`}
           />
         </a>
       </section>

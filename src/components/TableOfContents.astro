@@ -1,0 +1,43 @@
+---
+
+
+---
+<aside class="absolute top-6 right-2 p-8 z-10">
+  <nav>
+    <h2 class="mb-2 text-lg">Table of Contents</h2>
+    <ul class="mb-2 list-none" id="toc">
+    </ul>
+  </nav>
+</aside>
+<script>
+  const headingElements = ['H1', 'H2', 'H3', 'H4'];
+  const ids = [...document.querySelectorAll('[id]')];
+  const headings = ids.filter(id => headingElements.includes(id.tagName));
+  const tocTarget = document.querySelector('#toc');
+
+  headings.forEach((heading) => {
+    /**
+     * TODO
+     * - Fix indentation
+     * - Add back to top link to all headings
+     */
+
+    /**
+     * https://attacomsian.com/blog/javascript-insert-element
+     *
+     * idea for indentation:
+     * Get heading.tagName
+     * Remove the "H"
+     * Use that value as a multiplier for how much padding-inline-start to add to that element.
+     * OR
+     * maybe use target.parentNode.insertBefore to insert uls before the h3s and h4s?
+     */
+
+
+    // const elementType = heading.tagName === 'H2' ? 'li' : 'ul';
+    let itemToAdd = document.createElement('li');
+    itemToAdd.innerHTML = `<a href="#${heading.id}"><span>${heading.innerHTML}</span></a>`;
+    tocTarget?.appendChild(itemToAdd);
+  });
+console.log({ headings });
+</script>
