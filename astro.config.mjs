@@ -21,7 +21,4 @@ export default defineConfig({
       cssMinify: "lightningcss",
     },
   },
-  svg: {
-    mode: "inline",
-  },
 });
