@@ -5,6 +5,20 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), sitemap(), tailwind()],
   site: "https://www.slushman.com",
+  integrations: [
+    mdx(),
+    sitemap(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
+  build: {
+    inlineStylesheets: "auto",
+  },
+  vite: {
+    build: {
+      cssMinify: "lightningcss",
+    },
+  },
 });
