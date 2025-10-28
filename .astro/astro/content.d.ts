@@ -222,6 +222,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"clear-framework.mdx": {
+	id: "clear-framework.mdx";
+  slug: "clear-framework";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "code-and-pre-styling.mdx": {
 	id: "code-and-pre-styling.mdx";
   slug: "code-and-pre-styling";
