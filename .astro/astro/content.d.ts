@@ -581,6 +581,13 @@ declare module 'astro:content' {
   collection: "project";
   data: InferEntrySchema<"project">
 } & { render(): Render[".mdx"] };
+"vibestorm.mdx": {
+	id: "vibestorm.mdx";
+  slug: "vibestorm";
+  body: string;
+  collection: "project";
+  data: InferEntrySchema<"project">
+} & { render(): Render[".mdx"] };
 "wordle-solver.mdx": {
 	id: "wordle-solver.mdx";
   slug: "wordle-solver";
