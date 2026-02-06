@@ -1,5 +1,15 @@
 @tailwind base;
 
+/* Size-adjusted fallback font to match Merriweather metrics */
+@font-face {
+  font-family: 'Merriweather Fallback';
+  src: local('Georgia');
+  size-adjust: 106%;
+  ascent-override: 92%;
+  descent-override: 28%;
+  line-gap-override: 0%;
+}
+
 @layer base {
   a {
     @apply text-brightblue underline;

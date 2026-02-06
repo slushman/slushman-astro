@@ -15,7 +15,7 @@ module.exports = {
     fontFamily: {
       mono: ['"Source Code Pro"', "ui-monospace", "monospace"],
       sans: ['"Source Sans Pro"', "ui-sans-serif", "sans-serif"],
-      merri: ["Merriweather", "ui-serif", "serif"],
+      merri: ["Merriweather", "'Merriweather Fallback'", "Georgia", "serif"],
       nunito: ["Nunito", "sans-serif"],
     },
     fontSize: settingsFontSizes,
