@@ -8,7 +8,7 @@ const { account, contentType, photographer, slug, title } = Astro.props;
     <img
       alt=""
       class="absolute top-0 left-0 w-full h-full object-cover object-center delay-500 mb-10"
-      loading="lazy"
+      fetchpriority="high"
       src={`/${contentType}/${slug}/hero.webp`}
     />
   </div>

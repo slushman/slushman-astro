@@ -5,7 +5,7 @@ const { image } = Astro.props;
   <img
     alt=""
     class="absolute top-0 left-0 w-full h-full object-cover delay-500 object-center"
-    loading="lazy"
+    fetchpriority="high"
     src={image}
   />
 </div>
