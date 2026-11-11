@@ -1,5 +1,6 @@
 ---
 import SiteTitle from 'component:SiteTitle';
+import { primaryCta } from '../data/offers';
 
 const { url } = Astro.request;
 const { pathname } = new URL(url);
@@ -27,7 +28,7 @@ const isCurrent = (href: string) => pathname.startsWith(href.replace(/\/$/, ''))
         </li>
       ))}
       <li>
-        <a class="btn btn-primary" href="/contact/">Start a project</a>
+        <a class="btn btn-primary" href={primaryCta.href}>{primaryCta.label}</a>
       </li>
     </ul>
   </nav>

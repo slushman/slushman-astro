@@ -1,5 +1,6 @@
 ---
 import { SiteMeta } from '../siteMeta';
+import { primaryCta } from '../data/offers';
 
 interface Props {
   eyebrow?: string;
@@ -7,17 +8,15 @@ interface Props {
 }
 const {
   eyebrow = 'No pitch deck, no pressure',
-  title = 'Tell me about your business',
+  title = 'Ready for more customers?',
 } = Astro.props;
 ---
 <section class="dark-section text-center">
   <p class="eyebrow">{eyebrow}</p>
   <h2 class="mt-0">{title}</h2>
   <p class="max-w-prose mx-auto">
-    Send me a short note about what you do and what is not working. I read every email myself and reply within one business day with what I would fix first.
+    Most local businesses start by getting found on Google Maps and getting more reviews. It's the quickest way to more calls, and it's a small first step.
   </p>
-  <div class="flex flex-wrap justify-center gap-4">
-    <a class="btn btn-primary" href={`mailto:${SiteMeta.email}`}>Email {SiteMeta.email}</a>
-    <a class="btn btn-secondary" href="/services/get-found/#get-found-and-get-reviews">Start with Get Found</a>
-  </div>
+  <a class="btn btn-primary" href={primaryCta.href}>{primaryCta.label}</a>
+  <p class="mt-6 mb-0 text-base">Rather talk first? Email <a href={`mailto:${SiteMeta.email}`}>{SiteMeta.email}</a>.</p>
 </section>

@@ -345,3 +345,9 @@ export const stages: Stage[] = [
 export const allOffers = stages.flatMap((stage) =>
   stage.offers.map((offer) => ({ ...offer, stage })),
 );
+
+/** The site's single call to action, used in the header, hero, and closing band. */
+export const primaryCta = {
+  label: 'Start with Get Found',
+  href: '/services/get-found/#get-found-and-get-reviews',
+};
