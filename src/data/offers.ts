@@ -348,6 +348,6 @@ export const allOffers = stages.flatMap((stage) =>
 
 /** The site's single call to action, used in the header, hero, and closing band. */
 export const primaryCta = {
-  label: 'Start with Get Found',
+  label: 'Get more customers',
   href: '/services/get-found/#get-found-and-get-reviews',
 };
