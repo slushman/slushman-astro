@@ -1,0 +1,44 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import SectionHeading from 'component:SectionHeading';
+import CtaBand from 'component:CtaBand';
+import Placeholder from 'component:Placeholder';
+import { SiteMeta } from '../siteMeta';
+
+const permalink = `${SiteMeta.url}/about/`;
+---
+<BaseLayout description="Chris Wilcoxson runs Slushman Digital, helping Wentzville-area businesses get more customers." permalink={permalink} title="About | Slushman Digital">
+  <section class="dark-section" id="content">
+    <div class="flex flex-col sm:flex-row gap-8 items-start">
+      <img alt="Caricature of Chris Wilcoxson" class="rounded-full w-40 h-40 object-cover flex-none" height="160" src="/cjw-caricature.webp" width="160" />
+      <SectionHeading level="h1" eyebrow="About" title="Hi, I'm Chris. I help local businesses get more customers.">
+        <p class="text-xl max-w-prose mb-0">I'm a developer, a Wentzville local, and apparently "the AI guy." Slushman Digital is the agency I'd want to hire if I ran a small business.</p>
+      </SectionHeading>
+    </div>
+  </section>
+
+  <section class="light-section">
+    <div class="max-w-prose">
+      <h2 class="mt-0">Why I started Slushman Digital</h2>
+      <p>I've been building websites for more than a decade. Along the way I noticed most small businesses don't need more marketing. They need marketing that works, and someone who will tell them plainly whether it's working.</p>
+      <Placeholder note="Your story in a few sentences: background, why you started the agency, and why local." />
+
+      <h2>How I work</h2>
+      <ul class="check-list mb-6">
+        <li><strong>It's just me.</strong> You talk to the person doing the work, every time.</li>
+        <li><strong>Prices are on the website.</strong> No "let's hop on a call" to find out what something costs.</li>
+        <li><strong>Results, not activity.</strong> I report on calls, leads, and customers, not impressions.</li>
+        <li><strong>You own everything.</strong> Your website, your accounts, your data.</li>
+        <li><strong>Short commitments.</strong> I'd rather keep you because it's working than because of a contract.</li>
+      </ul>
+
+      <h2>The "AI guy" part</h2>
+      <p>I use AI behind the scenes to do things that used to take a team: following up with leads, rebooking cancelled appointments, and turning one interview into a month of content. You don't need to learn any of it. You just get the customers.</p>
+
+      <h2>Local, on purpose</h2>
+      <p>I work with businesses in and around Wentzville, Missouri. I also run <a href="/work/ask-wentzville/">Ask Wentzville</a>, so I spend a lot of time thinking about how people here find local businesses.</p>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

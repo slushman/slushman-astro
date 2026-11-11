@@ -1,0 +1,22 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import SectionHeading from 'component:SectionHeading';
+import ProjectExcerpt from 'component:ProjectExcerpt';
+import { SiteMeta } from '../siteMeta';
+import { getCollection } from 'astro:content';
+
+const permalink = `${SiteMeta.url}/lab/`;
+const projects = await getCollection('project');
+---
+<BaseLayout description="Side projects, games, and tools built by Chris Wilcoxson." permalink={permalink} title="Lab | Slushman Digital">
+  <section class="dark-section" id="content">
+    <SectionHeading level="h1" eyebrow="The Lab" title="Things I build for fun">
+      <p class="text-xl max-w-prose mb-0">Games, tools, and experiments. This is where I try new ideas before they show up in client work.</p>
+    </SectionHeading>
+  </section>
+  <div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list mb-8">
+    {projects.map(({ data, slug }) => (
+      <ProjectExcerpt description={data.description} name={data.name} slug={slug} />
+    ))}
+  </div>
+</BaseLayout>

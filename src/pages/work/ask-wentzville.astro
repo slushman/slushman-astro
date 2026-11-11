@@ -1,0 +1,39 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import SectionHeading from 'component:SectionHeading';
+import CtaBand from 'component:CtaBand';
+import Placeholder from 'component:Placeholder';
+import { SiteMeta } from '../../siteMeta';
+
+const permalink = `${SiteMeta.url}/work/ask-wentzville/`;
+---
+<BaseLayout description="How Ask Wentzville connects local residents with Wentzville businesses, and what it shows about getting found locally." permalink={permalink} title="Ask Wentzville case study | Slushman Digital">
+  <section class="dark-section" id="content">
+    <p class="text-base mb-4"><a href="/work/">Work</a> / Ask Wentzville</p>
+    <SectionHeading level="h1" eyebrow="Case study" title="Ask Wentzville">
+      <p class="text-xl max-w-prose mb-0">A local guide that helps Wentzville residents find the businesses their neighbors recommend.</p>
+    </SectionHeading>
+    <Placeholder note="Headline numbers: monthly visitors, businesses listed, newsletter subscribers, and top search terms." />
+  </section>
+
+  <section class="light-section">
+    <div class="max-w-prose">
+      <h2 class="mt-0">The problem</h2>
+      <p>When people in Wentzville need a plumber, a dentist, or a place for dinner, they ask their neighbors. Those answers get buried in Facebook threads within a day.</p>
+      <Placeholder note="Confirm or rewrite the problem in your own words." />
+
+      <h2>What I built</h2>
+      <p>Ask Wentzville collects those recommendations into business profiles people can actually search, plus a weekly newsletter about what's happening around town.</p>
+      <Placeholder note="Add what's under the hood that clients care about: speed, search optimization, the newsletter, and how businesses get listed." />
+
+      <h2>The results</h2>
+      <Placeholder note="Two or three numbers with time frames, and before-and-after screenshots." />
+
+      <h2>What this means for your business</h2>
+      <p>The same things that help Ask Wentzville show up in local search work for any Wentzville-area business: a fast site, a well-kept Google profile, reviews, and useful local content.</p>
+      <Placeholder note="Add the live link to Ask Wentzville." />
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

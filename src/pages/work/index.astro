@@ -1,0 +1,39 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import SectionHeading from 'component:SectionHeading';
+import CtaBand from 'component:CtaBand';
+import Placeholder from 'component:Placeholder';
+import { SiteMeta } from '../../siteMeta';
+
+const permalink = `${SiteMeta.url}/work/`;
+---
+<BaseLayout description="Results from Slushman Digital clients, measured in customers." permalink={permalink} title="Work | Slushman Digital">
+  <section class="dark-section" id="content">
+    <SectionHeading level="h1" eyebrow="Measured in customers" title="Real results from real businesses">
+      <p class="text-xl max-w-prose mb-0">Every project here leads with a number, because "it looks nice" isn't a business result.</p>
+    </SectionHeading>
+  </section>
+
+  <section class="light-section">
+    <div class="grid gap-4 md:grid-cols-2">
+      <article class="card">
+        <p class="badge">Local</p>
+        <h2 class="mt-0">Ask Wentzville</h2>
+        <Placeholder note="One headline number for Ask Wentzville." />
+        <p>A local guide to Wentzville businesses, built and run by me.</p>
+        <a class="font-semibold" href="/work/ask-wentzville/">Read the story</a>
+      </article>
+      <article class="card">
+        <Placeholder note="Next case study: client name, logo, headline number, and a one-sentence summary." />
+      </article>
+    </div>
+  </section>
+
+  <section class="light-section pt-0">
+    <h2>From the Lab</h2>
+    <p class="max-w-prose">Side projects, games, and tools I build for fun and to try new ideas before I use them for clients.</p>
+    <a class="font-semibold" href="/lab/">Visit the Lab</a>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

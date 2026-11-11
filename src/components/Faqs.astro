@@ -1,0 +1,16 @@
+---
+import type { Faq } from '../data/offers';
+
+interface Props {
+  faqs: Faq[];
+}
+const { faqs } = Astro.props;
+---
+<div class="grid gap-2">
+  {faqs.map(({ q, a }) => (
+    <details class="faq">
+      <summary>{q}</summary>
+      <p class="mt-2 mb-0">{a}</p>
+    </details>
+  ))}
+</div>

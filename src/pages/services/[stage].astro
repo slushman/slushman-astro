@@ -1,0 +1,96 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import SectionHeading from 'component:SectionHeading';
+import CtaBand from 'component:CtaBand';
+import Faqs from 'component:Faqs';
+import { SiteMeta } from '../../siteMeta';
+import { stages, type Stage } from '../../data/offers';
+
+export function getStaticPaths() {
+  return stages.map((stage) => ({ params: { stage: stage.slug }, props: { stage } }));
+}
+
+interface Props {
+  stage: Stage;
+}
+const { stage } = Astro.props;
+const permalink = `${SiteMeta.url}/services/${stage.slug}/`;
+const nextStage = stages.find((s) => s.step === stage.step + 1);
+---
+<BaseLayout description={`${stage.name}: ${stage.promise}`} permalink={permalink} title={`${stage.name} | Slushman Digital`}>
+  <section class="dark-section" id="content">
+    <p class="text-base mb-4"><a href="/services/">Services</a> / {stage.name}</p>
+    <SectionHeading level="h1" eyebrow={`Step ${stage.step} of 3`} title={stage.promise}>
+      <p class="text-xl max-w-prose mb-0">{stage.problem}</p>
+    </SectionHeading>
+    {stage.offers.length > 1 && (
+      <ul class="list-reset flex flex-wrap gap-3">
+        {stage.offers.map((offer) => (
+          <li><a class="btn btn-secondary" href={`#${offer.id}`}>{offer.name}</a></li>
+        ))}
+      </ul>
+    )}
+  </section>
+
+  {stage.offers.map((offer) => (
+    <section class="light-section border-b border-lightgray dark:border-medblue" id={offer.id}>
+      {offer.badge && <p class="badge">{offer.badge}</p>}
+      <h2 class="mt-0 mb-2">{offer.name}</h2>
+      <p class="text-xl max-w-prose">{offer.tagline}</p>
+
+      <div class="card mb-8">
+        <p class="price mb-2">{offer.fromPrice}</p>
+        <p class="mb-0">{offer.priceDetail}</p>
+      </div>
+
+      {offer.tiers && (
+        <div class="grid gap-4 md:grid-cols-3 mb-8">
+          {offer.tiers.map((tier) => (
+            <article class:list={['card', tier.featured && 'ring-4 ring-brightblue']}>
+              {tier.featured && <p class="badge">Most complete</p>}
+              <h3 class="mt-0 mb-2">{tier.name}</h3>
+              <p class="price">{tier.price}</p>
+              <p class="mb-0">{tier.summary}</p>
+            </article>
+          ))}
+        </div>
+      )}
+
+      <div class="grid gap-8 md:grid-cols-2 mb-8">
+        <div>
+          <h3 class="mt-0">What you get</h3>
+          <ul class="check-list">
+            {offer.includes.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h3 class="mt-0">A good fit if</h3>
+          <ul class="check-list mb-6">
+            {offer.goodFit.map((item) => <li>{item}</li>)}
+          </ul>
+          <h3>Probably not if</h3>
+          <ul class="check-list x-list">
+            {offer.notFit.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      <p><strong>Minimum commitment:</strong> {offer.minimum}</p>
+
+      <h3>Questions</h3>
+      <Faqs faqs={offer.faqs} />
+
+      <p class="mt-8"><a class="btn btn-primary" href={`mailto:${SiteMeta.email}?subject=${encodeURIComponent(offer.name)}`}>Ask about {offer.name}</a></p>
+    </section>
+  ))}
+
+  {nextStage && (
+    <section class="light-section">
+      <p class="eyebrow">Next step</p>
+      <h2 class="mt-0"><a class="text-current" href={`/services/${nextStage.slug}/`}>Step {nextStage.step}: {nextStage.name}</a></h2>
+      <p class="mb-0">{nextStage.short}</p>
+    </section>
+  )}
+
+  <CtaBand />
+</BaseLayout>
