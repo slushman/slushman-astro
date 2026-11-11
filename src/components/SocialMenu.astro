@@ -1,13 +1,17 @@
 ---
 import SocialMenuItem from 'component:SocialMenuItem';
+import Github from 'svg:Github';
 import LinkedIn from 'svg:LinkedIn';
 import RSS from 'svg:RSS';
 
-// The RSS link only shows on blog pages (the blog index, posts, and categories).
+// RSS only shows on blog pages (the blog index, posts, and categories).
+// GitHub only shows on the Lab and its project pages.
 const { pathname } = Astro.url;
 const isBlog = /^\/(posts|post|category)(\/|$)/.test(pathname);
+const isLab = /^\/(lab|project)(\/|$)/.test(pathname);
 
 const socials = [
+  ...(isLab ? [{ Icon: Github, label: 'GitHub', url: 'https://github.com/slushman' }] : []),
   { Icon: LinkedIn, label: 'LinkedIn', url: 'https://www.linkedin.com/in/chriswilcoxson/' },
   ...(isBlog ? [{ Icon: RSS, label: 'RSS', url: '/rss.xml' }] : []),
 ];
