@@ -1,0 +1,13 @@
+---
+/**
+ * A visible note for content Chris still needs to supply.
+ * Search the codebase for "Placeholder" to find every one before launch.
+ */
+interface Props {
+  note: string;
+}
+const { note } = Astro.props;
+---
+<div class="border-2 border-dashed border-medgray rounded-lg p-4 my-4 bg-offwhite text-darkblue text-base" data-placeholder>
+  <strong>To do:</strong> {note}
+</div>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import SectionHeading from 'component:SectionHeading';
+import OfferCard from 'component:OfferCard';
+import CtaBand from 'component:CtaBand';
+import Faqs from 'component:Faqs';
+import { SiteMeta } from '../../siteMeta';
+import { stages } from '../../data/offers';
+
+const permalink = `${SiteMeta.url}/services/`;
+const faqs = [
+  {
+    q: 'Which one should I start with?',
+    a: 'Most local businesses should start with Get Found and Get Reviews. It is the fastest way to show up where people are already looking. If you have a list of old leads, Win Back Old Leads is a quick win too.',
+  },
+  {
+    q: 'Do I have to buy everything?',
+    a: 'No. Most clients start with one thing and add more once it is working.',
+  },
+  {
+    q: 'Are there long contracts?',
+    a: 'Each service has a short minimum based on how long it takes to show results: 3 months for Get Found and ads, 6 months for content. After that it is month to month.',
+  },
+  {
+    q: 'Who does the work?',
+    a: 'Me. Slushman Digital is one person, so you always know who to email.',
+  },
+  {
+    q: 'How do you measure results?',
+    a: 'Calls, leads, booked appointments, and new customers. Every plan includes tracking so we can see what is working and what is not.',
+  },
+];
+---
+<BaseLayout description="Services and pricing from Slushman Digital: get found on Google, turn visitors into customers, and keep them coming back." permalink={permalink} title="Services and pricing | Slushman Digital">
+  <section class="dark-section" id="content">
+    <SectionHeading level="h1" eyebrow="Services and pricing" title="Three steps to more customers. Prices on the page.">
+      <p class="text-xl max-w-prose mb-0">Every service fits one step of the plan. Start where it hurts most, then add the rest when you're ready.</p>
+    </SectionHeading>
+  </section>
+
+  {stages.map((stage) => (
+    <section class="light-section">
+      <div class="flex items-baseline gap-3 mb-2">
+        <span class="font-merri text-4xl font-bold text-medblue dark:text-brightblue">{stage.step}</span>
+        <h2 class="m-0">{stage.name}</h2>
+      </div>
+      <p class="max-w-prose">{stage.promise} {stage.problem}</p>
+      <div class="grid gap-4 md:grid-cols-3 mb-4">
+        {stage.offers.map((offer) => <OfferCard offer={offer} stage={stage} />)}
+      </div>
+      <a class="font-semibold" href={`/services/${stage.slug}/`}>Everything in {stage.name.toLowerCase()}</a>
+    </section>
+  ))}
+
+  <section class="light-section pt-0">
+    <SectionHeading title="Common questions" />
+    <Faqs faqs={faqs} />
+  </section>
+
+  <CtaBand />
+</BaseLayout>

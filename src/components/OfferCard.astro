@@ -1,0 +1,16 @@
+---
+import type { Offer, Stage } from '../data/offers';
+
+interface Props {
+  offer: Offer;
+  stage: Stage;
+}
+const { offer, stage } = Astro.props;
+---
+<article class="card flex flex-col">
+  {offer.badge && <p class="badge">{offer.badge}</p>}
+  <h3 class="mt-0 mb-2">{offer.name}</h3>
+  <p class="mb-4 flex-1">{offer.tagline}</p>
+  <p class="price mb-4">{offer.fromPrice}</p>
+  <a class="font-semibold" href={`/services/${stage.slug}/#${offer.id}`}>What's included</a>
+</article>

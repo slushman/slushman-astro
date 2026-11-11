@@ -104,6 +104,84 @@
     @apply text-darkblue dark:text-white;
   }
 
+  .dark-section {
+    @apply content-width bg-darkblue text-offwhite py-16;
+  }
+
+  .light-section {
+    @apply content-width py-16;
+  }
+
+  .eyebrow {
+    @apply font-sans text-sm font-semibold uppercase tracking-widest text-medblue dark:text-brightblue mb-2;
+  }
+
+  .dark-section .eyebrow {
+    @apply text-brightblue;
+  }
+
+  .btn {
+    @apply inline-block rounded-md px-5 py-3 font-semibold no-underline text-base leading-tight;
+  }
+
+  .btn-primary {
+    @apply bg-brightblue text-darkblue hover:bg-lightblue;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-current text-current hover:bg-white/10;
+  }
+
+  .card {
+    @apply rounded-lg bg-white p-6 shadow-sm dark:bg-medblue dark:text-offwhite;
+  }
+
+  .dark-section .card {
+    @apply bg-medblue text-offwhite;
+  }
+
+  .card a, .dark-section a:not(.btn) {
+    @apply text-linkblue dark:text-lightblue;
+  }
+
+  .dark-section a:not(.btn), .dark-section .card a {
+    @apply text-lightblue;
+  }
+
+  .badge {
+    @apply inline-block self-start rounded-full bg-lightblue px-3 py-1 text-sm font-semibold text-darkblue mb-3;
+  }
+
+  .price {
+    @apply font-merri text-xl font-bold;
+  }
+
+  .faq {
+    @apply rounded-md bg-white p-4 dark:bg-medblue;
+  }
+
+  .faq summary {
+    @apply cursor-pointer font-semibold;
+  }
+
+  .check-list {
+    @apply list-none m-0 p-0 grid gap-2;
+  }
+
+  .check-list li {
+    @apply relative pl-7;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    @apply absolute left-0 font-bold text-medblue dark:text-brightblue;
+  }
+
+  .x-list li::before {
+    content: "✕";
+    @apply text-medgray dark:text-lightgray;
+  }
+
   .list-reset {
     @apply list-none m-0 p-0;
   }
@@ -130,6 +208,3 @@ html {
   scroll-behavior: smooth;
 }
 
-header > div {
-  font-size: clamp(2rem, -0.4742rem + 6.1856vw, 2.75rem);
-}

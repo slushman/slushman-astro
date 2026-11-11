@@ -1,30 +1,149 @@
 ---
 import BaseLayout from 'layout:BaseLayout';
-import Bio from 'component:Bio';
-import ProjectExcerpt from 'component:ProjectExcerpt';
+import SectionHeading from 'component:SectionHeading';
+import OfferCard from 'component:OfferCard';
+import CtaBand from 'component:CtaBand';
+import Placeholder from 'component:Placeholder';
+import PostExcerpt from 'component:PostExcerpt';
 import { SiteMeta } from '../siteMeta';
+import { stages } from '../data/offers';
 import { getCollection } from 'astro:content';
-import LatestPosts from 'component:LatestPosts';
+import { getSortedPosts } from 'utils';
 
 const { url } = Astro.request;
-
 const posts = await getCollection('blog', ({ data }) => data.draft !== true);
-
-const projects = await getCollection('project');
+const latestPosts = getSortedPosts(posts, 3);
+const starter = stages[0].offers[0];
 ---
 
-<BaseLayout description={SiteMeta.description} permalink={url} showSkip={false} title={SiteMeta.title}>
-	<Bio />
-  <div>
-    <h2 class="m-0 p-6">Featured Projects</h2>
-    <div class="grid sm:gap-2 sm:p-2 sm:grid-cols-post-list mb-8">
-      {projects.map(({ data, slug }) => (
-        <ProjectExcerpt description={data.description} name={data.name} slug={slug} />
+<BaseLayout description={SiteMeta.description} permalink={url} showSkip={false} title="Slushman Digital | More customers for Wentzville-area businesses">
+  <!-- Hero -->
+  <section class="dark-section pt-12 pb-20" id="content">
+    <p class="eyebrow">Wentzville, Missouri</p>
+    <h1 class="text-4xl md:text-6xl mt-0 mb-6 max-w-[18ch]">More customers. Less marketing guesswork.</h1>
+    <p class="text-xl max-w-prose mb-8">
+      I help local businesses get found on Google, turn visitors into customers, and keep them coming back. You run the business. I'll handle the part where people find it.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <a class="btn btn-primary" href="/services/get-found/#get-found-and-get-reviews">Start with Get Found</a>
+      <a class="btn btn-secondary" href="/services/">See pricing</a>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="light-section">
+    <SectionHeading eyebrow="Sound familiar?" title="Being great at what you do doesn't make the phone ring.">
+      <p class="max-w-prose">
+        New customers can't find you. Leads go cold while you're busy doing the actual work. And last year's customers have forgotten you exist. Not because they didn't like you. They're just busy too.
+      </p>
+      <p class="max-w-prose mb-0">
+        Meanwhile, every agency wants to sell you "impressions" and "engagement." You can't deposit impressions.
+      </p>
+    </SectionHeading>
+  </section>
+
+  <!-- Founder note -->
+  <section class="blue-section py-12">
+    <div class="flex flex-col sm:flex-row gap-6 items-start">
+      <img alt="Caricature of Chris Wilcoxson" class="rounded-full w-32 h-32 object-cover flex-none" height="128" src="/cjw-caricature.webp" width="128" />
+      <div>
+        <p class="eyebrow text-darkblue dark:text-offwhite">Your guide</p>
+        <h2 class="mt-0">Hi, I'm Chris.</h2>
+        <p class="max-w-prose">
+          I've been building websites for more than a decade, and around Wentzville I'm known as "the AI guy." I'm also the person behind <a href="/work/ask-wentzville/">Ask Wentzville</a>.
+        </p>
+        <p class="max-w-prose">
+          Slushman Digital is just me. No account managers, no hand-offs, no mystery invoices. I set up the systems that bring you customers, make them run without you, and report on the only number that matters: how many new customers came in.
+        </p>
+        <a class="font-semibold" href="/about/">More about me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The plan -->
+  <section class="light-section">
+    <SectionHeading eyebrow="The plan" title="Get found. Get chosen. Get them back.">
+      <p class="max-w-prose mb-0">Three steps to more customers. Start with one, add the rest when you're ready. Prices are right here, so you can rule me in or out in about ten seconds.</p>
+    </SectionHeading>
+    <div class="grid gap-10">
+      {stages.map((stage) => (
+        <div>
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="font-merri text-4xl font-bold text-medblue dark:text-brightblue">{stage.step}</span>
+            <div>
+              <h3 class="m-0"><a class="no-underline text-current" href={`/services/${stage.slug}/`}>{stage.name}</a></h3>
+              <p class="m-0">{stage.short}</p>
+            </div>
+          </div>
+          <div class="grid gap-4 md:grid-cols-3">
+            {stage.offers.map((offer) => <OfferCard offer={offer} stage={stage} />)}
+          </div>
+        </div>
       ))}
     </div>
-  </div>
-  <LatestPosts cta="Latest blog posts" />
-  <section class="blue-section flex justify-center">
-    <a href="/posts">Read other blog posts</a>
   </section>
+
+  <!-- Results -->
+  <section class="dark-section">
+    <SectionHeading eyebrow="Measured in customers" title="Real results from real businesses" />
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="card">
+        <h3 class="mt-0">Ask Wentzville</h3>
+        <Placeholder note="Lead with one headline number, such as monthly visitors or businesses listed." />
+        <p>A local guide that connects Wentzville residents with the businesses they're looking for.</p>
+        <a class="font-semibold" href="/work/ask-wentzville/">Read the story</a>
+      </article>
+      <article class="card">
+        <Placeholder note="Second case study: a client, one headline number, and one sentence." />
+      </article>
+      <article class="card">
+        <Placeholder note="Third case study: a client, one headline number, and one sentence." />
+      </article>
+    </div>
+  </section>
+
+  <!-- Starter offer -->
+  <section class="light-section">
+    <div class="card md:flex md:items-center md:justify-between gap-8">
+      <div>
+        <p class="eyebrow">Not sure where to start?</p>
+        <h2 class="mt-0">Start with {starter.name}.</h2>
+        <p class="max-w-prose mb-0">{starter.tagline} {starter.priceDetail}</p>
+      </div>
+      <a class="btn btn-primary mt-6 md:mt-0 flex-none" href="/services/get-found/#get-found-and-get-reviews">See what's included</a>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="light-section pt-0">
+    <SectionHeading eyebrow="Don't take my word for it" title="What clients say" />
+    <Placeholder note="Three to five client quotes, each with a name, role, and business." />
+  </section>
+
+  <!-- Stakes and success -->
+  <section class="blue-section py-12">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="mt-0">What happens if nothing changes?</h2>
+        <p class="mb-0">Doing nothing is a plan too. It's just the plan where the business down the road gets your calls.</p>
+      </div>
+      <div>
+        <h2 class="mt-0">What it looks like when it works</h2>
+        <p class="mb-0">A phone that rings. A calendar that fills itself. Reviews you didn't have to beg for. And more time to do the work you actually like.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="light-section">
+    <SectionHeading eyebrow="From the blog" title="Straight answers, no agency fluff" />
+    <div class="grid sm:gap-2 sm:grid-cols-post-list">
+      {latestPosts.map(({ data, slug }) => (
+        <PostExcerpt date={data.pubDate} description={data.description} slug={slug} title={data.title} />
+      ))}
+    </div>
+    <p class="mt-4"><a href="/posts/">Read the blog</a></p>
+  </section>
+
+  <CtaBand />
 </BaseLayout>

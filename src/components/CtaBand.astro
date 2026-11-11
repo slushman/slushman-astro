@@ -1,0 +1,23 @@
+---
+import { SiteMeta } from '../siteMeta';
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+}
+const {
+  eyebrow = 'No pitch deck, no pressure',
+  title = 'Tell me about your business',
+} = Astro.props;
+---
+<section class="dark-section text-center">
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 class="mt-0">{title}</h2>
+  <p class="max-w-prose mx-auto">
+    Send me a short note about what you do and what is not working. I read every email myself and reply within one business day with what I would fix first.
+  </p>
+  <div class="flex flex-wrap justify-center gap-4">
+    <a class="btn btn-primary" href={`mailto:${SiteMeta.email}`}>Email {SiteMeta.email}</a>
+    <a class="btn btn-secondary" href="/services/get-found/#get-found-and-get-reviews">Start with Get Found</a>
+  </div>
+</section>

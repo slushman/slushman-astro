@@ -1,0 +1,29 @@
+---
+import BaseLayout from 'layout:BaseLayout';
+import SectionHeading from 'component:SectionHeading';
+import { SiteMeta } from '../siteMeta';
+
+const permalink = `${SiteMeta.url}/contact/`;
+---
+<BaseLayout description="Email Chris at Slushman Digital about getting more customers for your business." permalink={permalink} title="Contact | Slushman Digital">
+  <section class="dark-section" id="content">
+    <SectionHeading level="h1" eyebrow="No pitch deck, no pressure" title="Tell me about your business">
+      <p class="text-xl max-w-prose">Send a short email. I read every one myself and reply within one business day with what I'd fix first.</p>
+    </SectionHeading>
+    <a class="btn btn-primary text-xl" href={`mailto:${SiteMeta.email}`}>{SiteMeta.email}</a>
+  </section>
+
+  <section class="light-section">
+    <div class="max-w-prose">
+      <h2 class="mt-0">What to include</h2>
+      <p>You don't need a brief. A few sentences is plenty:</p>
+      <ul class="check-list mb-6">
+        <li>What your business does and where</li>
+        <li>What's not working right now</li>
+        <li>Your website, if you have one</li>
+        <li>Roughly what you'd like to spend each month, if you know</li>
+      </ul>
+      <p>Not sure what you need? Say that. Figuring it out is my job.</p>
+    </div>
+  </section>
+</BaseLayout>
